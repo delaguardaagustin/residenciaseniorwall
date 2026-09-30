@@ -4,14 +4,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Residencia Senior Wall · Residencia para personas mayores en San Carlos, Ñuble</title>
-<meta name="description" content="Residencia de larga estadía para personas mayores en San Carlos, Ñuble. Personal las 24 horas en tres turnos: medicamentos, higiene, movilización y alimentación. Agenda una visita.">
-<meta name="theme-color" content="#3b2f25">
+<meta name="description" content="Residencia de larga estadía para personas mayores en San Carlos, Ñuble. Cuidados a la medida de cada residente, con la familia siempre informada. Agenda una visita.">
+<meta name="theme-color" content="#f4ebdd">
 <link rel="canonical" href="https://residenciaseniorwall.cl/">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="es_CL">
 <meta property="og:site_name" content="Residencia Senior Wall">
-<meta property="og:title" content="Residencia Senior Wall · Hogar de larga estadía">
-<meta property="og:description" content="Un hogar donde lo cuidan de día y de noche. Personal en tres turnos, cada cuidado registrado. Agenda una visita.">
+<meta property="og:title" content="Residencia Senior Wall · Residencia para personas mayores en San Carlos, Ñuble">
+<meta property="og:description" content="Residencia de larga estadía para personas mayores en San Carlos, Ñuble. Cuidados a la medida de cada residente, con la familia siempre informada. Agenda una visita.">
 <meta property="og:url" content="https://residenciaseniorwall.cl/">
 <meta property="og:image" content="https://residenciaseniorwall.cl/assets/og.jpg">
 <meta property="og:image:width" content="1200">
@@ -19,424 +19,41 @@
 <meta property="og:image:alt" content="Logo de Residencia Senior Wall">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="apple-touch-icon" href="assets/emblema.png">
-<script type="application/ld+json">
-{"@context":"https://schema.org","@type":"LocalBusiness","name":"Residencia Senior Wall","description":"Residencia de larga estadía para personas mayores, con personal las 24 horas en tres turnos.","url":"https://residenciaseniorwall.cl/","logo":"https://residenciaseniorwall.cl/assets/emblema.png","image":"https://residenciaseniorwall.cl/assets/og.jpg","email":"contacto@residenciaseniorwall.cl","telephone":"+56935247069","address":{"@type":"PostalAddress","streetAddress":"Calle 13, sector Ninquihue","addressLocality":"San Carlos","addressRegion":"Ñuble","addressCountry":"CL"},"areaServed":"CL"}
-</script>
 <link rel="icon" type="image/png" href="assets/emblema.png">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"LocalBusiness","name":"Residencia Senior Wall","description":"Residencia de larga estadía para personas mayores en San Carlos, Ñuble.","url":"https://residenciaseniorwall.cl/","logo":"https://residenciaseniorwall.cl/assets/emblema.png","image":"https://residenciaseniorwall.cl/assets/og.jpg","email":"contacto@residenciaseniorwall.cl","telephone":"+56935247069","address":{"@type":"PostalAddress","streetAddress":"Calle 13, sector Ninquihue","addressLocality":"San Carlos","addressRegion":"Ñuble","addressCountry":"CL"},"areaServed":"CL"}
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Figtree:ital,wght@0,600;0,800;1,700&family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
-<script>
-document.documentElement.classList.add('js');
-/* ============================================================
-   DATOS DE LA RESIDENCIA — completar cuando el cliente los entregue.
-   Todo lo que quede vacío NO se muestra (ni en la página ni en el chat).
-   ============================================================ */
-window.RESIDENCIA = {
-  nombre: 'Residencia Senior Wall',
-  correo: 'contacto@residenciaseniorwall.cl',
-  telefono: '+56 9 3524 7069',
-  whatsapp: '56935247069',   /* mismo número del teléfono, confirmado por Agustín 2026-09-30 */
-  direccion: 'Calle 13, sector Ninquihue',
-  comuna: 'San Carlos, Ñuble',
-  visitas: 'de 15:00 a 18:00 horas, avisando antes',   /* horario de visitas de las familias (dato del dueño, 2026-09-30) */
-  seremi: false,       /* true SOLO si el cliente confirma su resolución sanitaria vigente */
-  fotos: [             /* rutas a fotos REALES de la residencia (assets/...). Vacío = no se muestra la galería */
-    /* letrero.jpg NO es foto real (confirmado por el dueño 2026-09-30: es el diseño del letrero que mandaron a hacer).
-       Cuando esté instalado, pedir una foto real de la entrada y ponerla aquí. */
-  ],
-  /* Google Form que recibe las solicitudes (lo crea google/formulario-senior-wall.gs).
-     Pegar aquí el CONFIG_WEB que muestra el script: { accion: '...formResponse', campos: {...} }.
-     Mientras sea null, el formulario y el chat ofrecen enviar por correo/WhatsApp. */
-  googleForm: null,
-  testimonios: [       /* solo testimonios reales, con permiso de la familia. Vacío = no se muestra */
-    /* { texto: '...', nombre: 'María A.', relacion: 'Hija' }, */
-  ]
-};
-</script>
-<style>
-:root{
-  --turquesa:#86693f; --turquesa-2:#6b5231; --turquesa-3:#f5eee3; --turquesa-4:#e4d5bd;
-  --marino:#3b2f25; --marino-2:#2a2119;
-  --sol:#e2c07e; --sol-2:#c99b4c;
-  --tinta:#2f2924; --tinta-2:#5e554c; --linea:#e6ddd0; --fondo:#faf6f0;
-  --titulo:'Libre Caslon Text', Georgia, serif; --ui:'Figtree', system-ui, sans-serif;
-  --texto:'Atkinson Hyperlegible', system-ui, -apple-system, 'Segoe UI', sans-serif;
-  --ancho:1160px;
-}
-*{box-sizing:border-box}
-html{scroll-behavior:smooth;scroll-padding-top:96px}
-body{margin:0;background:#fff;color:var(--tinta);font:400 1.125rem/1.62 var(--texto);-webkit-font-smoothing:antialiased}
-img,svg{display:block;max-width:100%}
-a{color:var(--turquesa-2)}
-::selection{background:var(--turquesa);color:#fff}
-:focus-visible{outline:3px solid var(--sol-2);outline-offset:3px;border-radius:8px}
-.wrap{width:min(var(--ancho),100% - 40px);margin-inline:auto}
-.saltar{position:absolute;left:-999px;top:8px;background:var(--marino);color:#fff;padding:10px 16px;border-radius:10px;z-index:100}
-.saltar:focus{left:12px}
-h1,h2,h3{font-family:var(--titulo);margin:0;line-height:1.08}
-h2{font-size:clamp(2.1rem,4.2vw,3.1rem);font-weight:400;color:var(--marino);letter-spacing:-.015em;line-height:1.1}
-h2 .t{font-style:italic}
-h2 .t{color:var(--turquesa)}
-h3{font-weight:800;font-size:1.3rem;color:var(--marino)}
-p{margin:0}
-.oculto{display:none!important}
-.centro{text-align:center}
-.bajada{color:var(--tinta-2);font-size:1.18rem;max-width:58ch;margin:18px auto 0}
-.bajada.i{font-style:italic}
-
-/* Botones */
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:56px;padding:0 30px;border-radius:999px;border:0;font:800 1.08rem/1 var(--ui);text-decoration:none;cursor:pointer;transition:transform .18s,box-shadow .18s,background .18s}
-.btn svg{width:22px;height:22px}
-.btn-sol{background:linear-gradient(180deg,var(--sol),var(--sol-2));color:var(--marino-2);box-shadow:0 10px 24px -10px rgba(201,155,76,.9)}
-.btn-sol:hover{transform:translateY(-2px);box-shadow:0 16px 30px -12px rgba(201,155,76,1)}
-.btn-turquesa{background:var(--turquesa);color:#fff}
-.btn-turquesa:hover{background:var(--turquesa-2);transform:translateY(-2px)}
-.btn-borde{background:#fff;color:var(--marino);box-shadow:inset 0 0 0 2px var(--marino)}
-.btn-borde:hover{background:var(--marino);color:#fff}
-
-/* Barra superior + encabezado */
-.barra{background:var(--marino);color:#e9dfd0;font-size:.95rem}
-.barra .wrap{display:flex;flex-wrap:wrap;gap:6px 26px;justify-content:space-between;padding:9px 0}
-.barra span,.barra a{display:inline-flex;align-items:center;gap:8px;color:#e9dfd0;text-decoration:none}
-.barra a:hover{color:#fff;text-decoration:underline}
-.barra svg{width:17px;height:17px;color:var(--sol)}
-.barra .der{display:flex;flex-wrap:wrap;gap:6px 22px}
-.top{position:sticky;top:0;z-index:40;background:#fff;box-shadow:0 1px 0 var(--linea);transition:box-shadow .3s}
-.top.sombra{box-shadow:0 8px 24px -16px rgba(59,47,37,.35)}
-.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:18px;height:84px}
-.marca{display:flex;align-items:center;gap:12px;text-decoration:none}
-.marca img{width:52px;height:auto;flex:none}
-.marca b{display:block;font:700 1.22rem/1.05 var(--titulo);color:var(--marino);text-transform:uppercase;letter-spacing:.02em}
-.marca b i{font-style:normal;color:var(--turquesa)}
-.marca small{display:block;font:600 .78rem/1.3 var(--ui);color:var(--tinta-2);letter-spacing:.08em;text-transform:uppercase;margin-top:4px}
-.nav{display:flex;align-items:center;gap:26px}
-.nav a{color:var(--marino);text-decoration:none;font:700 1rem var(--ui)}
-.nav a:hover{color:var(--turquesa)}
-.nav .btn{min-height:48px;padding:0 22px;font-size:.98rem;color:var(--marino-2)}
-.menu-btn{display:none}
-
-/* Portada */
-.portada{position:relative;background:linear-gradient(180deg,#fff 0%,var(--fondo) 100%);overflow:hidden;padding:54px 0 70px}
-.portada::before{content:"";position:absolute;right:-12%;top:-30%;width:60%;height:140%;background:var(--marino);border-radius:0 0 0 46%;transform:skewX(-8deg);z-index:0}
-.portada .agua{position:absolute;right:-40px;bottom:-60px;width:520px;height:auto;opacity:.08;filter:grayscale(1) brightness(2.4);pointer-events:none;z-index:0}
-.portada::after{content:"";position:absolute;right:-6%;top:-30%;width:55%;height:140%;background:linear-gradient(160deg,rgba(134,105,63,.35),transparent 60%);border-radius:0 0 0 46%;transform:skewX(-8deg);z-index:0}
-.portada .wrap{position:relative;z-index:1;display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:48px;align-items:center}
-.sobre{display:inline-flex;align-items:center;gap:10px;font:700 .98rem var(--ui);color:var(--turquesa-2)}
-.sobre::before{content:"";width:28px;height:2px;background:var(--sol-2)}
-.portada h1{margin-top:14px;font-weight:400;font-size:clamp(2.6rem,5.4vw,4.3rem);color:var(--marino);letter-spacing:-.02em;line-height:1.04}
-.portada h1 em{color:var(--turquesa);font-style:italic}
-.portada h1 .t{display:block;color:var(--turquesa);font-size:1.12em;margin-top:4px}
-.portada .lead{margin-top:22px;font-size:1.22rem;color:var(--tinta-2);max-width:36ch}
-.btn-texto{border:0;background:none;padding:10px 4px;cursor:pointer;font:700 1.02rem var(--ui);color:var(--turquesa-2);display:inline-flex;align-items:center;gap:8px;text-decoration:underline;text-decoration-color:var(--turquesa-4);text-underline-offset:6px;text-decoration-thickness:2px}
-.btn-texto:hover{color:var(--marino);text-decoration-color:var(--sol-2)}
-.btn-texto svg{width:18px;height:18px;transition:transform .2s}
-.btn-texto:hover svg{transform:translateX(3px)}
-.datos-clave{list-style:none;margin:40px 0 0;padding:26px 0 0;border-top:1px solid var(--linea);display:grid;grid-template-columns:repeat(3,auto);gap:10px 34px;justify-content:start}
-.datos-clave li{display:grid;gap:4px}
-.datos-clave b{font:700 2.2rem/1 var(--titulo);color:var(--turquesa)}
-.datos-clave span{font-size:.96rem;color:var(--tinta-2);line-height:1.35}
-.caja-azul{margin-top:28px;background:var(--marino);color:#fff;border-radius:18px;overflow:hidden;max-width:470px;box-shadow:0 20px 40px -24px rgba(42,33,25,.8)}
-.caja-azul .fila1{background:var(--marino-2);padding:12px 20px;font:800 1.02rem var(--ui);text-transform:uppercase;letter-spacing:.04em;text-align:center}
-.caja-azul .fila2{padding:18px 22px 20px;text-align:center}
-.caja-azul .grande{font:800 clamp(1.45rem,6.4vw,2.1rem)/1.05 var(--ui);letter-spacing:-.01em}
-.caja-azul .chico{margin-top:8px;font:700 italic 1rem var(--titulo);color:#e9dccb}
-.portada .acciones{display:flex;flex-wrap:wrap;gap:12px;margin-top:24px}
-.fichas{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:26px;max-width:470px}
-.ficha-t{background:var(--turquesa);color:#fff;border-radius:14px;padding:16px 8px 14px;text-align:center;font:800 .92rem/1.2 var(--ui)}
-.ficha-t svg{width:40px;height:40px;margin:0 auto 8px}
-
-/* Formulario de orientación */
-.orienta{background:#fff;border-radius:24px;padding:30px 30px 26px;box-shadow:0 40px 80px -40px rgba(42,33,25,.7),0 0 0 1px rgba(255,255,255,.4)}
-.orienta h2{font-size:1.9rem}
-.orienta > p{color:var(--tinta-2);margin-top:8px;font-size:1.02rem}
-.campo{margin-top:16px}
-.campo label,.campo legend{display:block;font:800 .95rem var(--ui);color:var(--marino);margin-bottom:6px}
-.campo input,.campo select{width:100%;min-height:52px;border:1.5px solid var(--linea);border-radius:12px;padding:0 16px;font:400 1.05rem var(--texto);color:var(--tinta);background:#fff}
-.campo input:focus,.campo select:focus{outline:none;border-color:var(--turquesa);box-shadow:0 0 0 4px var(--turquesa-3)}
-.dos{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.orienta .btn{width:100%;margin-top:20px}
-.orienta .nota{margin-top:12px;font-size:.88rem;color:var(--tinta-2);text-align:center}
-.orienta .error{margin-top:10px;color:#b42318;font-size:.95rem;min-height:1.2em}
-.envio{margin-top:16px;display:grid;gap:10px}
-.ok-envio{margin-top:16px;background:var(--turquesa-3);border:1.5px solid var(--turquesa-4);border-radius:14px;padding:14px 16px;font-weight:700;color:var(--marino)}
-.envio a{justify-content:center}
-
-/* Secciones */
-section{padding:92px 0}
-.seccion-gris{background:var(--fondo)}
-
-/* Pilares */
-.pilares{margin-top:52px;display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
-.pilar{display:grid;grid-template-columns:88px 1fr;gap:18px;align-items:center;padding:24px 26px;border-radius:26px;border:2px solid var(--turquesa-4);background:#fff;transition:border-color .2s,transform .2s,box-shadow .2s}
-.pilar:hover{border-color:var(--turquesa);transform:translateY(-3px);box-shadow:0 18px 36px -24px rgba(134,105,63,.7)}
-.pilar .ico{width:88px;height:88px;border-radius:24px;background:var(--turquesa-3);display:grid;place-items:center;color:var(--turquesa-2)}
-.pilar .ico svg{width:48px;height:48px}
-.pilar h3{color:var(--turquesa-2);font-size:1.28rem}
-.pilar p{margin-top:6px;color:var(--tinta-2);font-size:1.02rem}
-
-/* Quiénes somos */
-.mv{margin-top:50px;display:grid;grid-template-columns:1fr 1fr;gap:22px}
-.mv-caja{background:#fff;border-radius:24px;padding:32px 32px 30px;border-top:6px solid var(--turquesa);box-shadow:0 22px 44px -34px rgba(59,47,37,.6)}
-.mv-cab{display:flex;align-items:center;gap:14px;margin-bottom:16px}
-.mv-cab svg{width:46px;height:46px;color:var(--turquesa)}
-.mv-cab h3{font-size:2rem;font-weight:400}
-.mv-caja > p{color:var(--tinta)}
-.mv-sub{margin-top:20px!important;font:800 .95rem var(--ui);color:var(--turquesa-2);text-transform:uppercase;letter-spacing:.05em}
-.mv-caja ul{margin:12px 0 0;padding:0;list-style:none;display:grid;gap:10px}
-.mv-caja li{position:relative;padding-left:26px;color:var(--tinta-2);font-size:1.02rem}
-.mv-caja li::before{content:"";position:absolute;left:2px;top:.62em;width:10px;height:10px;border-radius:3px;background:var(--sol-2);transform:rotate(45deg)}
-.valores-tit{margin-top:64px;font-size:2rem;font-weight:400}
-.valores{margin-top:26px;display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-.valor{background:#fff;border-radius:18px;padding:22px 22px 20px;border:1.5px solid var(--turquesa-4)}
-.valor b{display:block;font:700 1.3rem var(--titulo);color:var(--turquesa-2)}
-.valor span{display:block;margin-top:6px;color:var(--tinta-2);font-size:1rem}
-
-/* Niveles */
-.niveles{margin-top:50px;display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
-.nivel{background:#fff;border-radius:22px;overflow:hidden;box-shadow:0 1px 0 var(--linea),0 22px 44px -34px rgba(59,47,37,.6)}
-.nivel .cab{padding:26px 24px 22px;color:#fff;display:flex;align-items:center;gap:16px}
-.nivel:nth-child(1) .cab{background:linear-gradient(135deg,#a88a5e,var(--turquesa))}
-.nivel:nth-child(2) .cab{background:linear-gradient(135deg,var(--turquesa),#5a432b)}
-.nivel:nth-child(3) .cab{background:linear-gradient(135deg,#5a432b,var(--marino))}
-.nivel .cab svg{width:54px;height:54px;flex:none}
-.nivel .cab h3{color:#fff;font-size:1.75rem;font-weight:400}
-.nivel .cab small{display:block;font:700 .9rem var(--ui);color:rgba(255,255,255,.85);text-transform:none;letter-spacing:0;margin-top:2px}
-.nivel p{padding:22px 24px 26px;color:var(--tinta-2)}
-.aviso{margin:34px auto 0;max-width:760px;display:flex;gap:14px;align-items:center;justify-content:center;background:var(--turquesa-3);border-radius:16px;padding:18px 22px;color:var(--marino);font-weight:700;text-align:left}
-.aviso svg{width:28px;height:28px;flex:none;color:var(--turquesa-2)}
-
-/* Cuidados */
-.cuidados-grid{margin-top:52px;display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
-.cuidado{text-align:center;padding:30px 20px 28px;border-radius:22px;background:#fff;border:1.5px solid var(--linea)}
-.cuidado .ico{width:96px;height:96px;margin:0 auto 18px;border-radius:50%;background:var(--turquesa);display:grid;place-items:center;color:#fff;box-shadow:0 0 0 8px var(--turquesa-3)}
-.cuidado .ico svg{width:50px;height:50px}
-.cuidado p{margin-top:8px;color:var(--tinta-2);font-size:1rem}
-.chips{margin-top:30px;display:flex;flex-wrap:wrap;justify-content:center;gap:10px}
-.chips span{display:inline-flex;align-items:center;gap:8px;background:#fff;border:1.5px solid var(--turquesa-4);border-radius:999px;padding:9px 18px;font:700 .98rem var(--ui);color:var(--marino)}
-.chips svg{width:18px;height:18px;color:var(--turquesa)}
-
-/* Franja turnos */
-.franja{background:linear-gradient(115deg,var(--turquesa) 0%,var(--turquesa-2) 55%,#3b2f25 100%);color:#fff;padding:72px 0;position:relative;overflow:hidden}
-.franja::after{content:"";position:absolute;right:-80px;top:-80px;width:360px;height:360px;border-radius:50%;border:48px solid rgba(255,255,255,.07)}
-.franja h2{color:#fff}
-.franja h2 .t{color:var(--sol)}
-.franja .bajada{color:#f1e8da}
-.turnos{margin-top:44px;display:grid;grid-template-columns:repeat(3,1fr);gap:18px;position:relative;z-index:1}
-.turno{background:rgba(255,255,255,.1);border:1.5px solid rgba(255,255,255,.22);border-radius:22px;padding:28px 26px;backdrop-filter:blur(2px)}
-.turno .top-t{display:flex;align-items:center;gap:14px}
-.turno .top-t svg{width:46px;height:46px;color:var(--sol);flex:none}
-.turno h3{color:#fff;font-size:1.6rem;font-weight:400}
-.turno .hora{font:800 2rem/1 var(--ui);margin-top:16px}
-.turno p{margin-top:10px;color:#efe5d6;font-size:1.02rem}
-
-/* Confianza (solo si hay datos reales) */
-.seremi{background:var(--turquesa);color:#fff;padding:26px 0}
-.seremi .wrap{display:flex;align-items:center;justify-content:center;gap:22px;flex-wrap:wrap}
-.seremi svg{width:60px;height:60px}
-.seremi b{display:block;font:400 1.6rem var(--titulo)}
-.galeria{margin-top:44px;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px}
-.galeria figure{margin:0;border-radius:18px;overflow:hidden;border:6px solid var(--marino);background:var(--marino)}
-.galeria img{width:100%;aspect-ratio:4/3;object-fit:cover}
-.galeria figcaption{color:#fff;font:700 .95rem var(--ui);padding:10px 12px}
-.testimonios{margin-top:44px;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px}
-.testimonios blockquote{margin:0;background:#fff;border-radius:22px;padding:28px 26px;border:1.5px solid var(--linea);position:relative}
-.testimonios blockquote::before{content:"“";position:absolute;top:-6px;left:22px;font:700 5rem/1 var(--titulo);color:var(--turquesa-4)}
-.testimonios p{font-style:italic;color:var(--tinta);position:relative}
-.testimonios cite{display:block;margin-top:14px;font:800 normal 1rem var(--ui);color:var(--turquesa-2)}
-
-/* Familia */
-.familia .wrap{display:grid;grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr);gap:60px;align-items:center}
-.circulo{position:relative;aspect-ratio:1;max-width:440px;margin:0 auto;border-radius:50%;background:radial-gradient(circle at 30% 30%,#fff,var(--turquesa-3) 70%);border:10px solid #fff;box-shadow:0 0 0 2px var(--turquesa-4),0 40px 70px -40px rgba(134,105,63,.8);display:grid;place-items:center}
-.circulo > img{width:58%;height:auto}
-.circulo .check{position:absolute;right:-2%;bottom:6%;width:70px;height:70px;border-radius:50%;background:var(--turquesa);display:grid;place-items:center;box-shadow:0 0 0 8px #fff}
-.circulo .check svg{width:36px;height:36px;color:#fff}
-.lista-ficha{list-style:none;margin:28px 0 0;padding:0;display:grid;gap:14px}
-.lista-ficha li{display:grid;grid-template-columns:52px 1fr;gap:16px;align-items:start;background:var(--fondo);border-radius:16px;padding:16px 18px}
-.lista-ficha .ico{width:52px;height:52px;border-radius:14px;background:#fff;display:grid;place-items:center;color:var(--turquesa-2);box-shadow:0 0 0 1.5px var(--turquesa-4)}
-.lista-ficha .ico svg{width:28px;height:28px}
-.lista-ficha b{font:800 1.08rem var(--ui);color:var(--marino)}
-.lista-ficha span{display:block;color:var(--tinta-2);font-size:1rem;margin-top:2px}
-
-/* Cómo empezar */
-.pasos{list-style:none;margin:54px 0 0;padding:0;display:grid;grid-template-columns:repeat(4,1fr);gap:22px;position:relative}
-.pasos::before{content:"";position:absolute;top:34px;left:12%;right:12%;height:2px;background:repeating-linear-gradient(90deg,var(--turquesa-4) 0 10px,transparent 10px 18px)}
-.paso{position:relative;text-align:center;padding:0 8px}
-.paso .num{position:relative;z-index:1;display:grid;place-items:center;width:68px;height:68px;margin:0 auto 20px;border-radius:50%;background:#fff;border:2px solid var(--turquesa);color:var(--turquesa-2);font:400 2rem/1 var(--titulo);box-shadow:0 0 0 8px #fff}
-.paso h3{font-size:1.4rem;font-weight:400}
-.paso p{margin-top:8px;color:var(--tinta-2);font-size:1.02rem}
-
-/* Preguntas */
-.faq{max-width:860px;margin:44px auto 0;display:grid;gap:12px}
-.faq details{background:#fff;border-radius:18px;border:1.5px solid var(--linea);transition:border-color .2s}
-.faq details[open]{border-color:var(--turquesa)}
-.faq summary{list-style:none;cursor:pointer;padding:22px 64px 22px 24px;position:relative;font:800 1.15rem/1.35 var(--ui);color:var(--marino)}
-.faq summary::-webkit-details-marker{display:none}
-.faq summary::after{content:"+";position:absolute;right:18px;top:50%;transform:translateY(-50%);width:34px;height:34px;border-radius:50%;background:var(--turquesa-3);color:var(--turquesa-2);display:grid;place-items:center;font:800 1.4rem/1 var(--ui);transition:transform .25s}
-.faq details[open] summary::after{content:"–"}
-.faq details p{padding:0 24px 22px;color:var(--tinta-2)}
-
-/* Cierre */
-.cierre{margin-top:88px;background:var(--marino);color:#fff;border-radius:32px;padding:60px 56px;display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:44px;align-items:center;position:relative;overflow:hidden}
-.cierre::before{content:"";position:absolute;left:-70px;bottom:-110px;width:300px;height:300px;border-radius:50%;background:rgba(134,105,63,.35)}
-.cierre > *{position:relative}
-.cierre h2{color:#fff}
-.cierre h2 .t{color:var(--sol)}
-.cierre p{margin-top:16px;color:#e5d9c8;font-size:1.15rem}
-.canales{list-style:none;margin:0;padding:0;display:grid;gap:12px}
-.canales a,.canales .sin{display:flex;align-items:center;gap:16px;padding:16px 18px;border-radius:16px;background:rgba(255,255,255,.08);color:#fff;text-decoration:none;box-shadow:inset 0 0 0 1px rgba(255,255,255,.16)}
-.canales a:hover{background:rgba(255,255,255,.16)}
-.canales .ic{width:48px;height:48px;border-radius:14px;background:var(--turquesa);display:grid;place-items:center;flex:none}
-.canales .ic svg{width:24px;height:24px;color:#fff}
-.canales b{display:block;font:800 1.05rem var(--ui)}
-.canales small{display:block;color:#d9ccb9;font-size:.95rem;word-break:break-word}
-
-footer{background:var(--marino-2);color:#cbbda9;padding:64px 0 110px;margin-top:92px;font-size:.98rem}
-.pie-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px}
-.pie-marca{display:grid;grid-template-columns:64px 1fr;gap:6px 16px;align-items:center}
-.pie-marca img{width:64px;height:auto;filter:brightness(1.15)}
-.pie-marca b{display:block;font:400 1.45rem/1.1 var(--titulo);color:#fff}
-.pie-marca span{display:block;font:700 .85rem var(--ui);color:var(--sol);letter-spacing:.04em;margin-top:4px}
-.pie-marca p{grid-column:1/-1;margin-top:14px;max-width:34ch;color:#cbbda9}
-.pie-col{display:flex;flex-direction:column;gap:10px}
-.pie-col b{font:800 .9rem var(--ui);color:#fff;letter-spacing:.06em;text-transform:uppercase;margin-bottom:4px}
-.pie-col a,.pie-legal a{color:#e5d9c8;text-decoration:none}
-.pie-col a:hover,.pie-legal a:hover{color:var(--sol);text-decoration:underline}
-#pie-datos{white-space:pre-line}
-.pie-legal{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px 24px;margin-top:44px;padding-top:22px;border-top:1px solid rgba(255,255,255,.12);font-size:.92rem}
-
-/* Aparición */
-.js .aparece{opacity:0;transform:translateY(26px);transition:opacity .75s ease,transform .75s cubic-bezier(.2,.7,.2,1)}
-.js .aparece.visible{opacity:1;transform:none}
-
-/* ---------- Asistente ---------- */
-.chat-btn{position:fixed;right:22px;bottom:22px;z-index:60;display:flex;align-items:center;gap:12px;min-height:62px;padding:0 24px 0 10px;border-radius:999px;border:0;background:var(--turquesa);color:#fff;font:800 1.02rem var(--ui);cursor:pointer;box-shadow:0 18px 40px -14px rgba(134,105,63,.9);transition:transform .2s,background .2s}
-.chat-btn:hover{transform:translateY(-2px);background:var(--turquesa-2)}
-.chat-btn .bolita{width:44px;height:44px;border-radius:50%;background:#fff;display:grid;place-items:center;position:relative}
-.chat-btn .bolita svg{width:24px;height:24px;color:var(--turquesa)}
-.chat-btn .bolita::after{content:"";position:absolute;right:0;top:0;width:12px;height:12px;border-radius:50%;background:var(--sol);box-shadow:0 0 0 2px var(--turquesa)}
-.wa-flot{position:fixed;right:26px;bottom:98px;z-index:59;width:56px;height:56px;border-radius:50%;background:#25d366;color:#fff;display:grid;place-items:center;box-shadow:0 14px 30px -12px rgba(18,140,70,.8);transition:transform .2s}
-.wa-flot[hidden],.chat:not([hidden]) ~ .wa-flot{display:none}
-.wa-flot:hover{transform:translateY(-2px) scale(1.04)}
-.wa-flot svg{width:30px;height:30px}
-.chat{position:fixed;right:22px;bottom:98px;z-index:70;width:min(410px,calc(100vw - 24px));height:min(640px,calc(100vh - 124px));display:flex;flex-direction:column;background:#fff;border-radius:26px;box-shadow:0 40px 90px -30px rgba(42,33,25,.6),0 0 0 1px var(--linea);overflow:hidden;animation:abre .28s cubic-bezier(.2,.8,.2,1)}
-@keyframes abre{from{opacity:0;transform:translateY(14px) scale(.97)}to{opacity:1;transform:none}}
-.chat[hidden]{display:none}
-.chat-cab{background:linear-gradient(120deg,var(--turquesa),var(--turquesa-2));color:#fff;padding:18px 18px 18px 20px;display:flex;align-items:center;gap:14px}
-.chat-cab .av{width:48px;height:48px;border-radius:50%;background:#fff;display:grid;place-items:center;flex:none}
-.chat-cab .av img{width:32px;height:auto}
-.chat-cab b{display:block;font:800 1.12rem/1.2 var(--ui)}
-.chat-cab small{display:block;color:#f1e6d4;font-size:.86rem;line-height:1.35;margin-top:2px}
-.chat-x{margin-left:auto;width:44px;height:44px;border-radius:50%;border:0;background:rgba(255,255,255,.16);color:#fff;cursor:pointer;display:grid;place-items:center;flex:none}
-.chat-x:hover{background:rgba(255,255,255,.28)}
-.chat-x svg{width:20px;height:20px}
-.chat-log{flex:1;overflow-y:auto;padding:20px 18px 10px;display:flex;flex-direction:column;gap:10px;background:var(--fondo)}
-.msg{max-width:86%;padding:12px 16px;border-radius:18px;font-size:1.02rem;line-height:1.5;white-space:pre-line;animation:msg .25s ease}
-@keyframes msg{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
-.msg.bot{background:#fff;border:1px solid var(--linea);border-bottom-left-radius:6px;align-self:flex-start}
-.msg.yo{background:var(--marino);color:#fff;border-bottom-right-radius:6px;align-self:flex-end}
-.msg.escribiendo{display:flex;gap:5px;align-items:center;padding:16px 18px}
-.msg.escribiendo i{width:8px;height:8px;border-radius:50%;background:var(--turquesa);animation:salta 1s infinite}
-.msg.escribiendo i:nth-child(2){animation-delay:.15s}.msg.escribiendo i:nth-child(3){animation-delay:.3s}
-@keyframes salta{0%,60%,100%{opacity:.35;transform:none}30%{opacity:1;transform:translateY(-4px)}}
-.resumen{background:#fff;border:1.5px solid var(--turquesa-4);border-radius:16px;padding:14px 16px;font-size:.98rem;align-self:stretch;margin:0}
-.resumen dt{font:800 .8rem var(--ui);color:var(--turquesa-2);text-transform:uppercase;letter-spacing:.05em}
-.resumen dd{margin:0 0 8px}
-.chat-ops{display:flex;flex-wrap:wrap;gap:8px;padding:10px 18px 14px;background:var(--fondo)}
-.op{min-height:44px;padding:8px 16px;border-radius:999px;border:1.5px solid var(--turquesa);background:#fff;color:var(--turquesa-2);font:800 .95rem var(--ui);cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:background .15s,color .15s}
-.op:hover{background:var(--turquesa);color:#fff}
-.op.fuerte{background:var(--turquesa);color:#fff}
-.op.fuerte:hover{background:var(--turquesa-2)}
-.op svg{width:18px;height:18px}
-.chat-form{display:flex;gap:8px;padding:12px 14px 14px;border-top:1px solid var(--linea);background:#fff}
-.chat-form input{flex:1;min-width:0;min-height:48px;border:1.5px solid var(--linea);border-radius:999px;padding:0 18px;font:400 1rem var(--texto);color:var(--tinta)}
-.chat-form input:focus{outline:none;border-color:var(--turquesa)}
-.chat-form button{width:48px;height:48px;flex:none;border-radius:50%;border:0;background:var(--sol-2);color:var(--marino-2);cursor:pointer;display:grid;place-items:center}
-.chat-form button svg{width:20px;height:20px}
-.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
-
-/* Responsive */
-@media (max-width:1000px){
-  .portada .wrap,.familia .wrap,.cierre{grid-template-columns:1fr}
-  .portada::before,.portada::after{display:none}
-  .portada{background:linear-gradient(180deg,#fff 0%,var(--fondo) 60%,var(--marino) 60%)}
-  .orienta{max-width:560px;width:100%;margin:0 auto}
-  .cuidados-grid{grid-template-columns:repeat(2,1fr)}
-  .circulo{max-width:320px}
-  .cierre{padding:48px 30px}
-}
-@media (max-width:860px){
-  .nav{display:none;position:absolute;top:84px;left:0;right:0;flex-direction:column;align-items:stretch;gap:0;background:#fff;box-shadow:0 20px 30px -20px rgba(59,47,37,.4);padding:6px 20px 20px}
-  .nav.abierto{display:flex}
-  .nav a{padding:15px 0;border-bottom:1px solid var(--linea)}
-  .nav .btn{margin-top:14px;border:0}
-  .menu-btn{display:grid;place-items:center;width:50px;height:50px;border-radius:14px;border:0;background:var(--turquesa-3);color:var(--marino);cursor:pointer}
-  .menu-btn svg{width:24px;height:24px}
-  .pilares,.niveles,.turnos,.mv{grid-template-columns:1fr}
-  .pasos{grid-template-columns:1fr 1fr;row-gap:36px}
-  .pie-grid{grid-template-columns:1fr 1fr}
-  .pie-marca{grid-column:1/-1}
-  .pasos::before{display:none}
-  .datos-clave{grid-template-columns:repeat(3,1fr);gap:10px 16px}
-  .datos-clave b{font-size:1.7rem}
-  .portada .agua{display:none}
-  .valores{grid-template-columns:1fr 1fr}
-  .mv-caja{padding:26px 22px 24px}
-  section{padding:70px 0}
-  .barra .izq{display:none}
-  .barra .wrap{justify-content:center}
-  .barra .der > :not([href^="tel:"]){display:none}
-}
-@media (max-width:520px){
-  body{font-size:1.06rem}
-  .wrap{width:calc(100% - 32px)}
-  .marca small{display:none}
-  .marca b{font-size:1.18rem}
-  .pilar{grid-template-columns:1fr;text-align:center;justify-items:center}
-  .cuidados-grid,.valores,.pasos,.pie-grid{grid-template-columns:1fr}
-  .datos-clave span br{display:none}
-  .datos-clave span{font-size:.88rem}
-  .datos-clave b{font-size:1.5rem}
-  .dos{grid-template-columns:1fr}
-  .orienta{padding:24px 20px}
-  .fichas{gap:8px}
-  .ficha-t{font-size:.82rem;padding:14px 4px 12px}
-  .chat-btn .txt{display:none}
-  .chat-btn{right:14px;bottom:14px;padding:0 9px}
-  .wa-flot{right:17px;bottom:88px}
-  .chat{right:12px;bottom:88px}
-  .cierre{padding:40px 22px;border-radius:24px}
-}
-@media (prefers-reduced-motion:reduce){
-  html{scroll-behavior:auto}
-  *,*::before,*::after{animation:none!important;transition:none!important}
-  .js .aparece{opacity:1;transform:none}
-}
-</style>
+<script>document.documentElement.classList.add('js');</script>
+<!-- Datos de la residencia (teléfono, dirección, formulario de Google, fotos…): se editan en assets/config.js -->
+<script src="assets/config.js"></script>
+<link rel="stylesheet" href="assets/sitio.css">
 </head>
 <body>
 <a class="saltar" href="#contenido">Saltar al contenido</a>
 
 <div class="barra">
   <div class="wrap">
-    <span class="izq"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Personal las 24 horas, todos los días</span>
+    <span class="izq"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 11l8-7 8 7M6 9.5V20h12V9.5"/></svg>Hogar de larga estadía en San Carlos, Ñuble</span>
     <span class="der" id="barra-contacto"></span>
   </div>
 </div>
 
 <header class="top" id="top">
   <div class="wrap">
-    <a class="marca" href="#" aria-label="Residencia Senior Wall, inicio">
+    <a class="marca" href="./" aria-label="Residencia Senior Wall, inicio">
       <img src="assets/emblema.png" alt="" width="52" height="63"><span><b>Residencia Senior <i>Wall</i></b><small>Residencia de larga estadía</small></span>
     </a>
     <button class="menu-btn" type="button" aria-expanded="false" aria-controls="nav" aria-label="Abrir menú">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
     </button>
     <nav class="nav" id="nav" aria-label="Secciones">
-      <a href="#quienes">Quiénes somos</a>
-      <a href="#cuidados">Cuidados</a>
-      <a href="#turnos">24 horas</a>
-      <a href="#preguntas">Preguntas</a>
+      <a href="./" aria-current="page">Inicio</a>
+      <a href="nosotros.html">Misión y valores</a>
+      <a href="cuidados.html">Cuidados</a>
+      <a href="preguntas.html">Preguntas</a>
       <a class="btn btn-sol" href="#orientacion">Agenda una visita</a>
     </nav>
   </div>
@@ -448,9 +65,9 @@ footer{background:var(--marino-2);color:#cbbda9;padding:64px 0 110px;margin-top:
     <img class="agua" src="assets/emblema.png" alt="" aria-hidden="true" width="520" height="632">
     <div class="wrap">
       <div>
-        <p class="sobre">Residencia Senior Wall · Hogar de larga estadía</p>
-        <h1>Un hogar donde lo cuidan <em>de día y de noche</em></h1>
-        <p class="lead">Acompañamos a personas mayores con distintos niveles de dependencia, con personal en tres turnos y cada cuidado registrado. Para que tu familia esté tranquila.</p>
+        <p class="sobre">Residencia Senior Wall · San Carlos, Ñuble</p>
+        <h1>Un hogar cálido para <em>quienes más quieres</em></h1>
+        <p class="lead">Acompañamos a personas mayores con distintos niveles de dependencia, con cuidados a la medida de cada uno y la familia siempre informada.</p>
         <div class="acciones">
           <a class="btn btn-sol" href="#orientacion">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>
@@ -458,11 +75,6 @@ footer{background:var(--marino-2);color:#cbbda9;padding:64px 0 110px;margin-top:
           <button class="btn-texto" type="button" data-abrir-chat>o resuelve una duda con el asistente
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
         </div>
-        <ul class="datos-clave">
-          <li><b>24 h</b><span>personal a cargo,<br>todos los días</span></li>
-          <li><b>3</b><span>turnos: mañana,<br>tarde y noche</span></li>
-          <li><b>1 ficha</b><span>por residente, con<br>medicamentos al día</span></li>
-        </ul>
       </div>
 
       <!-- Formulario: arma el mensaje y lo envía por correo/WhatsApp -->
@@ -501,15 +113,14 @@ footer{background:var(--marino-2);color:#cbbda9;padding:64px 0 110px;margin-top:
     </div>
   </div>
 
-  <!-- NOSOTROS -->
+  <!-- LO ESENCIAL -->
   <section id="nosotros">
     <div class="wrap">
       <div class="centro aparece">
         <h2>Un lugar pensado para <span class="t">vivir con dignidad</span></h2>
-        <p class="bajada i">Cuidamos a cada residente como lo haría su propia familia: con respeto, con orden y con alguien siempre presente.</p>
+        <p class="bajada i">Cuidamos a cada residente como lo haría su propia familia: con respeto, con cariño y con orden.</p>
       </div>
-      <div class="pilares">
-        <div class="pilar aparece"><div class="ico"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="24" cy="24" r="17"/><path d="M24 13v11l7 4"/></svg></div><div><h3>Siempre acompañados</h3><p>Personal a cargo los 7 días, en tres turnos que cubren las 24 horas.</p></div></div>
+      <div class="pilares tres">
         <div class="pilar aparece"><div class="ico"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 8h14v6H17z"/><path d="M13 11h-2a3 3 0 0 0-3 3v26a3 3 0 0 0 3 3h26a3 3 0 0 0 3-3V14a3 3 0 0 0-3-3h-2"/><path d="M16 24h16M16 31h10"/></svg></div><div><h3>Cuidado a la medida</h3><p>Cada residente tiene su ficha con diagnósticos, medicamentos y contactos de la familia.</p></div></div>
         <div class="pilar aparece"><div class="ico"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 14h32v26H8z"/><path d="M8 22h32M16 8v8M32 8v8M15 30l4 4 8-8"/></svg></div><div><h3>Todo queda registrado</h3><p>Cada tarea del día se anota con la hora, quién la hizo y si se cumplió.</p></div></div>
         <div class="pilar aparece"><div class="ico"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="17" cy="15" r="6"/><circle cx="33" cy="17" r="5"/><path d="M6 40a11 11 0 0 1 22 0M27 40a9 9 0 0 1 16-5"/></svg></div><div><h3>La familia, cerca</h3><p>Sabemos a quién avisar ante cualquier situación, y conversamos contigo cuando lo necesites.</p></div></div>
@@ -517,129 +128,14 @@ footer{background:var(--marino-2);color:#cbbda9;padding:64px 0 110px;margin-top:
     </div>
   </section>
 
-  <!-- QUIÉNES SOMOS (texto entregado por el dueño) -->
-  <section class="seccion-gris" id="quienes">
+  <!-- CONOCE MÁS: lleva a las otras pestañas -->
+  <section class="seccion-gris" id="conoce">
     <div class="wrap">
-      <div class="centro aparece">
-        <h2>Quiénes <span class="t">somos</span></h2>
-        <p class="bajada i">Un ambiente seguro, digno y cálido, donde cada residente vive con autonomía y plenitud.</p>
-      </div>
-      <div class="mv">
-        <article class="mv-caja aparece">
-          <div class="mv-cab"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="24" cy="24" r="18"/><circle cx="24" cy="24" r="10"/><circle cx="24" cy="24" r="2.5" fill="currentColor"/></svg><h3>Misión</h3></div>
-          <p>Proporcionar un ambiente seguro, digno y cálido donde nuestros residentes vivan con autonomía, dignidad y plenitud, recibiendo atención integral personalizada que respete su independencia y promueva su bienestar físico, emocional y social.</p>
-          <p class="mv-sub">Nos comprometemos a:</p>
-          <ul>
-            <li>Garantizar la calidad de vida de cada residente con cuidados profesionales, nutrición adecuada, atención médica continua y actividades que estimulen su participación.</li>
-            <li>Valorar el trabajo de nuestro equipo multidisciplinario, con capacitación continua y un ambiente laboral respetuoso.</li>
-            <li>Mantener una comunicación fluida y respetuosa con las familias, informadas e involucradas en las decisiones importantes.</li>
-            <li>Operar con transparencia, ética e integridad, priorizando siempre el bienestar de nuestros residentes.</li>
-          </ul>
-        </article>
-        <article class="mv-caja aparece">
-          <div class="mv-cab"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 24s8-14 21-14 21 14 21 14-8 14-21 14S3 24 3 24z"/><circle cx="24" cy="24" r="7"/></svg><h3>Visión</h3></div>
-          <p>Ser la residencia de referencia en el cuidado de personas mayores en la región, reconocida por la excelencia en la atención, el respeto a la dignidad de nuestros residentes y el compromiso genuino con su calidad de vida.</p>
-          <p class="mv-sub">La residencia que buscamos ser:</p>
-          <ul>
-            <li>Donde nuestros residentes envejecen respetando su autonomía, su dignidad y sus lazos con los seres queridos.</li>
-            <li>Con un equipo altamente capacitado, motivado y comprometido, que siente que su esfuerzo es valorado.</li>
-            <li>Que usa tecnología moderna para que el personal dedique más tiempo a la atención directa y personalizada.</li>
-            <li>Con estándares de calidad superiores, protocolos actualizados y una cultura de mejora continua.</li>
-          </ul>
-        </article>
-      </div>
-      <h3 class="valores-tit centro aparece">Nuestros valores</h3>
-      <div class="valores">
-        <div class="valor aparece"><b>Dignidad</b><span>Respetamos a cada persona como ser humano completo, con derechos, necesidades y dignidad innata.</span></div>
-        <div class="valor aparece"><b>Cuidado</b><span>Atención compasiva, integral y personalizada según las necesidades de cada uno.</span></div>
-        <div class="valor aparece"><b>Respeto</b><span>Honramos la autonomía, la privacidad y las decisiones de nuestros residentes, y valoramos a nuestro equipo.</span></div>
-        <div class="valor aparece"><b>Profesionalismo</b><span>Altos estándares de competencia, ética y excelencia en todos nuestros servicios.</span></div>
-        <div class="valor aparece"><b>Transparencia</b><span>Comunicación abierta con residentes, familias y equipo sobre decisiones y operaciones.</span></div>
-        <div class="valor aparece"><b>Inclusión</b><span>Un ambiente acogedor donde todos se sienten parte y valorados.</span></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- NIVELES -->
-  <section id="niveles">
-    <div class="wrap">
-      <div class="centro aparece">
-        <h2>Recibimos distintos <span class="t">niveles de dependencia</span></h2>
-        <p class="bajada">El cuidado se ajusta a lo que necesita cada persona.</p>
-      </div>
-      <div class="niveles">
-        <article class="nivel aparece"><div class="cab"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="24" cy="8" r="4"/><path d="M24 14v12l-6 14M24 26l6 14M15 20h18"/></svg><div><h3>Valente</h3><small>Se vale por sí mismo</small></div></div>
-          <p>Se desplaza y hace la mayoría de sus actividades solo. Lo acompañamos en su rutina, sus medicamentos y su alimentación.</p></article>
-        <article class="nivel aparece"><div class="cab"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="20" cy="8" r="4"/><path d="M20 14v12l-5 14M20 26l5 14M34 18v24M28 24h6"/></svg><div><h3>Semivalente</h3><small>Necesita apoyo</small></div></div>
-          <p>Requiere ayuda en parte de sus actividades diarias: trasladarse, bañarse o vestirse.</p></article>
-        <article class="nivel aparece"><div class="cab"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 36V20M5 28h38v8M43 36v-8M14 28v-4a4 4 0 0 1 4-4h16a9 9 0 0 1 9 8"/><circle cx="12" cy="20" r="3.5"/></svg><div><h3>Postrado</h3><small>Cuidado permanente</small></div></div>
-          <p>Pasa la mayor parte del tiempo en cama. Incluye cambios de posición a lo largo del día y la noche.</p></article>
-      </div>
-      <p class="aviso aparece"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16.5v.01"/></svg>¿No sabes en qué nivel está tu familiar? Es normal: lo conversamos en la visita.</p>
-    </div>
-  </section>
-
-  <!-- CUIDADOS -->
-  <section id="cuidados">
-    <div class="wrap">
-      <div class="centro aparece">
-        <h2>Los cuidados de <span class="t">todos los días</span></h2>
-        <p class="bajada">Estas son las tareas que el equipo realiza y registra en cada turno.</p>
-      </div>
-      <div class="cuidados-grid">
-        <div class="cuidado aparece"><div class="ico"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="17" width="36" height="14" rx="7" transform="rotate(-40 24 24)"/><path d="M19.5 17.3l9 13.4"/></svg></div><h3>Medicamentos</h3><p>Administrados a la hora indicada, con registro de cada dosis.</p></div>
-        <div class="cuidado aparece"><div class="ico"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M24 6s-12 13-12 22a12 12 0 0 0 24 0C36 19 24 6 24 6z"/><path d="M18 30a6 6 0 0 0 6 6"/></svg></div><h3>Aseo e higiene</h3><p>Apoyo en el baño y el aseo personal, con respeto por su intimidad.</p></div>
-        <div class="cuidado aparece"><div class="ico"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="20" cy="8" r="4"/><path d="M20 14l-2 12h10l4 14M18 26l-6 14M30 20l-8-2"/><circle cx="34" cy="38" r="4"/></svg></div><h3>Movilización</h3><p>Ayuda para levantarse y trasladarse, y cambios de posición en cama.</p></div>
-        <div class="cuidado aparece"><div class="ico"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 24h28a14 14 0 0 1-28 0z"/><path d="M8 38h32M18 16c0-3 3-3 3-6M26 16c0-3 3-3 3-6"/></svg></div><h3>Alimentación</h3><p>Comidas diarias y asistencia a quien necesita ayuda para comer.</p></div>
-      </div>
-      <div class="chips aparece" aria-label="Lo que se registra en cada tarea">
-        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg>Hora de cada tarea</span>
-        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg>Quién la realizó</span>
-        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg>Si se cumplió</span>
-        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg>Observaciones del turno</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- 24 HORAS -->
-  <div class="franja" id="turnos">
-    <div class="wrap">
-      <div class="centro aparece">
-        <h2>Día y noche, <span class="t">siempre alguien presente</span></h2>
-        <p class="bajada">El día se divide en tres turnos para que nunca quede una hora sin personal a cargo.</p>
-      </div>
-      <div class="turnos">
-        <div class="turno aparece"><div class="top-t"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><path d="M6 36h36M14 36a10 10 0 0 1 20 0M24 10v6M10 21l4 4M38 21l-4 4"/></svg><h3>Mañana</h3></div><div class="hora">06:00 – 14:00</div><p>El equipo de la mañana recibe el turno y se hace cargo de los cuidados de esas horas.</p></div>
-        <div class="turno aparece"><div class="top-t"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><circle cx="24" cy="24" r="8"/><path d="M24 4v4M24 40v4M9.9 9.9l2.8 2.8M35.3 35.3l2.8 2.8M4 24h4M40 24h4M9.9 38.1l2.8-2.8M35.3 12.7l2.8-2.8"/></svg><h3>Tarde</h3></div><div class="hora">14:00 – 22:00</div><p>Continúan los cuidados, con su propio registro, hasta entregar el turno a la noche.</p></div>
-        <div class="turno aparece"><div class="top-t"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M40 29A16 16 0 1 1 19 8a13 13 0 0 0 21 21z"/></svg><h3>Noche</h3></div><div class="hora">22:00 – 06:00</div><p>Acompañamiento mientras duermen, medicamentos nocturnos y cambios de posición.</p></div>
-      </div>
-    </div>
-  </div>
-
-  <!-- GALERÍA (solo con fotos reales) -->
-  <section class="oculto" id="bloque-galeria">
-    <div class="wrap">
-      <div class="centro aparece"><h2>Ven a <span class="t">conocernos</span></h2></div>
-      <div class="galeria" id="galeria"></div>
-    </div>
-  </section>
-
-  <!-- FAMILIA -->
-  <section class="familia seccion-gris" id="familia">
-    <div class="wrap">
-      <div class="circulo aparece" aria-hidden="true">
-        <img src="assets/emblema.png" alt="" width="260" height="316">
-        <div class="check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10"/></svg></div>
-      </div>
-      <div class="aparece">
-        <h2>Para la familia, <span class="t">tranquilidad</span></h2>
-        <p class="bajada" style="margin-left:0">Dejar a un padre, una madre o un abuelo al cuidado de otros es una decisión difícil. Por eso la información de cada residente está ordenada y al día.</p>
-        <ul class="lista-ficha">
-          <li><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 3h6v4H9zM6 5H5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-1M12 11v6M9 14h6"/></svg></span><div><b>Diagnósticos</b><span>Las condiciones de salud que el equipo debe conocer.</span></div></li>
-          <li><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="9" width="18" height="7" rx="3.5" transform="rotate(-35 12 12.5)"/><path d="M9.5 9.2l4.8 6.6"/></svg></span><div><b>Medicamentos</b><span>Qué toma, en qué dosis y a qué hora.</span></div></li>
-          <li><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg></span><div><b>Contactos de emergencia</b><span>A quién avisar primero, ante cualquier situación.</span></div></li>
-        </ul>
-        <p class="bajada" style="margin-left:0;font-size:1rem">Información reservada, solo para el equipo a cargo.</p>
+      <div class="centro aparece"><h2>Conoce <span class="t">la residencia</span></h2></div>
+      <div class="accesos">
+        <a class="acceso aparece" href="nosotros.html"><h3>Misión y valores</h3><p>Quiénes somos, qué buscamos y los valores que guían nuestro trabajo.</p><span>Ver más <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+        <a class="acceso aparece" href="cuidados.html"><h3>Cuidados</h3><p>A quién recibimos y los cuidados de todos los días.</p><span>Ver más <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+        <a class="acceso aparece" href="preguntas.html"><h3>Preguntas frecuentes</h3><p>Valores, visitas y cómo empezar el proceso de ingreso.</p><span>Ver más <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
       </div>
     </div>
   </section>
@@ -649,41 +145,6 @@ footer{background:var(--marino-2);color:#cbbda9;padding:64px 0 110px;margin-top:
     <div class="wrap">
       <div class="centro aparece"><h2>Lo que dicen <span class="t">las familias</span></h2></div>
       <div class="testimonios" id="testimonios"></div>
-    </div>
-  </section>
-
-  <!-- CÓMO EMPEZAR -->
-  <section class="empezar" id="empezar">
-    <div class="wrap">
-      <div class="centro aparece">
-        <h2>Cómo <span class="t">empezar</span></h2>
-        <p class="bajada">Sin compromiso y a tu ritmo. Te acompañamos en cada paso.</p>
-      </div>
-      <ol class="pasos">
-        <li class="paso aparece"><span class="num">1</span><h3>Nos escribes</h3><p>Deja tus datos en el formulario o en el asistente. Solo toma un minuto.</p></li>
-        <li class="paso aparece"><span class="num">2</span><h3>Te llamamos</h3><p>Una persona del equipo se comunica contigo para conocer la situación de tu familiar.</p></li>
-        <li class="paso aparece"><span class="num">3</span><h3>Nos visitas</h3><p>Conoces la residencia, al equipo y cómo es el día a día de los residentes.</p></li>
-        <li class="paso aparece"><span class="num">4</span><h3>Conversamos el ingreso</h3><p>Resolvemos tus dudas sobre el cuidado que necesita y los pasos para el ingreso.</p></li>
-      </ol>
-      <p class="centro aparece" style="margin-top:40px"><a class="btn btn-sol" href="#orientacion">Dar el primer paso</a></p>
-    </div>
-  </section>
-
-  <!-- PREGUNTAS -->
-  <section class="seccion-gris" id="preguntas">
-    <div class="wrap">
-      <div class="centro aparece">
-        <h2>Preguntas <span class="t">frecuentes</span></h2>
-        <p class="bajada">¿Tu duda no está aquí? Pregúntale al asistente o escríbenos.</p>
-      </div>
-      <div class="faq aparece">
-        <details><summary>¿Cuánto cuesta la residencia?</summary><p>El valor depende del nivel de cuidado que necesita cada persona. Déjanos tus datos o escríbenos y te enviamos la información de tu caso.</p></details>
-        <details><summary>¿Tienen cupos disponibles?</summary><p>La disponibilidad cambia. Escríbenos y te respondemos si hoy tenemos un cupo para tu familiar.</p></details>
-        <details><summary>¿Puedo conocer la residencia antes de decidir?</summary><p>Sí, y te lo recomendamos. Agenda una visita: el día y la hora los coordinas con la administradora, y te mostramos cómo trabaja el equipo.</p></details>
-        <details><summary>¿Cuál es el horario de visitas para las familias?</summary><p>Las familias pueden visitar a los residentes de 15:00 a 18:00 horas, avisando antes. Así cuidamos la rutina diaria de nuestros abuelos.</p></details>
-        <details><summary>¿Hay personal durante la noche?</summary><p>Sí. El cuidado se organiza en tres turnos (mañana, tarde y noche), así que hay personal a cargo las 24 horas.</p></details>
-        <details><summary>¿Cómo sé que mi familiar recibe sus medicamentos?</summary><p>Cada medicamento que se administra queda registrado con la hora y la persona que lo entregó. Si tienes dudas sobre su tratamiento, conversa con nosotros.</p></details>
-      </div>
     </div>
   </section>
 
@@ -707,9 +168,9 @@ footer{background:var(--marino-2);color:#cbbda9;padding:64px 0 110px;margin-top:
       <div><b>Residencia Senior Wall</b><span>Hogar de larga estadía</span></div>
       <p>Un ambiente seguro, digno y cálido para las personas mayores y sus familias.</p>
     </div>
-    <nav class="pie-col" aria-label="Secciones">
+    <nav class="pie-col" aria-label="Páginas">
       <b>La residencia</b>
-      <a href="#quienes">Quiénes somos</a><a href="#cuidados">Cuidados</a><a href="#turnos">Día y noche</a><a href="#empezar">Cómo empezar</a><a href="#preguntas">Preguntas frecuentes</a>
+      <a href="./">Inicio</a><a href="nosotros.html">Misión y valores</a><a href="cuidados.html">Cuidados</a><a href="preguntas.html">Preguntas frecuentes</a>
     </nav>
     <div class="pie-col">
       <b>Contacto</b>
@@ -747,374 +208,6 @@ footer{background:var(--marino-2);color:#cbbda9;padding:64px 0 110px;margin-top:
   <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.860 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
 </a>
 
-<script>
-(function () {
-  'use strict';
-  var R = window.RESIDENCIA || {};
-  var $ = function (s, c) { return (c || document).querySelector(s); };
-  var $$ = function (s, c) { return Array.prototype.slice.call((c || document).querySelectorAll(s)); };
-  var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-  var ICO = {
-    mail: '<path d="M3 6h18v12H3z"/><path d="m3 7 9 7 9-7"/>',
-    tel: '<path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/>',
-    wa: '<path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5"/>',
-    pin: '<path d="M12 21s-6-5.2-6-11a6 6 0 0 1 12 0c0 5.8-6 11-6 11z"/><circle cx="12" cy="10" r="2.2"/>'
-  };
-  function svg(p) { return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' + p + '</svg>'; }
-  var lugar = [R.direccion, R.comuna].filter(Boolean).join(', ');
-  var telHref = R.telefono ? 'tel:' + R.telefono.replace(/[^\d+]/g, '') : '';
-  function waHref(t) { return 'https://wa.me/' + R.whatsapp + '?text=' + encodeURIComponent(t); }
-  function mailHref(asunto, cuerpo) { return 'mailto:' + R.correo + '?subject=' + encodeURIComponent(asunto) + (cuerpo ? '&body=' + encodeURIComponent(cuerpo) : ''); }
-  var WA_SALUDO = '¡Hola! 👋 Vi la página de *' + R.nombre + '* y me gustaría agendar una visita para conocer la residencia. ¿Qué días tienen disponibles?';
-  function mapaHref() { return 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(R.nombre + ' ' + lugar); }
-
-  /* ---------- Contacto: solo lo que existe ---------- */
-  function canal(ico, titulo, detalle, href) {
-    var li = document.createElement('li');
-    var a = document.createElement('a');
-    a.href = href; if (/^https?:/.test(href)) { a.target = '_blank'; a.rel = 'noopener'; }
-    a.innerHTML = '<span class="ic">' + svg(ICO[ico]) + '</span><span><b></b><small></small></span>';
-    a.querySelector('b').textContent = titulo; a.querySelector('small').textContent = detalle;
-    li.appendChild(a); $('#canales').appendChild(li);
-  }
-  if (R.whatsapp) canal('wa', 'WhatsApp', 'Escríbenos y te respondemos', waHref(WA_SALUDO));
-  if (R.whatsapp) { var wf = $('#wa-flot'); wf.href = waHref(WA_SALUDO); wf.hidden = false; }
-  if (R.telefono) canal('tel', 'Llámanos', R.telefono, telHref);
-  if (R.correo) canal('mail', 'Escríbenos', R.correo, mailHref('Quiero agendar una visita'));
-  if (lugar) canal('pin', 'Dónde estamos', lugar, mapaHref());
-
-  function barraItem(ico, texto, href) {
-    var a = document.createElement(href ? 'a' : 'span');
-    if (href) a.href = href;
-    a.innerHTML = svg(ICO[ico]); a.appendChild(document.createTextNode(texto));
-    $('#barra-contacto').appendChild(a);
-  }
-  if (lugar) barraItem('pin', lugar, mapaHref());
-  if (R.telefono) barraItem('tel', R.telefono, telHref);
-  if (R.correo) barraItem('mail', R.correo, 'mailto:' + R.correo);
-  $('#pie-datos').textContent = [lugar, R.telefono, R.correo, R.visitas ? 'Visitas familiares: ' + R.visitas.replace(/ horas/, ' h') : ''].filter(Boolean).join('\n');
-  $('#anio').textContent = new Date().getFullYear();
-
-  if (R.seremi === true) $('#bloque-seremi').classList.remove('oculto');
-  if (R.fotos && R.fotos.length) {
-    R.fotos.forEach(function (f) {
-      var fig = document.createElement('figure'); fig.className = 'aparece';
-      var img = document.createElement('img'); img.src = f.src; img.alt = f.texto || ''; img.loading = 'lazy';
-      var cap = document.createElement('figcaption'); cap.textContent = f.texto || '';
-      fig.appendChild(img); fig.appendChild(cap); $('#galeria').appendChild(fig);
-    });
-    $('#bloque-galeria').classList.remove('oculto');
-  }
-  if (R.testimonios && R.testimonios.length) {
-    R.testimonios.forEach(function (t) {
-      var q = document.createElement('blockquote'); q.className = 'aparece';
-      var p = document.createElement('p'); p.textContent = t.texto;
-      var c = document.createElement('cite'); c.textContent = t.nombre + (t.relacion ? ' · ' + t.relacion : '');
-      q.appendChild(p); q.appendChild(c); $('#testimonios').appendChild(q);
-    });
-    $('#bloque-testimonios').classList.remove('oculto');
-  }
-
-  /* ---------- Encabezado y menú ---------- */
-  var top = $('#top');
-  window.addEventListener('scroll', function () { top.classList.toggle('sombra', window.scrollY > 40); }, { passive: true });
-  var menuBtn = $('.menu-btn'), nav = $('#nav');
-  menuBtn.addEventListener('click', function () {
-    var ab = nav.classList.toggle('abierto');
-    menuBtn.setAttribute('aria-expanded', ab); menuBtn.setAttribute('aria-label', ab ? 'Cerrar menú' : 'Abrir menú');
-  });
-  $$('#nav a').forEach(function (a) { a.addEventListener('click', function () { nav.classList.remove('abierto'); menuBtn.setAttribute('aria-expanded', 'false'); }); });
-
-  /* ---------- Aparición ---------- */
-  function observar() {
-    if ('IntersectionObserver' in window && !reduce) {
-      var io = new IntersectionObserver(function (es) {
-        es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
-      }, { rootMargin: '0px 0px -6% 0px' });
-      $$('.aparece').forEach(function (el) {
-        var hermanos = el.parentElement ? Array.prototype.indexOf.call(el.parentElement.children, el) : 0;
-        el.style.transitionDelay = Math.min(hermanos, 3) * 90 + 'ms';
-        io.observe(el);
-      });
-    } else $$('.aparece').forEach(function (el) { el.classList.add('visible'); });
-  }
-  observar();
-
-  /* ---------- Envío al Google Form (si está configurado) ---------- */
-  var GF = R.googleForm && R.googleForm.accion && R.googleForm.campos ? R.googleForm : null;
-  function enviarGoogle(d) {
-    if (!GF) return Promise.reject(new Error('sin formulario'));
-    var cuerpo = new URLSearchParams();
-    Object.keys(GF.campos).forEach(function (k) { if (d[k]) cuerpo.append(GF.campos[k], String(d[k]).slice(0, 500)); });
-    /* Google no permite leer la respuesta desde otro dominio (no-cors): si la red responde, se da por enviado. */
-    return fetch(GF.accion, { method: 'POST', mode: 'no-cors', body: cuerpo });
-  }
-  function fechaLarga(iso) {
-    var p = String(iso).split('-').map(Number); if (p.length !== 3 || !p[0]) return iso;
-    var f = new Date(p[0], p[1] - 1, p[2]);
-    return ['domingo', 'lunes', 'martes', 'miércoles', 'jueves', 'viernes', 'sábado'][f.getDay()] + ' ' + p[2] + ' de ' +
-      ['enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre'][p[1] - 1];
-  }
-  /* Mensaje con formato de WhatsApp (*negrita*), ordenado y fácil de leer para quien lo recibe. */
-  function textoWhatsApp(d) {
-    var tel = d.telefono && !/no indicado|prefiero/i.test(d.telefono) ? d.telefono : '';
-    var f = [['📌', 'Motivo', d.motivo], ['👤', 'Mi nombre', d.nombre], ['👪', 'Relación', d.relacion], ['🩺', 'Situación de la persona', d.nivel],
-      ['🗓️', 'Para cuándo', d.cuando], ['🏡', 'Día para visitar', d.dia ? fechaLarga(d.dia) + (d.franja && d.franja !== 'Me da igual' ? ', en la ' + d.franja.toLowerCase() : '') : ''],
-      ['📞', 'Mi contacto', tel]];
-    return '¡Hola! 👋 Les escribo desde la página web de *' + R.nombre + '*.\n\n' +
-      f.filter(function (x) { return x[2]; }).map(function (x) { return x[0] + ' *' + x[1] + ':* ' + x[2]; }).join('\n') +
-      '\n\n¡Muchas gracias! Quedo atento(a) a su respuesta. 🙏';
-  }
-  function textoSolicitud(d) {
-    return 'Hola, escribo desde la página web.\n\nMotivo: ' + d.motivo + '\nNombre: ' + d.nombre + '\nContacto: ' + (d.telefono || 'No indicado') +
-      '\nRelación: ' + (d.relacion || '—') + '\nSituación de la persona: ' + (d.nivel || '—') +
-      (d.cuando ? '\nPara cuándo: ' + d.cuando : '') + (d.dia ? '\nDía preferido para visitar: ' + d.dia + (d.franja ? ' (' + d.franja + ')' : '') : '');
-  }
-
-  /* ---------- Formulario de orientación ---------- */
-  var fo = $('#form-orienta');
-  var hoy = new Date(); hoy.setMinutes(hoy.getMinutes() - hoy.getTimezoneOffset());
-  fo.dia.min = hoy.toISOString().slice(0, 10);
-  function mostrarVisita() { $('#f-visita').hidden = !/visita/i.test(fo.motivo.value); }
-  fo.motivo.addEventListener('change', mostrarVisita); mostrarVisita();
-  fo.addEventListener('submit', function (e) {
-    e.preventDefault();
-    var nombre = fo.nombre.value.trim(), tel = fo.telefono.value.trim();
-    var err = $('#f-error');
-    if (!nombre) { err.textContent = 'Escribe tu nombre para poder responderte.'; fo.nombre.focus(); return; }
-    if (tel && !/^[+\d\s()-]{8,20}$/.test(tel)) { err.textContent = 'Revisa el teléfono (ejemplo: +56 9 1234 5678).'; fo.telefono.focus(); return; }
-    if (GF && !tel) { err.textContent = 'Déjanos un teléfono para poder responderte.'; fo.telefono.focus(); return; }
-    err.textContent = '';
-    var esVisita = /visita/i.test(fo.motivo.value);
-    var d = { motivo: fo.motivo.value, nombre: nombre, telefono: tel, relacion: fo.relacion.value, nivel: fo.nivel.value,
-      dia: esVisita ? fo.dia.value : '', franja: esVisita && fo.dia.value ? fo.franja.value : '', origen: 'Formulario de la portada' };
-    var cuerpo = textoSolicitud(d);
-    var envio = $('#f-envio'); envio.innerHTML = '';
-    var boton = fo.querySelector('button[type=submit]');
-    if (GF) {
-      boton.disabled = true; boton.textContent = 'Enviando…';
-      enviarGoogle(d).then(function () {
-        fo.querySelectorAll('input,select,button').forEach(function (x) { x.disabled = true; });
-        boton.textContent = 'Solicitud enviada';
-        var ok = document.createElement('p'); ok.className = 'ok-envio'; ok.setAttribute('role', 'status');
-        ok.textContent = '¡Gracias, ' + nombre + '! Recibimos tu solicitud. Te llamaremos al ' + tel + (esVisita && d.dia ? ' para confirmar la visita.' : ' para orientarte.');
-        envio.appendChild(ok); envio.hidden = false;
-      }).catch(function () {
-        boton.disabled = false; boton.textContent = 'Quiero recibir orientación';
-        err.textContent = 'No pudimos enviarlo por internet. Usa uno de estos botones:';
-        botonesManuales();
-      });
-      return;
-    }
-    botonesManuales();
-    function botonesManuales() {
-    function b(cls, txt, href, ico) {
-      var a = document.createElement('a'); a.className = 'btn ' + cls; a.href = href;
-      if (/^https?:/.test(href)) { a.target = '_blank'; a.rel = 'noopener'; }
-      a.innerHTML = svg(ICO[ico]); a.appendChild(document.createTextNode(txt)); envio.appendChild(a);
-    }
-    if (R.whatsapp) b('btn-turquesa', 'Enviar por WhatsApp', waHref(textoWhatsApp(d)), 'wa');
-    if (R.correo) b(R.whatsapp ? 'btn-borde' : 'btn-turquesa', 'Enviar por correo', mailHref(d.motivo + ' — ' + nombre, cuerpo), 'mail');
-    envio.hidden = false;
-    boton.textContent = 'Actualizar mis datos';
-    var primero = envio.querySelector('a'); if (primero) primero.focus();
-    }
-  });
-
-  /* ==========================================================
-     Asistente por reglas (sin servidor, sin costo).
-     Nunca inventa precios, cupos ni horarios: deriva a una persona.
-     ========================================================== */
-  var chat = $('#chat'), log = $('#chat-log'), ops = $('#chat-ops'), form = $('#chat-form'), input = $('#chat-in'), btn = $('#chat-btn');
-  var iniciado = false, ocupado = false, flujo = null, datos = {}, ultimo = '';
-  function norm(s) { return String(s || '').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, ''); }
-  function bajar() { log.scrollTop = log.scrollHeight; }
-  function burbuja(t, q) { var p = document.createElement('p'); p.className = 'msg ' + q; p.textContent = t; log.appendChild(p); bajar(); }
-  function limpiar() { ops.innerHTML = ''; }
-  function opcion(t, fn, fuerte) {
-    var b = document.createElement('button'); b.type = 'button'; b.className = 'op' + (fuerte ? ' fuerte' : ''); b.textContent = t;
-    b.addEventListener('click', function () { if (ocupado) return; burbuja(t, 'yo'); fn(); }); ops.appendChild(b);
-  }
-  function enlace(t, href, ico) {
-    var a = document.createElement('a'); a.className = 'op fuerte'; a.href = href;
-    if (/^https?:/.test(href)) { a.target = '_blank'; a.rel = 'noopener'; }
-    a.innerHTML = ico ? svg(ICO[ico]) : ''; a.appendChild(document.createTextNode(t)); ops.appendChild(a);
-  }
-  function dice(textos, luego) {
-    if (typeof textos === 'string') textos = [textos];
-    limpiar(); ocupado = true; var i = 0;
-    (function sig() {
-      if (i >= textos.length) { ocupado = false; if (luego) luego(); return; }
-      var t = textos[i++], espera = reduce ? 0 : Math.min(350 + t.length * 11, 1300), pts = null;
-      if (espera) { pts = document.createElement('p'); pts.className = 'msg bot escribiendo'; pts.setAttribute('aria-hidden', 'true'); pts.innerHTML = '<i></i><i></i><i></i>'; log.appendChild(pts); bajar(); }
-      setTimeout(function () { if (pts) pts.remove(); burbuja(t, 'bot'); sig(); }, espera);
-    })();
-  }
-  function menu() {
-    flujo = null;
-    opcion('Agendar una visita', function () { visita(); }, true);
-    opcion('¿A quién reciben?', recibimos);
-    opcion('¿Qué cuidados incluye?', cuidados);
-    opcion('Personal de noche', turnos);
-    opcion('Valores y cupos', valores);
-    opcion('Hablar con una persona', persona);
-  }
-  function inicio() { dice('¿En qué más te puedo ayudar?', menu); }
-  function recibimos() {
-    dice(['Recibimos a personas mayores con distintos niveles de dependencia:', 'Valentes (se valen por sí mismos), semivalentes (necesitan ayuda en parte del día) y postrados (pasan la mayor parte del tiempo en cama).', 'Si no tienes claro el nivel de tu familiar, no te preocupes: lo conversamos en la visita.'],
-      function () { opcion('Agendar una visita', function () { visita(); }, true); opcion('Volver al inicio', inicio); });
-  }
-  function cuidados() { dice(['El equipo realiza y registra cada día: medicamentos, aseo e higiene, movilización (incluidos los cambios de posición) y alimentación.', 'Cada tarea queda anotada con la hora y el nombre de quien la hizo.'], inicio); }
-  function turnos() { dice(['Sí, hay personal las 24 horas, en tres turnos:', 'Mañana de 06:00 a 14:00, tarde de 14:00 a 22:00 y noche de 22:00 a 06:00.'], inicio); }
-  function valores() {
-    dice(['El valor depende del nivel de cuidado que necesita cada persona, y los cupos cambian.', 'Para no darte un dato equivocado, una persona del equipo te responde con la información de tu caso.'],
-      function () { opcion('Consultar valores', function () { visita('valores'); }, true); opcion('Volver al inicio', inicio); });
-  }
-  function contactar(msg, asunto, msgWa) {
-    if (R.whatsapp) enlace('Escribir por WhatsApp', waHref(msgWa || msg), 'wa');
-    if (R.telefono) enlace('Llamar', telHref, 'tel');
-    if (R.correo) enlace('Enviar correo', mailHref(asunto || 'Consulta desde la página web', msg), 'mail');
-  }
-  function persona() {
-    dice(lugar ? ['Estos son los canales para hablar con el equipo.', 'Estamos en ' + lugar + '.'] : ['Estos son los canales para hablar con el equipo.'],
-      function () { contactar('Hola, vi la página de la residencia y tengo una consulta.', '', '¡Hola! 👋 Vi la página de *' + R.nombre + '* y tengo una consulta: '); opcion('Volver al inicio', inicio); });
-  }
-  function visita(motivo) {
-    flujo = 'nombre'; datos = { motivo: motivo === 'valores' ? 'Consultar valores y cupos' : 'Agendar una visita' };
-    dice([motivo === 'valores' ? 'Te ayudo a enviar la consulta. Son 4 preguntas cortas.' : 'Perfecto, te ayudo a pedir la visita. Son 4 preguntas cortas.', '¿Cuál es tu nombre?'], function () { input.focus(); });
-  }
-  function pParentesco() {
-    flujo = 'parentesco';
-    dice('Gracias, ' + datos.nombre + '. ¿Qué relación tienes con la persona que necesita el cuidado?', function () {
-      ['Soy su hijo o hija', 'Soy su nieto o nieta', 'Soy su pareja', 'Otro familiar', 'Es para mí'].forEach(function (t) { opcion(t, function () { datos.parentesco = t; pNivel(); }); });
-    });
-  }
-  function pNivel() {
-    flujo = 'nivel';
-    dice('¿Cómo describirías su situación hoy?', function () {
-      [['Se vale por sí mismo', 'Valente'], ['Necesita ayuda en parte del día', 'Semivalente'], ['Pasa en cama la mayor parte del tiempo', 'Postrado'], ['No estoy seguro', 'Por evaluar']].forEach(function (o) {
-        opcion(o[0], function () { datos.nivel = o[1] + ' (' + o[0].toLowerCase() + ')'; pCuando(); });
-      });
-    });
-  }
-  function pCuando() {
-    flujo = 'cuando';
-    dice('¿Para cuándo necesitan el cuidado?', function () {
-      ['Lo antes posible', 'Este mes', 'En los próximos meses', 'Solo me estoy informando'].forEach(function (t) {
-        opcion(t, function () { datos.cuando = t; if (/visita/i.test(datos.motivo)) pDia(); else pContacto(); });
-      });
-    });
-  }
-  var DIAS = ['dom', 'lun', 'mar', 'mié', 'jue', 'vie', 'sáb'], MESES = ['ene', 'feb', 'mar', 'abr', 'may', 'jun', 'jul', 'ago', 'sep', 'oct', 'nov', 'dic'];
-  function iso(f) { return f.getFullYear() + '-' + String(f.getMonth() + 1).padStart(2, '0') + '-' + String(f.getDate()).padStart(2, '0'); }
-  function pDia() {
-    flujo = 'dia';
-    dice('¿Qué día te gustaría venir a conocernos? La administradora te llama para coordinar la hora.', function () {
-      for (var i = 1; i <= 6; i++) {
-        (function (f) {
-          var etiqueta = DIAS[f.getDay()] + ' ' + f.getDate() + ' ' + MESES[f.getMonth()];
-          opcion(etiqueta, function () { datos.dia = iso(f); datos.diaTexto = etiqueta; pFranja(); });
-        })(new Date(Date.now() + i * 864e5));
-      }
-      opcion('Otro día / aún no sé', function () { datos.dia = ''; pContacto(); });
-    });
-  }
-  function pFranja() {
-    flujo = 'franja';
-    dice('¿Prefieres en la mañana o en la tarde?', function () {
-      ['Mañana', 'Tarde', 'Me da igual'].forEach(function (t) { opcion(t, function () { datos.franja = t; pContacto(); }); });
-    });
-  }
-  function pContacto() { flujo = 'contacto'; dice('Por último, ¿un teléfono o correo para que el equipo te responda? (o escribe "prefiero no dejarlo")', function () { input.focus(); }); }
-  function cerrarFlujo() {
-    flujo = null;
-    var d = { motivo: datos.motivo, nombre: datos.nombre, telefono: datos.contacto, relacion: datos.parentesco, nivel: datos.nivel,
-      cuando: datos.cuando, dia: datos.dia || '', franja: datos.dia ? datos.franja : '', origen: 'Asistente de la página' };
-    var cuerpo = textoSolicitud(d);
-    dice('Listo, ' + datos.nombre + '. Este es el resumen de tu solicitud:', function () {
-      var dl = document.createElement('dl'); dl.className = 'resumen';
-      var filas = [['Motivo', datos.motivo], ['Relación', datos.parentesco], ['Situación', datos.nivel], ['Para cuándo', datos.cuando]];
-      if (datos.dia) filas.push(['Visita', datos.diaTexto + ' · ' + datos.franja + ' (por confirmar)']);
-      filas.push(['Contacto', datos.contacto]);
-      filas.forEach(function (f) {
-        var dt = document.createElement('dt'); dt.textContent = f[0]; var dd = document.createElement('dd'); dd.textContent = f[1]; dl.appendChild(dt); dl.appendChild(dd);
-      });
-      log.appendChild(dl); bajar();
-      function manual(msg) { dice(msg, function () { contactar(cuerpo, datos.motivo + ' — ' + datos.nombre, textoWhatsApp(d)); opcion('Volver al inicio', inicio); }); }
-      if (GF && datos.contacto !== 'No indicado') {
-        opcion('Enviar solicitud', function () {
-          ocupado = true;
-          enviarGoogle(d).then(function () {
-            ocupado = false;
-            dice(['¡Enviada! El equipo recibió tu solicitud.', datos.dia ? 'Te contactaremos para confirmar la hora de la visita.' : 'Te contactaremos a la brevedad.'], function () { opcion('Volver al inicio', inicio); });
-          }).catch(function () { ocupado = false; manual('No pude enviarla por internet. Puedes enviarla con uno de estos botones:'); });
-        }, true);
-        opcion('Corregir datos', function () { visita(/valores/i.test(datos.motivo) ? 'valores' : ''); });
-      } else if (GF) {
-        manual('Sin un teléfono o correo no podemos responderte. Puedes escribirnos directamente:');
-      } else {
-        manual('Envíala con uno de estos botones: el mensaje ya va escrito.');
-      }
-    });
-  }
-  var REGLAS = [
-    [/(horario|hora).*visit|visit.*(horario|hora)|visitar a (mi|un)/, function () {
-      dice(['Las familias pueden visitar a los residentes ' + (R.visitas || 'avisando antes') + '. Así cuidamos la rutina diaria de nuestros abuelos.',
-        'Si quieres conocer la residencia para un familiar, la visita se coordina con la administradora.'],
-        function () { opcion('Agendar una visita para conocer', function () { visita(); }, true); opcion('Volver al inicio', inicio); });
-    }],
-    [/visita|conocer|agendar|ir a ver|recorrer/, function () { visita(); }],
-    [/precio|valor|costo|cuanto|cobra|pagar|mensualidad|arancel|vacante|cupo|disponib/, valores],
-    [/alzheimer|demencia|parkinson|oxigeno|sonda|dialisis/, function () {
-      dice(['Cada caso es distinto, así que preferimos no responder en general.', 'Cuéntanos cómo está tu familiar y una persona del equipo te dice si podemos recibirlo.'],
-        function () { opcion('Consultar mi caso', function () { visita('valores'); }, true); opcion('Volver al inicio', inicio); });
-    }],
-    [/postrad|cama|valente|dependen|silla de ruedas|recib|aceptan|admit|ingres/, recibimos],
-    [/medicament|remedio|pastilla|higiene|bano|aseo|comida|alimenta|cuidado|movil|posicion/, cuidados],
-    [/turno|noche|24|horario|personal|enfermer|cuidador|auxiliar/, turnos],
-    [/donde|direccion|ubicac|comuna|llegar|mapa/, function () {
-      if (lugar) dice('Estamos en ' + lugar + '.', function () { enlace('Ver en el mapa', mapaHref(), 'pin'); opcion('Agendar una visita', function () { visita(); }, true); });
-      else dice('Escríbenos y te enviamos la dirección y cómo llegar.', function () { contactar('Hola, ¿me pueden enviar la dirección de la residencia?'); opcion('Volver al inicio', inicio); });
-    }],
-    [/telefono|whatsapp|correo|mail|contact|hablar|persona|llamar/, persona],
-    [/^(hola|buenas|buenos|holi|hey)\b/, function () { dice('¡Hola! ¿En qué te puedo ayudar?', menu); }],
-    [/gracias|genial|perfecto|\bok\b|\bvale\b/, function () { dice('Con gusto. Si necesitas algo más, aquí estoy.', menu); }]
-  ];
-  function libre(txt) {
-    var t = norm(txt); ultimo = txt;
-    for (var i = 0; i < REGLAS.length; i++) if (REGLAS[i][0].test(t)) { REGLAS[i][1](); return; }
-    dice(['No estoy seguro de haber entendido tu pregunta.', 'Puedes elegir una opción, o dejarle tu consulta directamente al equipo.'], menu);
-  }
-  form.addEventListener('submit', function (e) {
-    e.preventDefault();
-    var v = input.value.trim(); if (!v || ocupado) return;
-    input.value = ''; burbuja(v, 'yo');
-    if (flujo === 'nombre') { datos.nombre = v.slice(0, 60); pParentesco(); return; }
-    if (flujo === 'contacto') { datos.contacto = /prefiero no/.test(norm(v)) ? 'No indicado' : v.slice(0, 120); cerrarFlujo(); return; }
-    if (flujo) {
-      var f = flujo;
-      dice('Elige una de las opciones de abajo, por favor.', function () { if (f === 'parentesco') pParentesco(); else if (f === 'nivel') pNivel(); else if (f === 'cuando') pCuando(); else if (f === 'dia') pDia(); else if (f === 'franja') pFranja(); });
-      return;
-    }
-    libre(v);
-  });
-  function abrir(fi) {
-    chat.hidden = false; btn.setAttribute('aria-expanded', 'true');
-    if (!iniciado) {
-      iniciado = true;
-      dice(['Hola, soy el asistente de ' + R.nombre + '.', 'Te respondo las dudas más comunes y te ayudo a agendar una visita. Una persona del equipo responde cada solicitud.'], function () {
-        if (fi === 'visita') { burbuja('Agendar una visita', 'yo'); visita(); } else menu();
-      });
-    } else if (fi === 'visita' && !flujo && !ocupado) { burbuja('Agendar una visita', 'yo'); visita(); }
-    setTimeout(function () { (window.innerWidth > 640 ? input : $('.chat-x')).focus(); }, 60);
-  }
-  function cerrar() { chat.hidden = true; btn.setAttribute('aria-expanded', 'false'); btn.focus(); }
-  btn.addEventListener('click', function () { chat.hidden ? abrir() : cerrar(); });
-  $('.chat-x').addEventListener('click', cerrar);
-  document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !chat.hidden) cerrar(); });
-  $$('[data-abrir-chat]').forEach(function (b) { b.addEventListener('click', function () { abrir(b.getAttribute('data-flujo')); }); });
-})();
-</script>
+<script src="assets/sitio.js"></script>
 </body>
 </html>
