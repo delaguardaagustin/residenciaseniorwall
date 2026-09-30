@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Residencia Senior Wall · Residencia para personas mayores</title>
-<meta name="description" content="Residencia de larga estadía para personas mayores. Personal las 24 horas en tres turnos: medicamentos, higiene, movilización y alimentación. Agenda una visita.">
+<title>Residencia Senior Wall · Residencia para personas mayores en San Carlos, Ñuble</title>
+<meta name="description" content="Residencia de larga estadía para personas mayores en San Carlos, Ñuble. Personal las 24 horas en tres turnos: medicamentos, higiene, movilización y alimentación. Agenda una visita.">
 <meta name="theme-color" content="#3b2f25">
 <link rel="canonical" href="https://residenciaseniorwall.cl/">
 <meta property="og:type" content="website">
@@ -20,7 +20,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="apple-touch-icon" href="assets/emblema.png">
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"LocalBusiness","name":"Residencia Senior Wall","description":"Residencia de larga estadía para personas mayores, con personal las 24 horas en tres turnos.","url":"https://residenciaseniorwall.cl/","logo":"https://residenciaseniorwall.cl/assets/emblema.png","image":"https://residenciaseniorwall.cl/assets/og.jpg","email":"contacto@residenciaseniorwall.cl","areaServed":"CL"}
+{"@context":"https://schema.org","@type":"LocalBusiness","name":"Residencia Senior Wall","description":"Residencia de larga estadía para personas mayores, con personal las 24 horas en tres turnos.","url":"https://residenciaseniorwall.cl/","logo":"https://residenciaseniorwall.cl/assets/emblema.png","image":"https://residenciaseniorwall.cl/assets/og.jpg","email":"contacto@residenciaseniorwall.cl","telephone":"+56935247069","address":{"@type":"PostalAddress","streetAddress":"Calle 13, sector Ninquihue","addressLocality":"San Carlos","addressRegion":"Ñuble","addressCountry":"CL"},"areaServed":"CL"}
 </script>
 <link rel="icon" type="image/png" href="assets/emblema.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -35,13 +35,15 @@ document.documentElement.classList.add('js');
 window.RESIDENCIA = {
   nombre: 'Residencia Senior Wall',
   correo: 'contacto@residenciaseniorwall.cl',
-  telefono: '',        /* ej: '+56 2 2345 6789' */
-  whatsapp: '',        /* ej: '56912345678' (sin +, sin espacios) */
-  direccion: '',       /* ej: 'Av. Ejemplo 123' */
-  comuna: '',          /* ej: 'Ñuñoa, Santiago' */
+  telefono: '+56 9 3524 7069',
+  whatsapp: '56935247069',   /* mismo número del teléfono, confirmado por Agustín 2026-09-30 */
+  direccion: 'Calle 13, sector Ninquihue',
+  comuna: 'San Carlos, Ñuble',
+  visitas: 'de 15:00 a 18:00 horas, avisando antes',   /* horario de visitas de las familias (dato del dueño, 2026-09-30) */
   seremi: false,       /* true SOLO si el cliente confirma su resolución sanitaria vigente */
   fotos: [             /* rutas a fotos REALES de la residencia (assets/...). Vacío = no se muestra la galería */
-    /* { src: 'assets/letrero.jpg', texto: 'Nuestra entrada' },   <- activar SOLO si el dueño confirma que es una foto real del lugar (parece generada con IA) */
+    /* letrero.jpg NO es foto real (confirmado por el dueño 2026-09-30: es el diseño del letrero que mandaron a hacer).
+       Cuando esté instalado, pedir una foto real de la entrada y ponerla aquí. */
   ],
   /* Google Form que recibe las solicitudes (lo crea google/formulario-senior-wall.gs).
      Pegar aquí el CONFIG_WEB que muestra el script: { accion: '...formResponse', campos: {...} }.
@@ -378,6 +380,8 @@ footer{background:var(--marino-2);color:#cbbda9;padding:64px 0 110px;margin-top:
   .mv-caja{padding:26px 22px 24px}
   section{padding:70px 0}
   .barra .izq{display:none}
+  .barra .wrap{justify-content:center}
+  .barra .der > :not([href^="tel:"]){display:none}
 }
 @media (max-width:520px){
   body{font-size:1.06rem}
@@ -670,7 +674,8 @@ footer{background:var(--marino-2);color:#cbbda9;padding:64px 0 110px;margin-top:
       <div class="faq aparece">
         <details><summary>¿Cuánto cuesta la residencia?</summary><p>El valor depende del nivel de cuidado que necesita cada persona. Déjanos tus datos o escríbenos y te enviamos la información de tu caso.</p></details>
         <details><summary>¿Tienen cupos disponibles?</summary><p>La disponibilidad cambia. Escríbenos y te respondemos si hoy tenemos un cupo para tu familiar.</p></details>
-        <details><summary>¿Puedo conocer la residencia antes de decidir?</summary><p>Sí, y te lo recomendamos. Agenda una visita y te mostramos cómo trabaja el equipo.</p></details>
+        <details><summary>¿Puedo conocer la residencia antes de decidir?</summary><p>Sí, y te lo recomendamos. Agenda una visita: el día y la hora los coordinas con la administradora, y te mostramos cómo trabaja el equipo.</p></details>
+        <details><summary>¿Cuál es el horario de visitas para las familias?</summary><p>Las familias pueden visitar a los residentes de 15:00 a 18:00 horas, avisando antes. Así cuidamos la rutina diaria de nuestros abuelos.</p></details>
         <details><summary>¿Hay personal durante la noche?</summary><p>Sí. El cuidado se organiza en tres turnos (mañana, tarde y noche), así que hay personal a cargo las 24 horas.</p></details>
         <details><summary>¿Cómo sé que mi familiar recibe sus medicamentos?</summary><p>Cada medicamento que se administra queda registrado con la hora y la persona que lo entregó. Si tienes dudas sobre su tratamiento, conversa con nosotros.</p></details>
       </div>
@@ -777,7 +782,7 @@ footer{background:var(--marino-2);color:#cbbda9;padding:64px 0 110px;margin-top:
   if (lugar) barraItem('pin', lugar, mapaHref());
   if (R.telefono) barraItem('tel', R.telefono, telHref);
   if (R.correo) barraItem('mail', R.correo, 'mailto:' + R.correo);
-  $('#pie-datos').textContent = [lugar, R.telefono, R.correo].filter(Boolean).join('\n');
+  $('#pie-datos').textContent = [lugar, R.telefono, R.correo, R.visitas ? 'Visitas familiares: ' + R.visitas.replace(/ horas/, ' h') : ''].filter(Boolean).join('\n');
   $('#anio').textContent = new Date().getFullYear();
 
   if (R.seremi === true) $('#bloque-seremi').classList.remove('oculto');
@@ -978,7 +983,7 @@ footer{background:var(--marino-2);color:#cbbda9;padding:64px 0 110px;margin-top:
   function iso(f) { return f.getFullYear() + '-' + String(f.getMonth() + 1).padStart(2, '0') + '-' + String(f.getDate()).padStart(2, '0'); }
   function pDia() {
     flujo = 'dia';
-    dice('¿Qué día te gustaría venir a conocernos? El equipo te llama para confirmar la hora.', function () {
+    dice('¿Qué día te gustaría venir a conocernos? La administradora te llama para coordinar la hora.', function () {
       for (var i = 1; i <= 6; i++) {
         (function (f) {
           var etiqueta = DIAS[f.getDay()] + ' ' + f.getDate() + ' ' + MESES[f.getMonth()];
@@ -1027,6 +1032,11 @@ footer{background:var(--marino-2);color:#cbbda9;padding:64px 0 110px;margin-top:
     });
   }
   var REGLAS = [
+    [/(horario|hora).*visit|visit.*(horario|hora)|visitar a (mi|un)/, function () {
+      dice(['Las familias pueden visitar a los residentes ' + (R.visitas || 'avisando antes') + '. Así cuidamos la rutina diaria de nuestros abuelos.',
+        'Si quieres conocer la residencia para un familiar, la visita se coordina con la administradora.'],
+        function () { opcion('Agendar una visita para conocer', function () { visita(); }, true); opcion('Volver al inicio', inicio); });
+    }],
     [/visita|conocer|agendar|ir a ver|recorrer/, function () { visita(); }],
     [/precio|valor|costo|cuanto|cobra|pagar|mensualidad|arancel|vacante|cupo|disponib/, valores],
     [/alzheimer|demencia|parkinson|oxigeno|sonda|dialisis/, function () {
