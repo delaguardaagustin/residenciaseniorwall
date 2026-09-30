@@ -6,6 +6,22 @@
 <title>Residencia Senior Wall · Residencia para personas mayores</title>
 <meta name="description" content="Residencia de larga estadía para personas mayores. Personal las 24 horas en tres turnos: medicamentos, higiene, movilización y alimentación. Agenda una visita.">
 <meta name="theme-color" content="#3b2f25">
+<link rel="canonical" href="https://residenciaseniorwall.cl/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_CL">
+<meta property="og:site_name" content="Residencia Senior Wall">
+<meta property="og:title" content="Residencia Senior Wall · Hogar de larga estadía">
+<meta property="og:description" content="Un hogar donde lo cuidan de día y de noche. Personal en tres turnos, cada cuidado registrado. Agenda una visita.">
+<meta property="og:url" content="https://residenciaseniorwall.cl/">
+<meta property="og:image" content="https://residenciaseniorwall.cl/assets/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Logo de Residencia Senior Wall">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="apple-touch-icon" href="assets/emblema.png">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"LocalBusiness","name":"Residencia Senior Wall","description":"Residencia de larga estadía para personas mayores, con personal las 24 horas en tres turnos.","url":"https://residenciaseniorwall.cl/","logo":"https://residenciaseniorwall.cl/assets/emblema.png","image":"https://residenciaseniorwall.cl/assets/og.jpg","email":"contacto@residenciaseniorwall.cl","areaServed":"CL"}
+</script>
 <link rel="icon" type="image/png" href="assets/emblema.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -57,7 +73,8 @@ a{color:var(--turquesa-2)}
 .saltar{position:absolute;left:-999px;top:8px;background:var(--marino);color:#fff;padding:10px 16px;border-radius:10px;z-index:100}
 .saltar:focus{left:12px}
 h1,h2,h3{font-family:var(--titulo);margin:0;line-height:1.08}
-h2{font-size:clamp(1.9rem,3.8vw,2.75rem);font-weight:700;color:var(--marino);text-transform:uppercase;letter-spacing:-.01em}
+h2{font-size:clamp(2.1rem,4.2vw,3.1rem);font-weight:400;color:var(--marino);letter-spacing:-.015em;line-height:1.1}
+h2 .t{font-style:italic}
 h2 .t{color:var(--turquesa)}
 h3{font-weight:800;font-size:1.3rem;color:var(--marino)}
 p{margin:0}
@@ -100,11 +117,23 @@ p{margin:0}
 /* Portada */
 .portada{position:relative;background:linear-gradient(180deg,#fff 0%,var(--fondo) 100%);overflow:hidden;padding:54px 0 70px}
 .portada::before{content:"";position:absolute;right:-12%;top:-30%;width:60%;height:140%;background:var(--marino);border-radius:0 0 0 46%;transform:skewX(-8deg);z-index:0}
+.portada .agua{position:absolute;right:-40px;bottom:-60px;width:520px;height:auto;opacity:.08;filter:grayscale(1) brightness(2.4);pointer-events:none;z-index:0}
 .portada::after{content:"";position:absolute;right:-6%;top:-30%;width:55%;height:140%;background:linear-gradient(160deg,rgba(134,105,63,.35),transparent 60%);border-radius:0 0 0 46%;transform:skewX(-8deg);z-index:0}
 .portada .wrap{position:relative;z-index:1;display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:48px;align-items:center}
-.sobre{font:700 italic 1.05rem var(--ui);color:var(--tinta-2)}
-.portada h1{margin-top:10px;font-weight:700;font-size:clamp(2.2rem,4.8vw,3.6rem);text-transform:uppercase;color:var(--marino);letter-spacing:-.015em;line-height:1.02}
+.sobre{display:inline-flex;align-items:center;gap:10px;font:700 .98rem var(--ui);color:var(--turquesa-2)}
+.sobre::before{content:"";width:28px;height:2px;background:var(--sol-2)}
+.portada h1{margin-top:14px;font-weight:400;font-size:clamp(2.6rem,5.4vw,4.3rem);color:var(--marino);letter-spacing:-.02em;line-height:1.04}
+.portada h1 em{color:var(--turquesa);font-style:italic}
 .portada h1 .t{display:block;color:var(--turquesa);font-size:1.12em;margin-top:4px}
+.portada .lead{margin-top:22px;font-size:1.22rem;color:var(--tinta-2);max-width:36ch}
+.btn-texto{border:0;background:none;padding:10px 4px;cursor:pointer;font:700 1.02rem var(--ui);color:var(--turquesa-2);display:inline-flex;align-items:center;gap:8px;text-decoration:underline;text-decoration-color:var(--turquesa-4);text-underline-offset:6px;text-decoration-thickness:2px}
+.btn-texto:hover{color:var(--marino);text-decoration-color:var(--sol-2)}
+.btn-texto svg{width:18px;height:18px;transition:transform .2s}
+.btn-texto:hover svg{transform:translateX(3px)}
+.datos-clave{list-style:none;margin:40px 0 0;padding:26px 0 0;border-top:1px solid var(--linea);display:grid;grid-template-columns:repeat(3,auto);gap:10px 34px;justify-content:start}
+.datos-clave li{display:grid;gap:4px}
+.datos-clave b{font:700 2.2rem/1 var(--titulo);color:var(--turquesa)}
+.datos-clave span{font-size:.96rem;color:var(--tinta-2);line-height:1.35}
 .caja-azul{margin-top:28px;background:var(--marino);color:#fff;border-radius:18px;overflow:hidden;max-width:470px;box-shadow:0 20px 40px -24px rgba(42,33,25,.8)}
 .caja-azul .fila1{background:var(--marino-2);padding:12px 20px;font:800 1.02rem var(--ui);text-transform:uppercase;letter-spacing:.04em;text-align:center}
 .caja-azul .fila2{padding:18px 22px 20px;text-align:center}
@@ -117,7 +146,7 @@ p{margin:0}
 
 /* Formulario de orientación */
 .orienta{background:#fff;border-radius:24px;padding:30px 30px 26px;box-shadow:0 40px 80px -40px rgba(42,33,25,.7),0 0 0 1px rgba(255,255,255,.4)}
-.orienta h2{font-size:1.7rem}
+.orienta h2{font-size:1.9rem}
 .orienta > p{color:var(--tinta-2);margin-top:8px;font-size:1.02rem}
 .campo{margin-top:16px}
 .campo label,.campo legend{display:block;font:800 .95rem var(--ui);color:var(--marino);margin-bottom:6px}
@@ -149,13 +178,13 @@ section{padding:92px 0}
 .mv-caja{background:#fff;border-radius:24px;padding:32px 32px 30px;border-top:6px solid var(--turquesa);box-shadow:0 22px 44px -34px rgba(59,47,37,.6)}
 .mv-cab{display:flex;align-items:center;gap:14px;margin-bottom:16px}
 .mv-cab svg{width:46px;height:46px;color:var(--turquesa)}
-.mv-cab h3{font-size:1.8rem;text-transform:uppercase;letter-spacing:.02em}
+.mv-cab h3{font-size:2rem;font-weight:400}
 .mv-caja > p{color:var(--tinta)}
 .mv-sub{margin-top:20px!important;font:800 .95rem var(--ui);color:var(--turquesa-2);text-transform:uppercase;letter-spacing:.05em}
 .mv-caja ul{margin:12px 0 0;padding:0;list-style:none;display:grid;gap:10px}
 .mv-caja li{position:relative;padding-left:26px;color:var(--tinta-2);font-size:1.02rem}
 .mv-caja li::before{content:"";position:absolute;left:2px;top:.62em;width:10px;height:10px;border-radius:3px;background:var(--sol-2);transform:rotate(45deg)}
-.valores-tit{margin-top:60px;font-size:1.7rem;text-transform:uppercase;letter-spacing:.02em}
+.valores-tit{margin-top:64px;font-size:2rem;font-weight:400}
 .valores{margin-top:26px;display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
 .valor{background:#fff;border-radius:18px;padding:22px 22px 20px;border:1.5px solid var(--turquesa-4)}
 .valor b{display:block;font:700 1.3rem var(--titulo);color:var(--turquesa-2)}
@@ -169,7 +198,7 @@ section{padding:92px 0}
 .nivel:nth-child(2) .cab{background:linear-gradient(135deg,var(--turquesa),#5a432b)}
 .nivel:nth-child(3) .cab{background:linear-gradient(135deg,#5a432b,var(--marino))}
 .nivel .cab svg{width:54px;height:54px;flex:none}
-.nivel .cab h3{color:#fff;font-size:1.55rem;text-transform:uppercase;letter-spacing:.01em}
+.nivel .cab h3{color:#fff;font-size:1.75rem;font-weight:400}
 .nivel .cab small{display:block;font:700 .9rem var(--ui);color:rgba(255,255,255,.85);text-transform:none;letter-spacing:0;margin-top:2px}
 .nivel p{padding:22px 24px 26px;color:var(--tinta-2)}
 .aviso{margin:34px auto 0;max-width:760px;display:flex;gap:14px;align-items:center;justify-content:center;background:var(--turquesa-3);border-radius:16px;padding:18px 22px;color:var(--marino);font-weight:700;text-align:left}
@@ -195,7 +224,7 @@ section{padding:92px 0}
 .turno{background:rgba(255,255,255,.1);border:1.5px solid rgba(255,255,255,.22);border-radius:22px;padding:28px 26px;backdrop-filter:blur(2px)}
 .turno .top-t{display:flex;align-items:center;gap:14px}
 .turno .top-t svg{width:46px;height:46px;color:var(--sol);flex:none}
-.turno h3{color:#fff;font-size:1.4rem;text-transform:uppercase}
+.turno h3{color:#fff;font-size:1.6rem;font-weight:400}
 .turno .hora{font:800 2rem/1 var(--ui);margin-top:16px}
 .turno p{margin-top:10px;color:#efe5d6;font-size:1.02rem}
 
@@ -203,7 +232,7 @@ section{padding:92px 0}
 .seremi{background:var(--turquesa);color:#fff;padding:26px 0}
 .seremi .wrap{display:flex;align-items:center;justify-content:center;gap:22px;flex-wrap:wrap}
 .seremi svg{width:60px;height:60px}
-.seremi b{display:block;font:700 1.5rem var(--titulo);text-transform:uppercase}
+.seremi b{display:block;font:400 1.6rem var(--titulo)}
 .galeria{margin-top:44px;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px}
 .galeria figure{margin:0;border-radius:18px;overflow:hidden;border:6px solid var(--marino);background:var(--marino)}
 .galeria img{width:100%;aspect-ratio:4/3;object-fit:cover}
@@ -227,6 +256,14 @@ section{padding:92px 0}
 .lista-ficha b{font:800 1.08rem var(--ui);color:var(--marino)}
 .lista-ficha span{display:block;color:var(--tinta-2);font-size:1rem;margin-top:2px}
 
+/* Cómo empezar */
+.pasos{list-style:none;margin:54px 0 0;padding:0;display:grid;grid-template-columns:repeat(4,1fr);gap:22px;position:relative}
+.pasos::before{content:"";position:absolute;top:34px;left:12%;right:12%;height:2px;background:repeating-linear-gradient(90deg,var(--turquesa-4) 0 10px,transparent 10px 18px)}
+.paso{position:relative;text-align:center;padding:0 8px}
+.paso .num{position:relative;z-index:1;display:grid;place-items:center;width:68px;height:68px;margin:0 auto 20px;border-radius:50%;background:#fff;border:2px solid var(--turquesa);color:var(--turquesa-2);font:400 2rem/1 var(--titulo);box-shadow:0 0 0 8px #fff}
+.paso h3{font-size:1.4rem;font-weight:400}
+.paso p{margin-top:8px;color:var(--tinta-2);font-size:1.02rem}
+
 /* Preguntas */
 .faq{max-width:860px;margin:44px auto 0;display:grid;gap:12px}
 .faq details{background:#fff;border-radius:18px;border:1.5px solid var(--linea);transition:border-color .2s}
@@ -238,7 +275,7 @@ section{padding:92px 0}
 .faq details p{padding:0 24px 22px;color:var(--tinta-2)}
 
 /* Cierre */
-.cierre{background:var(--marino);color:#fff;border-radius:32px;padding:60px 56px;display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:44px;align-items:center;position:relative;overflow:hidden}
+.cierre{margin-top:88px;background:var(--marino);color:#fff;border-radius:32px;padding:60px 56px;display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:44px;align-items:center;position:relative;overflow:hidden}
 .cierre::before{content:"";position:absolute;left:-70px;bottom:-110px;width:300px;height:300px;border-radius:50%;background:rgba(134,105,63,.35)}
 .cierre > *{position:relative}
 .cierre h2{color:#fff}
@@ -252,9 +289,19 @@ section{padding:92px 0}
 .canales b{display:block;font:800 1.05rem var(--ui)}
 .canales small{display:block;color:#d9ccb9;font-size:.95rem;word-break:break-word}
 
-footer{background:var(--marino-2);color:#cbbda9;padding:40px 0 120px;margin-top:92px;font-size:.98rem}
-footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:18px 40px;align-items:center}
-footer b{font:700 1.15rem var(--titulo);color:#fff}
+footer{background:var(--marino-2);color:#cbbda9;padding:64px 0 110px;margin-top:92px;font-size:.98rem}
+.pie-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px}
+.pie-marca{display:grid;grid-template-columns:64px 1fr;gap:6px 16px;align-items:center}
+.pie-marca img{width:64px;height:auto;filter:brightness(1.15)}
+.pie-marca b{display:block;font:400 1.45rem/1.1 var(--titulo);color:#fff}
+.pie-marca span{display:block;font:700 .85rem var(--ui);color:var(--sol);letter-spacing:.04em;margin-top:4px}
+.pie-marca p{grid-column:1/-1;margin-top:14px;max-width:34ch;color:#cbbda9}
+.pie-col{display:flex;flex-direction:column;gap:10px}
+.pie-col b{font:800 .9rem var(--ui);color:#fff;letter-spacing:.06em;text-transform:uppercase;margin-bottom:4px}
+.pie-col a,.pie-legal a{color:#e5d9c8;text-decoration:none}
+.pie-col a:hover,.pie-legal a:hover{color:var(--sol);text-decoration:underline}
+#pie-datos{white-space:pre-line}
+.pie-legal{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px 24px;margin-top:44px;padding-top:22px;border-top:1px solid rgba(255,255,255,.12);font-size:.92rem}
 
 /* Aparición */
 .js .aparece{opacity:0;transform:translateY(26px);transition:opacity .75s ease,transform .75s cubic-bezier(.2,.7,.2,1)}
@@ -320,6 +367,13 @@ footer b{font:700 1.15rem var(--titulo);color:#fff}
   .menu-btn{display:grid;place-items:center;width:50px;height:50px;border-radius:14px;border:0;background:var(--turquesa-3);color:var(--marino);cursor:pointer}
   .menu-btn svg{width:24px;height:24px}
   .pilares,.niveles,.turnos,.mv{grid-template-columns:1fr}
+  .pasos{grid-template-columns:1fr 1fr;row-gap:36px}
+  .pie-grid{grid-template-columns:1fr 1fr}
+  .pie-marca{grid-column:1/-1}
+  .pasos::before{display:none}
+  .datos-clave{grid-template-columns:repeat(3,1fr);gap:10px 16px}
+  .datos-clave b{font-size:1.7rem}
+  .portada .agua{display:none}
   .valores{grid-template-columns:1fr 1fr}
   .mv-caja{padding:26px 22px 24px}
   section{padding:70px 0}
@@ -331,7 +385,10 @@ footer b{font:700 1.15rem var(--titulo);color:#fff}
   .marca small{display:none}
   .marca b{font-size:1.18rem}
   .pilar{grid-template-columns:1fr;text-align:center;justify-items:center}
-  .cuidados-grid,.valores{grid-template-columns:1fr}
+  .cuidados-grid,.valores,.pasos,.pie-grid{grid-template-columns:1fr}
+  .datos-clave span br{display:none}
+  .datos-clave span{font-size:.88rem}
+  .datos-clave b{font-size:1.5rem}
   .dos{grid-template-columns:1fr}
   .orienta{padding:24px 20px}
   .fichas{gap:8px}
@@ -379,28 +436,24 @@ footer b{font:700 1.15rem var(--titulo);color:#fff}
 <main id="contenido">
   <!-- PORTADA -->
   <section class="portada">
+    <img class="agua" src="assets/emblema.png" alt="" aria-hidden="true" width="520" height="632">
     <div class="wrap">
       <div>
-        <p class="sobre">Hogar de larga estadía · Acompañamiento, cuidados y tranquilidad</p>
-        <h1>Residencia para personas mayores <span class="t">Senior Wall</span></h1>
-        <div class="caja-azul">
-          <div class="fila1">Cuidado de día y de noche</div>
-          <div class="fila2">
-            <div class="grande">24 HORAS · 3 TURNOS</div>
-            <div class="chico">Cada cuidado queda registrado, con hora y responsable</div>
-          </div>
-        </div>
+        <p class="sobre">Residencia Senior Wall · Hogar de larga estadía</p>
+        <h1>Un hogar donde lo cuidan <em>de día y de noche</em></h1>
+        <p class="lead">Acompañamos a personas mayores con distintos niveles de dependencia, con personal en tres turnos y cada cuidado registrado. Para que tu familia esté tranquila.</p>
         <div class="acciones">
           <a class="btn btn-sol" href="#orientacion">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>
             Agenda una visita</a>
-          <button class="btn btn-borde" type="button" data-abrir-chat>Tengo una duda</button>
+          <button class="btn-texto" type="button" data-abrir-chat>o resuelve una duda con el asistente
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
         </div>
-        <div class="fichas">
-          <div class="ficha-t"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="24" cy="24" r="17"/><path d="M24 13v11l7 4"/></svg>Personal 24/7</div>
-          <div class="ficha-t"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 8h14v6H17z"/><path d="M13 11h-2a3 3 0 0 0-3 3v26a3 3 0 0 0 3 3h26a3 3 0 0 0 3-3V14a3 3 0 0 0-3-3h-2"/><path d="M16 26l5 5 11-11"/></svg>Ficha por residente</div>
-          <div class="ficha-t"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 24h28a14 14 0 0 1-28 0z"/><path d="M8 38h32M18 16c0-3 3-3 3-6M26 16c0-3 3-3 3-6"/></svg>Alimentación</div>
-        </div>
+        <ul class="datos-clave">
+          <li><b>24 h</b><span>personal a cargo,<br>todos los días</span></li>
+          <li><b>3</b><span>turnos: mañana,<br>tarde y noche</span></li>
+          <li><b>1 ficha</b><span>por residente, con<br>medicamentos al día</span></li>
+        </ul>
       </div>
 
       <!-- Formulario: arma el mensaje y lo envía por correo/WhatsApp -->
@@ -426,7 +479,7 @@ footer b{font:700 1.15rem var(--titulo);color:#fff}
           <p class="error" id="f-error" role="alert"></p>
           <button class="btn btn-sol" type="submit">Quiero recibir orientación</button>
           <div class="envio" id="f-envio" hidden></div>
-          <p class="nota">Tus datos solo se usan para responderte.</p>
+          <p class="nota">Tus datos solo se usan para responderte. <a href="privacidad.html">Política de privacidad</a></p>
         </form>
       </div>
     </div>
@@ -590,8 +643,25 @@ footer b{font:700 1.15rem var(--titulo);color:#fff}
     </div>
   </section>
 
+  <!-- CÓMO EMPEZAR -->
+  <section class="empezar" id="empezar">
+    <div class="wrap">
+      <div class="centro aparece">
+        <h2>Cómo <span class="t">empezar</span></h2>
+        <p class="bajada">Sin compromiso y a tu ritmo. Te acompañamos en cada paso.</p>
+      </div>
+      <ol class="pasos">
+        <li class="paso aparece"><span class="num">1</span><h3>Nos escribes</h3><p>Deja tus datos en el formulario o en el asistente. Solo toma un minuto.</p></li>
+        <li class="paso aparece"><span class="num">2</span><h3>Te llamamos</h3><p>Una persona del equipo se comunica contigo para conocer la situación de tu familiar.</p></li>
+        <li class="paso aparece"><span class="num">3</span><h3>Nos visitas</h3><p>Conoces la residencia, al equipo y cómo es el día a día de los residentes.</p></li>
+        <li class="paso aparece"><span class="num">4</span><h3>Conversamos el ingreso</h3><p>Resolvemos tus dudas sobre el cuidado que necesita y los pasos para el ingreso.</p></li>
+      </ol>
+      <p class="centro aparece" style="margin-top:40px"><a class="btn btn-sol" href="#orientacion">Dar el primer paso</a></p>
+    </div>
+  </section>
+
   <!-- PREGUNTAS -->
-  <section id="preguntas">
+  <section class="seccion-gris" id="preguntas">
     <div class="wrap">
       <div class="centro aparece">
         <h2>Preguntas <span class="t">frecuentes</span></h2>
@@ -621,9 +691,25 @@ footer b{font:700 1.15rem var(--titulo);color:#fff}
 </main>
 
 <footer>
-  <div class="wrap">
-    <div><b>Residencia Senior Wall</b><br><span id="pie-datos"></span></div>
-    <div>© <span id="anio">2026</span> Residencia Senior Wall</div>
+  <div class="wrap pie-grid">
+    <div class="pie-marca">
+      <img src="assets/emblema.png" alt="" width="64" height="78">
+      <div><b>Residencia Senior Wall</b><span>Hogar de larga estadía</span></div>
+      <p>Un ambiente seguro, digno y cálido para las personas mayores y sus familias.</p>
+    </div>
+    <nav class="pie-col" aria-label="Secciones">
+      <b>La residencia</b>
+      <a href="#quienes">Quiénes somos</a><a href="#cuidados">Cuidados</a><a href="#turnos">Día y noche</a><a href="#empezar">Cómo empezar</a><a href="#preguntas">Preguntas frecuentes</a>
+    </nav>
+    <div class="pie-col">
+      <b>Contacto</b>
+      <span id="pie-datos"></span>
+      <a href="#orientacion">Agendar una visita</a>
+    </div>
+  </div>
+  <div class="wrap pie-legal">
+    <span>© <span id="anio">2026</span> Residencia Senior Wall</span>
+    <a href="privacidad.html">Política de privacidad</a>
   </div>
 </footer>
 
@@ -691,7 +777,7 @@ footer b{font:700 1.15rem var(--titulo);color:#fff}
   if (lugar) barraItem('pin', lugar, mapaHref());
   if (R.telefono) barraItem('tel', R.telefono, telHref);
   if (R.correo) barraItem('mail', R.correo, 'mailto:' + R.correo);
-  $('#pie-datos').textContent = [lugar, R.telefono, R.correo].filter(Boolean).join(' · ');
+  $('#pie-datos').textContent = [lugar, R.telefono, R.correo].filter(Boolean).join('\n');
   $('#anio').textContent = new Date().getFullYear();
 
   if (R.seremi === true) $('#bloque-seremi').classList.remove('oculto');
