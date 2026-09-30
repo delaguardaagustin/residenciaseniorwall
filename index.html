@@ -21,7 +21,7 @@
 <link rel="apple-touch-icon" href="assets/emblema.png">
 <link rel="icon" type="image/png" href="assets/emblema.png">
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"LocalBusiness","name":"Residencia Senior Wall","description":"Residencia de larga estadía para personas mayores en San Carlos, Ñuble.","url":"https://residenciaseniorwall.cl/","logo":"https://residenciaseniorwall.cl/assets/emblema.png","image":"https://residenciaseniorwall.cl/assets/og.jpg","email":"contacto@residenciaseniorwall.cl","telephone":"+56935247069","address":{"@type":"PostalAddress","streetAddress":"Calle 13, sector Ninquihue","addressLocality":"San Carlos","addressRegion":"Ñuble","addressCountry":"CL"},"areaServed":"CL"}
+{"@context":"https://schema.org","@type":"LocalBusiness","name":"Residencia Senior Wall","description":"Residencia de larga estadía para personas mayores en San Carlos, Ñuble.","url":"https://residenciaseniorwall.cl/","logo":"https://residenciaseniorwall.cl/assets/emblema.png","image":"https://residenciaseniorwall.cl/assets/og.jpg","email":"contacto@residenciaseniorwall.cl","telephone":"+56935247069","address":{"@type":"PostalAddress","streetAddress":"Calle 13, sector Ninquihue","addressLocality":"San Carlos","addressRegion":"Ñuble","addressCountry":"CL"},"geo":{"@type":"GeoCoordinates","latitude":-36.47720935623818,"longitude":-72.01696657085974},"hasMap":"https://www.google.com/maps/search/?api=1&query=-36.47720935623818,-72.01696657085974","areaServed":"CL"}
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -145,6 +145,21 @@
     <div class="wrap">
       <div class="centro aparece"><h2>Lo que dicen <span class="t">las familias</span></h2></div>
       <div class="testimonios" id="testimonios"></div>
+    </div>
+  </section>
+
+  <!-- CÓMO LLEGAR (se muestra si hay coordenadas en assets/config.js) -->
+  <section class="oculto" id="bloque-mapa">
+    <div class="wrap mapa-grid">
+      <div class="aparece">
+        <h2>Cómo <span class="t">llegar</span></h2>
+        <p class="bajada" style="margin-left:0" id="mapa-dir"></p>
+        <p class="nota-mapa">Visitas familiares de 15:00 a 18:00, avisando antes. Si vienes a conocer la residencia, coordina el día con la administradora.</p>
+        <p style="margin-top:24px"><a class="btn btn-sol" id="mapa-ruta" href="#" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-6-5.2-6-11a6 6 0 0 1 12 0c0 5.8-6 11-6 11z"/><circle cx="12" cy="10" r="2.2"/></svg>
+          Abrir ruta en Google Maps</a></p>
+      </div>
+      <div class="mapa aparece" id="mapa"></div>
     </div>
   </section>
 

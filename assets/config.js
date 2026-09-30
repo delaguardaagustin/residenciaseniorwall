@@ -9,6 +9,7 @@ window.RESIDENCIA = {
   whatsapp: '56935247069',   /* mismo número del teléfono, confirmado por Agustín 2026-09-30 */
   direccion: 'Calle 13, sector Ninquihue',
   comuna: 'San Carlos, Ñuble',
+  coordenadas: '-36.47720935623818,-72.01696657085974',   /* ubicación exacta (dato del dueño 2026-09-30): mapa y "Cómo llegar" */
   visitas: 'de 15:00 a 18:00 horas, avisando antes',   /* horario de visitas de las familias (dato del dueño, 2026-09-30) */
   seremi: false,       /* true SOLO si el cliente confirma su resolución sanitaria vigente */
   fotos: [             /* rutas a fotos REALES de la residencia (assets/...). Vacío = no se muestra la galería */

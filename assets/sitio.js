@@ -17,7 +17,20 @@
   function waHref(t) { return 'https://wa.me/' + R.whatsapp + '?text=' + encodeURIComponent(t); }
   function mailHref(asunto, cuerpo) { return 'mailto:' + R.correo + '?subject=' + encodeURIComponent(asunto) + (cuerpo ? '&body=' + encodeURIComponent(cuerpo) : ''); }
   var WA_SALUDO = '¡Hola! 👋 Vi la página de *' + R.nombre + '* y me gustaría agendar una visita para conocer la residencia. ¿Qué días tienen disponibles?';
-  function mapaHref() { return 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(R.nombre + ' ' + lugar); }
+  function mapaHref() { return 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(R.coordenadas || (R.nombre + ' ' + lugar)); }
+  function rutaHref() { return 'https://www.google.com/maps/dir/?api=1&destination=' + encodeURIComponent(R.coordenadas || (R.nombre + ' ' + lugar)); }
+
+  /* ---------- Mapa "Cómo llegar" (solo si hay coordenadas y la página tiene el bloque) ---------- */
+  var bm = $('#bloque-mapa');
+  if (bm && R.coordenadas) {
+    var fr = document.createElement('iframe');
+    fr.src = 'https://www.google.com/maps?q=' + encodeURIComponent(R.coordenadas) + '&z=16&output=embed';
+    fr.title = 'Mapa: ubicación de ' + R.nombre; fr.loading = 'lazy'; fr.referrerPolicy = 'no-referrer-when-downgrade';
+    $('#mapa').appendChild(fr);
+    $('#mapa-dir').textContent = lugar;
+    $('#mapa-ruta').href = rutaHref();
+    bm.classList.remove('oculto');
+  }
 
   /* ---------- Contacto: solo lo que existe ---------- */
   function canal(ico, titulo, detalle, href) {
