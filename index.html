@@ -27,6 +27,10 @@ window.RESIDENCIA = {
   fotos: [             /* rutas a fotos REALES de la residencia (assets/...). Vacío = no se muestra la galería */
     /* { src: 'assets/letrero.jpg', texto: 'Nuestra entrada' },   <- activar SOLO si el dueño confirma que es una foto real del lugar (parece generada con IA) */
   ],
+  /* Google Form que recibe las solicitudes (lo crea google/formulario-senior-wall.gs).
+     Pegar aquí el CONFIG_WEB que muestra el script: { accion: '...formResponse', campos: {...} }.
+     Mientras sea null, el formulario y el chat ofrecen enviar por correo/WhatsApp. */
+  googleForm: null,
   testimonios: [       /* solo testimonios reales, con permiso de la familia. Vacío = no se muestra */
     /* { texto: '...', nombre: 'María A.', relacion: 'Hija' }, */
   ]
@@ -124,6 +128,7 @@ p{margin:0}
 .orienta .nota{margin-top:12px;font-size:.88rem;color:var(--tinta-2);text-align:center}
 .orienta .error{margin-top:10px;color:#b42318;font-size:.95rem;min-height:1.2em}
 .envio{margin-top:16px;display:grid;gap:10px}
+.ok-envio{margin-top:16px;background:var(--turquesa-3);border:1.5px solid var(--turquesa-4);border-radius:14px;padding:14px 16px;font-weight:700;color:var(--marino)}
 .envio a{justify-content:center}
 
 /* Secciones */
@@ -138,6 +143,23 @@ section{padding:92px 0}
 .pilar .ico svg{width:48px;height:48px}
 .pilar h3{color:var(--turquesa-2);font-size:1.28rem}
 .pilar p{margin-top:6px;color:var(--tinta-2);font-size:1.02rem}
+
+/* Quiénes somos */
+.mv{margin-top:50px;display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.mv-caja{background:#fff;border-radius:24px;padding:32px 32px 30px;border-top:6px solid var(--turquesa);box-shadow:0 22px 44px -34px rgba(59,47,37,.6)}
+.mv-cab{display:flex;align-items:center;gap:14px;margin-bottom:16px}
+.mv-cab svg{width:46px;height:46px;color:var(--turquesa)}
+.mv-cab h3{font-size:1.8rem;text-transform:uppercase;letter-spacing:.02em}
+.mv-caja > p{color:var(--tinta)}
+.mv-sub{margin-top:20px!important;font:800 .95rem var(--ui);color:var(--turquesa-2);text-transform:uppercase;letter-spacing:.05em}
+.mv-caja ul{margin:12px 0 0;padding:0;list-style:none;display:grid;gap:10px}
+.mv-caja li{position:relative;padding-left:26px;color:var(--tinta-2);font-size:1.02rem}
+.mv-caja li::before{content:"";position:absolute;left:2px;top:.62em;width:10px;height:10px;border-radius:3px;background:var(--sol-2);transform:rotate(45deg)}
+.valores-tit{margin-top:60px;font-size:1.7rem;text-transform:uppercase;letter-spacing:.02em}
+.valores{margin-top:26px;display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.valor{background:#fff;border-radius:18px;padding:22px 22px 20px;border:1.5px solid var(--turquesa-4)}
+.valor b{display:block;font:700 1.3rem var(--titulo);color:var(--turquesa-2)}
+.valor span{display:block;margin-top:6px;color:var(--tinta-2);font-size:1rem}
 
 /* Niveles */
 .niveles{margin-top:50px;display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
@@ -297,7 +319,9 @@ footer b{font:700 1.15rem var(--titulo);color:#fff}
   .nav .btn{margin-top:14px;border:0}
   .menu-btn{display:grid;place-items:center;width:50px;height:50px;border-radius:14px;border:0;background:var(--turquesa-3);color:var(--marino);cursor:pointer}
   .menu-btn svg{width:24px;height:24px}
-  .pilares,.niveles,.turnos{grid-template-columns:1fr}
+  .pilares,.niveles,.turnos,.mv{grid-template-columns:1fr}
+  .valores{grid-template-columns:1fr 1fr}
+  .mv-caja{padding:26px 22px 24px}
   section{padding:70px 0}
   .barra .izq{display:none}
 }
@@ -307,7 +331,7 @@ footer b{font:700 1.15rem var(--titulo);color:#fff}
   .marca small{display:none}
   .marca b{font-size:1.18rem}
   .pilar{grid-template-columns:1fr;text-align:center;justify-items:center}
-  .cuidados-grid{grid-template-columns:1fr}
+  .cuidados-grid,.valores{grid-template-columns:1fr}
   .dos{grid-template-columns:1fr}
   .orienta{padding:24px 20px}
   .fichas{gap:8px}
@@ -343,7 +367,7 @@ footer b{font:700 1.15rem var(--titulo);color:#fff}
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
     </button>
     <nav class="nav" id="nav" aria-label="Secciones">
-      <a href="#nosotros">Nosotros</a>
+      <a href="#quienes">Quiénes somos</a>
       <a href="#cuidados">Cuidados</a>
       <a href="#turnos">24 horas</a>
       <a href="#preguntas">Preguntas</a>
@@ -384,6 +408,8 @@ footer b{font:700 1.15rem var(--titulo);color:#fff}
         <h2>Recibe <span class="t">orientación</span></h2>
         <p>Déjanos tus datos y te contactamos para resolver tus dudas y agendar una visita.</p>
         <form id="form-orienta" novalidate>
+          <div class="campo"><label for="f-motivo">¿Qué necesitas?</label>
+            <select id="f-motivo" name="motivo"><option>Agendar una visita</option><option>Recibir orientación</option><option>Consultar valores y cupos</option></select></div>
           <div class="campo"><label for="f-nombre">Tu nombre</label><input id="f-nombre" name="nombre" autocomplete="name" maxlength="60" required></div>
           <div class="dos">
             <div class="campo"><label for="f-tel">Teléfono</label><input id="f-tel" name="telefono" type="tel" autocomplete="tel" inputmode="tel" maxlength="20" placeholder="+56 9"></div>
@@ -392,6 +418,11 @@ footer b{font:700 1.15rem var(--titulo);color:#fff}
           </div>
           <div class="campo"><label for="f-nivel">¿Cómo está hoy la persona?</label>
             <select id="f-nivel" name="nivel"><option>Se vale por sí misma</option><option>Necesita ayuda en parte del día</option><option>Pasa en cama la mayor parte del tiempo</option><option>No estoy seguro</option></select></div>
+          <div class="dos" id="f-visita">
+            <div class="campo"><label for="f-dia">Día para visitar</label><input id="f-dia" name="dia" type="date"></div>
+            <div class="campo"><label for="f-franja">Horario</label>
+              <select id="f-franja" name="franja"><option>Mañana</option><option>Tarde</option><option>Me da igual</option></select></div>
+          </div>
           <p class="error" id="f-error" role="alert"></p>
           <button class="btn btn-sol" type="submit">Quiero recibir orientación</button>
           <div class="envio" id="f-envio" hidden></div>
@@ -424,8 +455,51 @@ footer b{font:700 1.15rem var(--titulo);color:#fff}
     </div>
   </section>
 
+  <!-- QUIÉNES SOMOS (texto entregado por el dueño) -->
+  <section class="seccion-gris" id="quienes">
+    <div class="wrap">
+      <div class="centro aparece">
+        <h2>Quiénes <span class="t">somos</span></h2>
+        <p class="bajada i">Un ambiente seguro, digno y cálido, donde cada residente vive con autonomía y plenitud.</p>
+      </div>
+      <div class="mv">
+        <article class="mv-caja aparece">
+          <div class="mv-cab"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="24" cy="24" r="18"/><circle cx="24" cy="24" r="10"/><circle cx="24" cy="24" r="2.5" fill="currentColor"/></svg><h3>Misión</h3></div>
+          <p>Proporcionar un ambiente seguro, digno y cálido donde nuestros residentes vivan con autonomía, dignidad y plenitud, recibiendo atención integral personalizada que respete su independencia y promueva su bienestar físico, emocional y social.</p>
+          <p class="mv-sub">Nos comprometemos a:</p>
+          <ul>
+            <li>Garantizar la calidad de vida de cada residente con cuidados profesionales, nutrición adecuada, atención médica continua y actividades que estimulen su participación.</li>
+            <li>Valorar el trabajo de nuestro equipo multidisciplinario, con capacitación continua y un ambiente laboral respetuoso.</li>
+            <li>Mantener una comunicación fluida y respetuosa con las familias, informadas e involucradas en las decisiones importantes.</li>
+            <li>Operar con transparencia, ética e integridad, priorizando siempre el bienestar de nuestros residentes.</li>
+          </ul>
+        </article>
+        <article class="mv-caja aparece">
+          <div class="mv-cab"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 24s8-14 21-14 21 14 21 14-8 14-21 14S3 24 3 24z"/><circle cx="24" cy="24" r="7"/></svg><h3>Visión</h3></div>
+          <p>Ser la residencia de referencia en el cuidado de personas mayores en la región, reconocida por la excelencia en la atención, el respeto a la dignidad de nuestros residentes y el compromiso genuino con su calidad de vida.</p>
+          <p class="mv-sub">La residencia que buscamos ser:</p>
+          <ul>
+            <li>Donde nuestros residentes envejecen respetando su autonomía, su dignidad y sus lazos con los seres queridos.</li>
+            <li>Con un equipo altamente capacitado, motivado y comprometido, que siente que su esfuerzo es valorado.</li>
+            <li>Que usa tecnología moderna para que el personal dedique más tiempo a la atención directa y personalizada.</li>
+            <li>Con estándares de calidad superiores, protocolos actualizados y una cultura de mejora continua.</li>
+          </ul>
+        </article>
+      </div>
+      <h3 class="valores-tit centro aparece">Nuestros valores</h3>
+      <div class="valores">
+        <div class="valor aparece"><b>Dignidad</b><span>Respetamos a cada persona como ser humano completo, con derechos, necesidades y dignidad innata.</span></div>
+        <div class="valor aparece"><b>Cuidado</b><span>Atención compasiva, integral y personalizada según las necesidades de cada uno.</span></div>
+        <div class="valor aparece"><b>Respeto</b><span>Honramos la autonomía, la privacidad y las decisiones de nuestros residentes, y valoramos a nuestro equipo.</span></div>
+        <div class="valor aparece"><b>Profesionalismo</b><span>Altos estándares de competencia, ética y excelencia en todos nuestros servicios.</span></div>
+        <div class="valor aparece"><b>Transparencia</b><span>Comunicación abierta con residentes, familias y equipo sobre decisiones y operaciones.</span></div>
+        <div class="valor aparece"><b>Inclusión</b><span>Un ambiente acogedor donde todos se sienten parte y valorados.</span></div>
+      </div>
+    </div>
+  </section>
+
   <!-- NIVELES -->
-  <section class="seccion-gris" id="niveles">
+  <section id="niveles">
     <div class="wrap">
       <div class="centro aparece">
         <h2>Recibimos distintos <span class="t">niveles de dependencia</span></h2>
@@ -665,27 +739,69 @@ footer b{font:700 1.15rem var(--titulo);color:#fff}
   }
   observar();
 
+  /* ---------- Envío al Google Form (si está configurado) ---------- */
+  var GF = R.googleForm && R.googleForm.accion && R.googleForm.campos ? R.googleForm : null;
+  function enviarGoogle(d) {
+    if (!GF) return Promise.reject(new Error('sin formulario'));
+    var cuerpo = new URLSearchParams();
+    Object.keys(GF.campos).forEach(function (k) { if (d[k]) cuerpo.append(GF.campos[k], String(d[k]).slice(0, 500)); });
+    /* Google no permite leer la respuesta desde otro dominio (no-cors): si la red responde, se da por enviado. */
+    return fetch(GF.accion, { method: 'POST', mode: 'no-cors', body: cuerpo });
+  }
+  function textoSolicitud(d) {
+    return 'Hola, escribo desde la página web.\n\nMotivo: ' + d.motivo + '\nNombre: ' + d.nombre + '\nContacto: ' + (d.telefono || 'No indicado') +
+      '\nRelación: ' + (d.relacion || '—') + '\nSituación de la persona: ' + (d.nivel || '—') +
+      (d.cuando ? '\nPara cuándo: ' + d.cuando : '') + (d.dia ? '\nDía preferido para visitar: ' + d.dia + (d.franja ? ' (' + d.franja + ')' : '') : '');
+  }
+
   /* ---------- Formulario de orientación ---------- */
   var fo = $('#form-orienta');
+  var hoy = new Date(); hoy.setMinutes(hoy.getMinutes() - hoy.getTimezoneOffset());
+  fo.dia.min = hoy.toISOString().slice(0, 10);
+  function mostrarVisita() { $('#f-visita').hidden = !/visita/i.test(fo.motivo.value); }
+  fo.motivo.addEventListener('change', mostrarVisita); mostrarVisita();
   fo.addEventListener('submit', function (e) {
     e.preventDefault();
     var nombre = fo.nombre.value.trim(), tel = fo.telefono.value.trim();
     var err = $('#f-error');
     if (!nombre) { err.textContent = 'Escribe tu nombre para poder responderte.'; fo.nombre.focus(); return; }
     if (tel && !/^[+\d\s()-]{8,20}$/.test(tel)) { err.textContent = 'Revisa el teléfono (ejemplo: +56 9 1234 5678).'; fo.telefono.focus(); return; }
+    if (GF && !tel) { err.textContent = 'Déjanos un teléfono para poder responderte.'; fo.telefono.focus(); return; }
     err.textContent = '';
-    var cuerpo = 'Hola, quiero recibir orientación sobre la residencia.\n\nNombre: ' + nombre + '\nTeléfono: ' + (tel || 'No indicado') + '\nRelación: ' + fo.relacion.value + '\nCómo está hoy la persona: ' + fo.nivel.value;
+    var esVisita = /visita/i.test(fo.motivo.value);
+    var d = { motivo: fo.motivo.value, nombre: nombre, telefono: tel, relacion: fo.relacion.value, nivel: fo.nivel.value,
+      dia: esVisita ? fo.dia.value : '', franja: esVisita && fo.dia.value ? fo.franja.value : '', origen: 'Formulario de la portada' };
+    var cuerpo = textoSolicitud(d);
     var envio = $('#f-envio'); envio.innerHTML = '';
+    var boton = fo.querySelector('button[type=submit]');
+    if (GF) {
+      boton.disabled = true; boton.textContent = 'Enviando…';
+      enviarGoogle(d).then(function () {
+        fo.querySelectorAll('input,select,button').forEach(function (x) { x.disabled = true; });
+        boton.textContent = 'Solicitud enviada';
+        var ok = document.createElement('p'); ok.className = 'ok-envio'; ok.setAttribute('role', 'status');
+        ok.textContent = '¡Gracias, ' + nombre + '! Recibimos tu solicitud. Te llamaremos al ' + tel + (esVisita && d.dia ? ' para confirmar la visita.' : ' para orientarte.');
+        envio.appendChild(ok); envio.hidden = false;
+      }).catch(function () {
+        boton.disabled = false; boton.textContent = 'Quiero recibir orientación';
+        err.textContent = 'No pudimos enviarlo por internet. Usa uno de estos botones:';
+        botonesManuales();
+      });
+      return;
+    }
+    botonesManuales();
+    function botonesManuales() {
     function b(cls, txt, href, ico) {
       var a = document.createElement('a'); a.className = 'btn ' + cls; a.href = href;
       if (/^https?:/.test(href)) { a.target = '_blank'; a.rel = 'noopener'; }
       a.innerHTML = svg(ICO[ico]); a.appendChild(document.createTextNode(txt)); envio.appendChild(a);
     }
     if (R.whatsapp) b('btn-turquesa', 'Enviar por WhatsApp', waHref(cuerpo), 'wa');
-    if (R.correo) b(R.whatsapp ? 'btn-borde' : 'btn-turquesa', 'Enviar por correo', mailHref('Orientación — ' + nombre, cuerpo), 'mail');
+    if (R.correo) b(R.whatsapp ? 'btn-borde' : 'btn-turquesa', 'Enviar por correo', mailHref(d.motivo + ' — ' + nombre, cuerpo), 'mail');
     envio.hidden = false;
-    fo.querySelector('button[type=submit]').textContent = 'Actualizar mis datos';
+    boton.textContent = 'Actualizar mis datos';
     var primero = envio.querySelector('a'); if (primero) primero.focus();
+    }
   });
 
   /* ==========================================================
@@ -767,20 +883,61 @@ footer b{font:700 1.15rem var(--titulo);color:#fff}
   function pCuando() {
     flujo = 'cuando';
     dice('¿Para cuándo necesitan el cuidado?', function () {
-      ['Lo antes posible', 'Este mes', 'En los próximos meses', 'Solo me estoy informando'].forEach(function (t) { opcion(t, function () { datos.cuando = t; pContacto(); }); });
+      ['Lo antes posible', 'Este mes', 'En los próximos meses', 'Solo me estoy informando'].forEach(function (t) {
+        opcion(t, function () { datos.cuando = t; if (/visita/i.test(datos.motivo)) pDia(); else pContacto(); });
+      });
+    });
+  }
+  var DIAS = ['dom', 'lun', 'mar', 'mié', 'jue', 'vie', 'sáb'], MESES = ['ene', 'feb', 'mar', 'abr', 'may', 'jun', 'jul', 'ago', 'sep', 'oct', 'nov', 'dic'];
+  function iso(f) { return f.getFullYear() + '-' + String(f.getMonth() + 1).padStart(2, '0') + '-' + String(f.getDate()).padStart(2, '0'); }
+  function pDia() {
+    flujo = 'dia';
+    dice('¿Qué día te gustaría venir a conocernos? El equipo te llama para confirmar la hora.', function () {
+      for (var i = 1; i <= 6; i++) {
+        (function (f) {
+          var etiqueta = DIAS[f.getDay()] + ' ' + f.getDate() + ' ' + MESES[f.getMonth()];
+          opcion(etiqueta, function () { datos.dia = iso(f); datos.diaTexto = etiqueta; pFranja(); });
+        })(new Date(Date.now() + i * 864e5));
+      }
+      opcion('Otro día / aún no sé', function () { datos.dia = ''; pContacto(); });
+    });
+  }
+  function pFranja() {
+    flujo = 'franja';
+    dice('¿Prefieres en la mañana o en la tarde?', function () {
+      ['Mañana', 'Tarde', 'Me da igual'].forEach(function (t) { opcion(t, function () { datos.franja = t; pContacto(); }); });
     });
   }
   function pContacto() { flujo = 'contacto'; dice('Por último, ¿un teléfono o correo para que el equipo te responda? (o escribe "prefiero no dejarlo")', function () { input.focus(); }); }
   function cerrarFlujo() {
     flujo = null;
-    var cuerpo = 'Hola, escribo desde la página web.\n\nMotivo: ' + datos.motivo + '\nNombre: ' + datos.nombre + '\nRelación: ' + datos.parentesco + '\nSituación de la persona: ' + datos.nivel + '\nPara cuándo: ' + datos.cuando + '\nContacto: ' + datos.contacto;
+    var d = { motivo: datos.motivo, nombre: datos.nombre, telefono: datos.contacto, relacion: datos.parentesco, nivel: datos.nivel,
+      cuando: datos.cuando, dia: datos.dia || '', franja: datos.dia ? datos.franja : '', origen: 'Asistente de la página' };
+    var cuerpo = textoSolicitud(d);
     dice('Listo, ' + datos.nombre + '. Este es el resumen de tu solicitud:', function () {
       var dl = document.createElement('dl'); dl.className = 'resumen';
-      [['Motivo', datos.motivo], ['Relación', datos.parentesco], ['Situación', datos.nivel], ['Para cuándo', datos.cuando], ['Contacto', datos.contacto]].forEach(function (f) {
+      var filas = [['Motivo', datos.motivo], ['Relación', datos.parentesco], ['Situación', datos.nivel], ['Para cuándo', datos.cuando]];
+      if (datos.dia) filas.push(['Visita', datos.diaTexto + ' · ' + datos.franja + ' (por confirmar)']);
+      filas.push(['Contacto', datos.contacto]);
+      filas.forEach(function (f) {
         var dt = document.createElement('dt'); dt.textContent = f[0]; var dd = document.createElement('dd'); dd.textContent = f[1]; dl.appendChild(dt); dl.appendChild(dd);
       });
       log.appendChild(dl); bajar();
-      dice('Envíala con uno de estos botones: el mensaje ya va escrito.', function () { contactar(cuerpo, datos.motivo + ' — ' + datos.nombre); opcion('Volver al inicio', inicio); });
+      function manual(msg) { dice(msg, function () { contactar(cuerpo, datos.motivo + ' — ' + datos.nombre); opcion('Volver al inicio', inicio); }); }
+      if (GF && datos.contacto !== 'No indicado') {
+        opcion('Enviar solicitud', function () {
+          ocupado = true;
+          enviarGoogle(d).then(function () {
+            ocupado = false;
+            dice(['¡Enviada! El equipo recibió tu solicitud.', datos.dia ? 'Te contactaremos para confirmar la hora de la visita.' : 'Te contactaremos a la brevedad.'], function () { opcion('Volver al inicio', inicio); });
+          }).catch(function () { ocupado = false; manual('No pude enviarla por internet. Puedes enviarla con uno de estos botones:'); });
+        }, true);
+        opcion('Corregir datos', function () { visita(/valores/i.test(datos.motivo) ? 'valores' : ''); });
+      } else if (GF) {
+        manual('Sin un teléfono o correo no podemos responderte. Puedes escribirnos directamente:');
+      } else {
+        manual('Envíala con uno de estos botones: el mensaje ya va escrito.');
+      }
     });
   }
   var REGLAS = [
@@ -814,7 +971,7 @@ footer b{font:700 1.15rem var(--titulo);color:#fff}
     if (flujo === 'contacto') { datos.contacto = /prefiero no/.test(norm(v)) ? 'No indicado' : v.slice(0, 120); cerrarFlujo(); return; }
     if (flujo) {
       var f = flujo;
-      dice('Elige una de las opciones de abajo, por favor.', function () { if (f === 'parentesco') pParentesco(); else if (f === 'nivel') pNivel(); else if (f === 'cuando') pCuando(); });
+      dice('Elige una de las opciones de abajo, por favor.', function () { if (f === 'parentesco') pParentesco(); else if (f === 'nivel') pNivel(); else if (f === 'cuando') pCuando(); else if (f === 'dia') pDia(); else if (f === 'franja') pFranja(); });
       return;
     }
     libre(v);
