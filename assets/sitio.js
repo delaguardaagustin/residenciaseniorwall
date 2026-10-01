@@ -105,6 +105,7 @@
   observar();
 
   /* ---------- Envío al Google Form (si está configurado) ---------- */
+  var CONSENTIMIENTO = 'Aceptó la política de privacidad v2 (30-09-2026) y autorizó el uso de los datos, incluidos los de salud, para responder su consulta';
   var GF = R.googleForm && R.googleForm.accion && R.googleForm.campos ? R.googleForm : null;
   function enviarGoogle(d) {
     if (!GF) return Promise.reject(new Error('sin formulario'));
@@ -149,10 +150,11 @@
     if (!nombre) { err.textContent = 'Escribe tu nombre para poder responderte.'; fo.nombre.focus(); return; }
     if (tel && !/^[+\d\s()-]{8,20}$/.test(tel)) { err.textContent = 'Revisa el teléfono (ejemplo: +56 9 1234 5678).'; fo.telefono.focus(); return; }
     if (GF && !tel) { err.textContent = 'Déjanos un teléfono para poder responderte.'; fo.telefono.focus(); return; }
+    if (fo.acepto && !fo.acepto.checked) { err.textContent = 'Para enviar, marca la casilla de la política de privacidad.'; fo.acepto.focus(); return; }
     err.textContent = '';
     var esVisita = /visita/i.test(fo.motivo.value);
     var d = { motivo: fo.motivo.value, nombre: nombre, telefono: tel, relacion: fo.relacion.value, nivel: fo.nivel.value,
-      dia: esVisita ? fo.dia.value : '', franja: esVisita && fo.dia.value ? fo.franja.value : '', origen: 'Formulario de la portada' };
+      dia: esVisita ? fo.dia.value : '', franja: esVisita && fo.dia.value ? fo.franja.value : '', origen: 'Formulario de la portada', mensaje: CONSENTIMIENTO };
     var cuerpo = textoSolicitud(d);
     var envio = $('#f-envio'); envio.innerHTML = '';
     var boton = fo.querySelector('button[type=submit]');
@@ -297,7 +299,7 @@
   function cerrarFlujo() {
     flujo = null;
     var d = { motivo: datos.motivo, nombre: datos.nombre, telefono: datos.contacto, relacion: datos.parentesco, nivel: datos.nivel,
-      cuando: datos.cuando, dia: datos.dia || '', franja: datos.dia ? datos.franja : '', origen: 'Asistente de la página' };
+      cuando: datos.cuando, dia: datos.dia || '', franja: datos.dia ? datos.franja : '', origen: 'Asistente de la página', mensaje: CONSENTIMIENTO };
     var cuerpo = textoSolicitud(d);
     dice('Listo, ' + datos.nombre + '. Este es el resumen de tu solicitud:', function () {
       var dl = document.createElement('dl'); dl.className = 'resumen';
@@ -310,7 +312,9 @@
       log.appendChild(dl); bajar();
       function manual(msg) { dice(msg, function () { contactar(cuerpo, datos.motivo + ' — ' + datos.nombre, textoWhatsApp(d)); opcion('Volver al inicio', inicio); }); }
       if (GF && datos.contacto !== 'No indicado') {
-        opcion('Enviar solicitud', function () {
+        dice('Antes de enviar: ¿aceptas nuestra política de privacidad y autorizas usar estos datos, incluida la información sobre la salud de tu familiar, solo para responder tu consulta?', function () {
+        enlace('Leer la política de privacidad', 'privacidad.html'); ops.lastElementChild.target = '_blank';
+        opcion('Acepto y envío', function () {
           ocupado = true;
           enviarGoogle(d).then(function () {
             ocupado = false;
@@ -318,6 +322,7 @@
           }).catch(function () { ocupado = false; manual('No pude enviarla por internet. Puedes enviarla con uno de estos botones:'); });
         }, true);
         opcion('Corregir datos', function () { visita(/valores/i.test(datos.motivo) ? 'valores' : ''); });
+        });
       } else if (GF) {
         manual('Sin un teléfono o correo no podemos responderte. Puedes escribirnos directamente:');
       } else {

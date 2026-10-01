@@ -91,6 +91,9 @@ p{margin:0}
 .dos{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 .orienta .btn{width:100%;margin-top:20px}
 .orienta .nota{margin-top:12px;font-size:.88rem;color:var(--tinta-2);text-align:center}
+.consiente{display:flex;gap:10px;align-items:flex-start;margin-top:16px;font-size:.92rem;line-height:1.45;color:var(--tinta-2);cursor:pointer}
+.consiente input{width:22px;height:22px;flex:none;margin-top:2px;accent-color:var(--turquesa-2)}
+.consiente a{color:var(--turquesa-2)}
 .orienta .error{margin-top:10px;color:#b42318;font-size:.95rem;min-height:1.2em}
 .envio{margin-top:16px;display:grid;gap:10px}
 .ok-envio{margin-top:16px;background:var(--turquesa-3);border:1.5px solid var(--turquesa-4);border-radius:14px;padding:14px 16px;font-weight:700;color:var(--marino)}
