@@ -110,7 +110,11 @@
   function enviarGoogle(d) {
     if (!GF) return Promise.reject(new Error('sin formulario'));
     var cuerpo = new URLSearchParams();
-    Object.keys(GF.campos).forEach(function (k) { if (d[k]) cuerpo.append(GF.campos[k], String(d[k]).slice(0, 500)); });
+    /* El formulario de Google tiene un solo campo de contacto: se envía «teléfono · correo»
+       y el script de Google los separa (correo para el aviso y la confirmación al visitante). */
+    var datos = Object.assign({}, d);
+    if (d.correo) datos.telefono = [d.telefono, d.correo].filter(Boolean).join(' · ');
+    Object.keys(GF.campos).forEach(function (k) { if (datos[k]) cuerpo.append(GF.campos[k], String(datos[k]).slice(0, 500)); });
     /* Google no permite leer la respuesta desde otro dominio (no-cors): si la red responde, se da por enviado. */
     return fetch(GF.accion, { method: 'POST', mode: 'no-cors', body: cuerpo });
   }
@@ -125,13 +129,14 @@
     var tel = d.telefono && !/no indicado|prefiero/i.test(d.telefono) ? d.telefono : '';
     var f = [['📌', 'Motivo', d.motivo], ['👤', 'Mi nombre', d.nombre], ['👪', 'Relación', d.relacion], ['🩺', 'Situación de la persona', d.nivel],
       ['🗓️', 'Para cuándo', d.cuando], ['🏡', 'Día para visitar', d.dia ? fechaLarga(d.dia) + (d.franja && d.franja !== 'Me da igual' ? ', en la ' + d.franja.toLowerCase() : '') : ''],
-      ['📞', 'Mi contacto', tel]];
+      ['📞', 'Mi teléfono', tel], ['✉️', 'Mi correo', d.correo]];
     return '¡Hola! 👋 Les escribo desde la página web de *' + R.nombre + '*.\n\n' +
       f.filter(function (x) { return x[2]; }).map(function (x) { return x[0] + ' *' + x[1] + ':* ' + x[2]; }).join('\n') +
       '\n\n¡Muchas gracias! Quedo atento(a) a su respuesta. 🙏';
   }
   function textoSolicitud(d) {
-    return 'Hola, escribo desde la página web.\n\nMotivo: ' + d.motivo + '\nNombre: ' + d.nombre + '\nContacto: ' + (d.telefono || 'No indicado') +
+    return 'Hola, escribo desde la página web.\n\nMotivo: ' + d.motivo + '\nNombre: ' + d.nombre + '\nTeléfono: ' + (d.telefono || 'No indicado') +
+      '\nCorreo: ' + (d.correo || 'No indicado') +
       '\nRelación: ' + (d.relacion || '—') + '\nSituación de la persona: ' + (d.nivel || '—') +
       (d.cuando ? '\nPara cuándo: ' + d.cuando : '') + (d.dia ? '\nDía preferido para visitar: ' + d.dia + (d.franja ? ' (' + d.franja + ')' : '') : '');
   }
@@ -145,15 +150,16 @@
   fo.motivo.addEventListener('change', mostrarVisita); mostrarVisita();
   fo.addEventListener('submit', function (e) {
     e.preventDefault();
-    var nombre = fo.nombre.value.trim(), tel = fo.telefono.value.trim();
+    var nombre = fo.nombre.value.trim(), tel = fo.telefono.value.trim(), correo = fo.correo ? fo.correo.value.trim().toLowerCase() : '';
     var err = $('#f-error');
     if (!nombre) { err.textContent = 'Escribe tu nombre para poder responderte.'; fo.nombre.focus(); return; }
     if (tel && !/^[+\d\s()-]{8,20}$/.test(tel)) { err.textContent = 'Revisa el teléfono (ejemplo: +56 9 1234 5678).'; fo.telefono.focus(); return; }
-    if (GF && !tel) { err.textContent = 'Déjanos un teléfono para poder responderte.'; fo.telefono.focus(); return; }
+    if (!tel) { err.textContent = 'Déjanos un teléfono para poder responderte.'; fo.telefono.focus(); return; }
+    if (fo.correo && !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(correo)) { err.textContent = 'Escribe un correo válido (ejemplo: nombre@gmail.com). Así te confirmamos aunque no alcances a contestar el teléfono.'; fo.correo.focus(); return; }
     if (fo.acepto && !fo.acepto.checked) { err.textContent = 'Para enviar, marca la casilla de la política de privacidad.'; fo.acepto.focus(); return; }
     err.textContent = '';
     var esVisita = /visita/i.test(fo.motivo.value);
-    var d = { motivo: fo.motivo.value, nombre: nombre, telefono: tel, relacion: fo.relacion.value, nivel: fo.nivel.value,
+    var d = { motivo: fo.motivo.value, nombre: nombre, telefono: tel, correo: correo, relacion: fo.relacion.value, nivel: fo.nivel.value,
       dia: esVisita ? fo.dia.value : '', franja: esVisita && fo.dia.value ? fo.franja.value : '', origen: 'Formulario de la portada', mensaje: CONSENTIMIENTO };
     var cuerpo = textoSolicitud(d);
     var envio = $('#f-envio'); envio.innerHTML = '';
@@ -164,7 +170,8 @@
         fo.querySelectorAll('input,select,button').forEach(function (x) { x.disabled = true; });
         boton.textContent = 'Solicitud enviada';
         var ok = document.createElement('p'); ok.className = 'ok-envio'; ok.setAttribute('role', 'status');
-        ok.textContent = '¡Gracias, ' + nombre + '! Recibimos tu solicitud. Te llamaremos al ' + tel + (esVisita && d.dia ? ' para confirmar la visita.' : ' para orientarte.');
+        ok.textContent = '¡Gracias, ' + nombre + '! Recibimos tu solicitud. Te enviamos un correo de confirmación a ' + correo +
+          ' y te llamaremos al ' + tel + (esVisita && d.dia ? ' para confirmar la hora de la visita.' : ' para orientarte.');
         envio.appendChild(ok); envio.hidden = false;
       }).catch(function () {
         boton.disabled = false; boton.textContent = 'Quiero recibir orientación';
@@ -195,6 +202,9 @@
      ========================================================== */
   var chat = $('#chat'), log = $('#chat-log'), ops = $('#chat-ops'), form = $('#chat-form'), input = $('#chat-in'), btn = $('#chat-btn');
   var iniciado = false, ocupado = false, flujo = null, datos = {}, ultimo = '';
+  /* El campo cambia a tipo tel/email para mostrar el teclado correcto en el celular; sin esto el
+     navegador bloquearía un correo mal escrito con su propio aviso y no el del asistente. */
+  form.noValidate = true;
   function norm(s) { return String(s || '').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, ''); }
   function bajar() { log.scrollTop = log.scrollHeight; }
   function burbuja(t, q) { var p = document.createElement('p'); p.className = 'msg ' + q; p.textContent = t; log.appendChild(p); bajar(); }
@@ -222,7 +232,7 @@
     flujo = null;
     opcion('Agendar una visita', function () { visita(); }, true);
     opcion('¿A quién reciben?', recibimos);
-    opcion('¿Qué cuidados incluye?', cuidados);
+    opcion('¿Qué incluye la mensualidad?', servicios);
     opcion('Valores y cupos', valores);
     opcion('Hablar con una persona', persona);
   }
@@ -231,14 +241,32 @@
     dice(['Recibimos a personas mayores con distintos niveles de dependencia:', 'Valentes (se valen por sí mismos), semivalentes (necesitan ayuda en parte del día) y postrados (pasan la mayor parte del tiempo en cama).', 'Si no tienes claro el nivel de tu familiar, no te preocupes: lo conversamos en la visita.'],
       function () { opcion('Agendar una visita', function () { visita(); }, true); opcion('Volver al inicio', inicio); });
   }
-  function cuidados() { dice(['El equipo realiza y registra cada día: medicamentos, aseo e higiene, movilización (incluidos los cambios de posición) y alimentación.', 'Cada tarea queda anotada con la hora y el nombre de quien la hizo.'], inicio); }
+  function cuidados() { dice(['El equipo realiza y registra cada día: medicamentos, aseo e higiene, movilización (incluidos los cambios de posición) y alimentación.', 'Cada tarea queda anotada con la hora y el nombre de quien la hizo.'], function () { opcion('¿Qué incluye la mensualidad?', servicios, true); opcion('Volver al inicio', inicio); }); }
+  /* Servicios incluidos en la cuota mensual (texto del dueño). Nunca se dan valores: dependen del
+     grado de dependencia de cada persona. */
+  function servicios() {
+    var S = R.servicios || [];
+    if (!S.length) { cuidados(); return; }
+    dice(['La cuota mensual incluye:'].concat(S.map(function (s) { return '• ' + s[0] + ': ' + s[1]; })).concat(
+      ['El valor depende del grado de dependencia de cada persona, por eso lo conversamos en la visita o por teléfono.']),
+      function () {
+        opcion('Agendar una visita', function () { visita(); }, true);
+        if (R.noIncluido) opcion('¿Qué no está incluido?', noIncluido);
+        opcion('Consultar el valor para mi caso', function () { visita('valores'); });
+        opcion('Volver al inicio', inicio);
+      });
+  }
+  function noIncluido() {
+    dice(['No están incluidos en la cuota mensual: ' + R.noIncluido + '.', 'Si se necesita alguno, se acuerda antes con la familia, informando su costo.'],
+      function () { opcion('Agendar una visita', function () { visita(); }, true); opcion('Volver al inicio', inicio); });
+  }
   function equipo() {
     dice(['Esa consulta te la responde directamente la administradora.', 'Escríbenos o llámanos y te cuenta todo lo que necesites saber.'],
       function () { contactar('Hola, vi la página de la residencia y tengo una consulta.', '', '¡Hola! 👋 Vi la página de *' + R.nombre + '* y tengo una consulta: '); opcion('Volver al inicio', inicio); });
   }
   function valores() {
-    dice(['El valor depende del nivel de cuidado que necesita cada persona, y los cupos cambian.', 'Para no darte un dato equivocado, una persona del equipo te responde con la información de tu caso.'],
-      function () { opcion('Consultar valores', function () { visita('valores'); }, true); opcion('Volver al inicio', inicio); });
+    dice(['El valor depende del grado de dependencia de cada persona, y los cupos cambian.', 'Para no darte un dato equivocado, una persona del equipo te responde con la información de tu caso.'],
+      function () { opcion('Consultar valores', function () { visita('valores'); }, true); opcion('¿Qué incluye la mensualidad?', servicios); opcion('Volver al inicio', inicio); });
   }
   function contactar(msg, asunto, msgWa) {
     if (R.whatsapp) enlace('Escribir por WhatsApp', waHref(msgWa || msg), 'wa');
@@ -251,7 +279,7 @@
   }
   function visita(motivo) {
     flujo = 'nombre'; datos = { motivo: motivo === 'valores' ? 'Consultar valores y cupos' : 'Agendar una visita' };
-    dice([motivo === 'valores' ? 'Te ayudo a enviar la consulta. Son 4 preguntas cortas.' : 'Perfecto, te ayudo a pedir la visita. Son 4 preguntas cortas.', '¿Cuál es tu nombre?'], function () { input.focus(); });
+    dice([motivo === 'valores' ? 'Te ayudo a enviar la consulta. Son unas preguntas cortas.' : 'Perfecto, te ayudo a pedir la visita. Son unas preguntas cortas.', '¿Cuál es tu nombre?'], function () { input.focus(); });
   }
   function pParentesco() {
     flujo = 'parentesco';
@@ -295,36 +323,36 @@
       ['Mañana', 'Tarde', 'Me da igual'].forEach(function (t) { opcion(t, function () { datos.franja = t; pContacto(); }); });
     });
   }
-  function pContacto() { flujo = 'contacto'; dice('Por último, ¿un teléfono o correo para que el equipo te responda? (o escribe "prefiero no dejarlo")', function () { input.focus(); }); }
+  function pContacto() { flujo = 'contacto'; dice('¿A qué teléfono te podemos llamar?', function () { input.type = 'tel'; input.focus(); }); }
+  function pCorreo() { flujo = 'correo'; dice('Por último, tu correo electrónico: ahí te llega la confirmación, por si no alcanzas a contestar el teléfono.', function () { input.type = 'email'; input.focus(); }); }
   function cerrarFlujo() {
     flujo = null;
-    var d = { motivo: datos.motivo, nombre: datos.nombre, telefono: datos.contacto, relacion: datos.parentesco, nivel: datos.nivel,
+    input.type = 'text';
+    var d = { motivo: datos.motivo, nombre: datos.nombre, telefono: datos.contacto, correo: datos.correo, relacion: datos.parentesco, nivel: datos.nivel,
       cuando: datos.cuando, dia: datos.dia || '', franja: datos.dia ? datos.franja : '', origen: 'Asistente de la página', mensaje: CONSENTIMIENTO };
     var cuerpo = textoSolicitud(d);
     dice('Listo, ' + datos.nombre + '. Este es el resumen de tu solicitud:', function () {
       var dl = document.createElement('dl'); dl.className = 'resumen';
       var filas = [['Motivo', datos.motivo], ['Relación', datos.parentesco], ['Situación', datos.nivel], ['Para cuándo', datos.cuando]];
       if (datos.dia) filas.push(['Visita', datos.diaTexto + ' · ' + datos.franja + ' (por confirmar)']);
-      filas.push(['Contacto', datos.contacto]);
+      filas.push(['Teléfono', datos.contacto]); filas.push(['Correo', datos.correo]);
       filas.forEach(function (f) {
         var dt = document.createElement('dt'); dt.textContent = f[0]; var dd = document.createElement('dd'); dd.textContent = f[1]; dl.appendChild(dt); dl.appendChild(dd);
       });
       log.appendChild(dl); bajar();
       function manual(msg) { dice(msg, function () { contactar(cuerpo, datos.motivo + ' — ' + datos.nombre, textoWhatsApp(d)); opcion('Volver al inicio', inicio); }); }
-      if (GF && datos.contacto !== 'No indicado') {
+      if (GF) {
         dice('Antes de enviar: ¿aceptas nuestra política de privacidad y autorizas usar estos datos, incluida la información sobre la salud de tu familiar, solo para responder tu consulta?', function () {
         enlace('Leer la política de privacidad', 'privacidad.html'); ops.lastElementChild.target = '_blank';
         opcion('Acepto y envío', function () {
           ocupado = true;
           enviarGoogle(d).then(function () {
             ocupado = false;
-            dice(['¡Enviada! El equipo recibió tu solicitud.', datos.dia ? 'Te contactaremos para confirmar la hora de la visita.' : 'Te contactaremos a la brevedad.'], function () { opcion('Volver al inicio', inicio); });
+            dice(['¡Enviada! El equipo recibió tu solicitud y te llegará un correo de confirmación a ' + datos.correo + '.', datos.dia ? 'Te llamaremos para confirmar la hora de la visita.' : 'Te contactaremos a la brevedad.'], function () { opcion('Volver al inicio', inicio); });
           }).catch(function () { ocupado = false; manual('No pude enviarla por internet. Puedes enviarla con uno de estos botones:'); });
         }, true);
         opcion('Corregir datos', function () { visita(/valores/i.test(datos.motivo) ? 'valores' : ''); });
         });
-      } else if (GF) {
-        manual('Sin un teléfono o correo no podemos responderte. Puedes escribirnos directamente:');
       } else {
         manual('Envíala con uno de estos botones: el mensaje ya va escrito.');
       }
@@ -337,6 +365,7 @@
         function () { opcion('Agendar una visita para conocer', function () { visita(); }, true); opcion('Volver al inicio', inicio); });
     }],
     [/visita|conocer|agendar|ir a ver|recorrer/, function () { visita(); }],
+    [/que incluye|incluid|servicio|que ofrecen|que dan|alimentacion|comida|nutricion|lavanderia|actividades|taller/, servicios],
     [/precio|valor|costo|cuanto|cobra|pagar|mensualidad|arancel|vacante|cupo|disponib/, valores],
     [/alzheimer|demencia|parkinson|oxigeno|sonda|dialisis/, function () {
       dice(['Cada caso es distinto, así que preferimos no responder en general.', 'Cuéntanos cómo está tu familiar y una persona del equipo te dice si podemos recibirlo.'],
@@ -363,7 +392,15 @@
     var v = input.value.trim(); if (!v || ocupado) return;
     input.value = ''; burbuja(v, 'yo');
     if (flujo === 'nombre') { datos.nombre = v.slice(0, 60); pParentesco(); return; }
-    if (flujo === 'contacto') { datos.contacto = /prefiero no/.test(norm(v)) ? 'No indicado' : v.slice(0, 120); cerrarFlujo(); return; }
+    if (flujo === 'contacto') {
+      if (!/^[+\d\s()-]{8,20}$/.test(v)) { dice('Ese teléfono no parece completo. Escríbelo así: +56 9 1234 5678', function () { input.focus(); }); return; }
+      datos.contacto = v.slice(0, 20); pCorreo(); return;
+    }
+    if (flujo === 'correo') {
+      var c = v.trim().toLowerCase();
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(c)) { dice('Ese correo no parece válido. Escríbelo así: nombre@gmail.com', function () { input.focus(); }); return; }
+      datos.correo = c.slice(0, 120); cerrarFlujo(); return;
+    }
     if (flujo) {
       var f = flujo;
       dice('Elige una de las opciones de abajo, por favor.', function () { if (f === 'parentesco') pParentesco(); else if (f === 'nivel') pNivel(); else if (f === 'cuando') pCuando(); else if (f === 'dia') pDia(); else if (f === 'franja') pFranja(); });

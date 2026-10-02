@@ -26,6 +26,18 @@ window.RESIDENCIA = {
       nivel: 'entry.863371195', cuando: 'entry.1577429910', dia: 'entry.955730148', franja: 'entry.1658368083',
       mensaje: 'entry.1027371922', origen: 'entry.842788286' }
   },
+  /* Servicios incluidos en la cuota mensual (texto del dueño, presupuesto de ingreso del 01-10-2026).
+     SIN precios: el valor depende del grado de dependencia de cada persona (pedido del dueño). */
+  servicios: [
+    ['Alojamiento y confort', 'Habitaciones acondicionadas para la seguridad y comodidad del adulto mayor, y espacios comunes cálidos y adaptados.'],
+    ['Alimentación clínica y personalizada', 'Cuatro tiempos diarios (desayuno, almuerzo, once y cena) con minutas diseñadas y supervisadas por una nutricionista, adaptadas a cada residente (diabetes, hipertensión, disfagia u otros regímenes).'],
+    ['Cuidado sociosanitario profesional', 'Supervisión, atención y acompañamiento continuo de un equipo de Técnicos en Enfermería de Nivel Superior (TENS) y cuidadoras de trato directo.'],
+    ['Gestión segura de medicamentos', 'Administración oportuna de los medicamentos indicados por el médico tratante, con control de horarios y stock.'],
+    ['Estimulación y bienestar', 'Actividades recreativas, ocupacionales y de estimulación cognitiva para mantener la autonomía, la socialización y el bienestar emocional.'],
+    ['Apoyo en la vida diaria', 'Ayuda personalizada en aseo, higiene personal y movilización.'],
+    ['Lavandería', 'Lavado y secado de la ropa personal y de cama.']
+  ],
+  noIncluido: 'atenciones médicas especializadas fuera de la residencia, exámenes de laboratorio o imagenología, medicamentos de alto costo no cubiertos por el plan de salud, pañales u otros insumos de uso personal, y traslados no urgentes',
   testimonios: [       /* solo testimonios reales, con permiso de la familia. Vacío = no se muestra */
     /* { texto: '...', nombre: 'María A.', relacion: 'Hija' }, */
   ]
