@@ -29,13 +29,13 @@ window.RESIDENCIA = {
   /* Servicios incluidos en la cuota mensual (texto del dueño, presupuesto de ingreso del 01-10-2026).
      SIN precios: el valor depende del grado de dependencia de cada persona (pedido del dueño). */
   servicios: [
-    ['Alojamiento y confort', 'Habitaciones acondicionadas para la seguridad y comodidad del adulto mayor, y espacios comunes cálidos y adaptados.'],
-    ['Alimentación clínica y personalizada', 'Cuatro tiempos diarios (desayuno, almuerzo, once y cena) con minutas diseñadas y supervisadas por una nutricionista, adaptadas a cada residente (diabetes, hipertensión, disfagia u otros regímenes).'],
-    ['Cuidado sociosanitario profesional', 'Supervisión, atención y acompañamiento continuo de un equipo de Técnicos en Enfermería de Nivel Superior (TENS) y cuidadoras de trato directo.'],
-    ['Gestión segura de medicamentos', 'Administración oportuna de los medicamentos indicados por el médico tratante, con control de horarios y stock.'],
-    ['Estimulación y bienestar', 'Actividades recreativas, ocupacionales y de estimulación cognitiva para mantener la autonomía, la socialización y el bienestar emocional.'],
-    ['Apoyo en la vida diaria', 'Ayuda personalizada en aseo, higiene personal y movilización.'],
-    ['Lavandería', 'Lavado y secado de la ropa personal y de cama.']
+    ['Alojamiento y confort', 'Estadía en habitaciones acondicionadas para la seguridad y comodidad del adulto mayor, con uso de espacios comunes cálidos y adaptados.'],
+    ['Alimentación clínica y personalizada', 'Servicio de alimentación completo (cuatro tiempos diarios: desayuno, almuerzo, once y cena), elaborado estrictamente bajo minutas diseñadas y supervisadas por una nutricionista. Estas minutas se adaptan de forma personalizada a los requerimientos nutricionales, patologías de base (como diabetes, hipertensión, disfagia o regímenes especiales) y preferencias del residente.'],
+    ['Cuidado sociosanitario profesional', 'Supervisión, atención y acompañamiento continuo, a cargo de un equipo multidisciplinario compuesto por Técnicos en Enfermería de Nivel Superior (TENS) y cuidadoras de trato directo.'],
+    ['Gestión farmacológica segura', 'Administración rigurosa y oportuna de los medicamentos prescritos por el médico tratante, bajo protocolos estrictos de control de stock y horarios.'],
+    ['Estimulación y bienestar integral', 'Programa periódico de actividades recreativas, ocupacionales y de estimulación cognitiva orientadas a mantener la autogestión, la socialización y el bienestar emocional.'],
+    ['Asistencia en AVD', 'Apoyo personalizado en las Actividades de la Vida Diaria, incluyendo aseo de confort, higiene personal y movilización.'],
+    ['Servicios de apoyo logístico', 'Servicio de lavandería y secado de ropa de uso personal y de cama.']
   ],
   noIncluido: 'atenciones médicas especializadas fuera de la residencia, exámenes de laboratorio o imagenología, medicamentos de alto costo no cubiertos por el plan de salud, pañales u otros insumos de uso personal, y traslados no urgentes',
   testimonios: [       /* solo testimonios reales, con permiso de la familia. Vacío = no se muestra */
