@@ -7,7 +7,7 @@ window.RESIDENCIA = {
   correo: 'contacto@residenciaseniorwall.cl',
   telefono: '+56 9 3524 7069',
   whatsapp: '56935247069',   /* mismo número del teléfono, confirmado por Agustín 2026-09-30 */
-  direccion: 'Calle 13, sector Ninquihue',
+  direccion: 'Calle 13, 4890 · Ninquihue',   /* dirección exacta (dato del dueño, 07-10-2026) */
   comuna: 'San Carlos, Ñuble',
   coordenadas: '-36.47720935623818,-72.01696657085974',   /* ubicación exacta (dato del dueño 2026-09-30): mapa y "Cómo llegar" */
   visitas: 'de 15:00 a 18:00 horas, avisando antes',   /* horario de visitas de las familias (dato del dueño, 2026-09-30) */
