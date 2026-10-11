@@ -26,6 +26,11 @@ window.RESIDENCIA = {
       nivel: 'entry.863371195', cuando: 'entry.1577429910', dia: 'entry.955730148', franja: 'entry.1658368083',
       mensaje: 'entry.1027371922', origen: 'entry.842788286' }
   },
+  /* Sistema interno de la residencia: recibe las solicitudes de VISITA con día, para que aparezcan en el panel
+     (sección Visitas, «Por confirmar · página web»). La clave es la pública del sistema (va en el navegador por
+     diseño); solo permite llamar a la función que anota la visita. Si se borra este bloque, la página sigue
+     enviando al formulario de Google como siempre. */
+  sistema: { url: 'https://duddjsqepfvlhsmehnqf.supabase.co', clave: 'sb_publishable_yqWSGQPUZ1t4fBDRyDvZMA_Dly1nr49' },
   /* Servicios incluidos en la cuota mensual (texto del dueño, presupuesto de ingreso del 01-10-2026).
      SIN precios: el valor depende del grado de dependencia de cada persona (pedido del dueño). */
   servicios: [

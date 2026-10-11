@@ -118,6 +118,19 @@
     /* Google no permite leer la respuesta desde otro dominio (no-cors): si la red responde, se da por enviado. */
     return fetch(GF.accion, { method: 'POST', mode: 'no-cors', body: cuerpo });
   }
+  /* Además del formulario de Google, las solicitudes de visita con día se anotan en el sistema de la residencia,
+     para que aparezcan en su panel. Es un extra: si falla, no se le muestra nada a la persona, porque el aviso
+     por correo ya salió por el formulario de Google. */
+  function anotarVisita(d) {
+    var S = R.sistema;
+    if (!S || !S.url || !S.clave || !d.dia || !/visita/i.test(d.motivo || '')) return Promise.resolve(false);
+    var detalle = [d.nivel ? 'Situación: ' + d.nivel : '', d.origen || ''].filter(Boolean).join(' · ');
+    return fetch(S.url + '/rest/v1/rpc/registrar_visita_web', {
+      method: 'POST', headers: { 'Content-Type': 'application/json', apikey: S.clave, Authorization: 'Bearer ' + S.clave },
+      body: JSON.stringify({ p_visitante: d.nombre, p_telefono: d.telefono || '', p_relacion: d.relacion || '', p_fecha: d.dia,
+        p_franja: d.franja || '', p_mensaje: detalle, p_correo: d.correo || '' })
+    }).then(function (r) { return r.ok; }).catch(function () { return false; });
+  }
   function fechaLarga(iso) {
     var p = String(iso).split('-').map(Number); if (p.length !== 3 || !p[0]) return iso;
     var f = new Date(p[0], p[1] - 1, p[2]);
@@ -167,6 +180,7 @@
     if (GF) {
       boton.disabled = true; boton.textContent = 'Enviando…';
       enviarGoogle(d).then(function () {
+        anotarVisita(d);
         fo.querySelectorAll('input,select,button').forEach(function (x) { x.disabled = true; });
         boton.textContent = 'Solicitud enviada';
         var ok = document.createElement('p'); ok.className = 'ok-envio'; ok.setAttribute('role', 'status');
@@ -347,7 +361,7 @@
         opcion('Acepto y envío', function () {
           ocupado = true;
           enviarGoogle(d).then(function () {
-            ocupado = false;
+            ocupado = false; anotarVisita(d);
             dice(['¡Enviada! El equipo recibió tu solicitud y te llegará un correo de confirmación a ' + datos.correo + '.', datos.dia ? 'Te llamaremos para confirmar la hora de la visita.' : 'Te contactaremos a la brevedad.'], function () { opcion('Volver al inicio', inicio); });
           }).catch(function () { ocupado = false; manual('No pude enviarla por internet. Puedes enviarla con uno de estos botones:'); });
         }, true);
