@@ -105,7 +105,7 @@
   observar();
 
   /* ---------- Envío al Google Form (si está configurado) ---------- */
-  var CONSENTIMIENTO = 'Aceptó la política de privacidad v2 (30-09-2026) y autorizó el uso de los datos, incluidos los de salud, para responder su consulta';
+  var CONSENTIMIENTO = 'Aceptó la política de privacidad v3 (11-10-2026) y autorizó el uso de los datos, incluidos los de salud, para responder su consulta';
   var GF = R.googleForm && R.googleForm.accion && R.googleForm.campos ? R.googleForm : null;
   function enviarGoogle(d) {
     if (!GF) return Promise.reject(new Error('sin formulario'));
