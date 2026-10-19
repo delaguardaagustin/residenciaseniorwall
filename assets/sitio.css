@@ -359,3 +359,5 @@ footer{background:var(--arena);color:var(--tinta-2);padding:64px 0 110px;margin-
   *,*::before,*::after{animation:none!important;transition:none!important}
   .js .aparece{opacity:1;transform:none}
 }
+
+.trampa{position:absolute!important;left:-9999px!important;width:1px;height:1px;overflow:hidden}

@@ -161,8 +161,10 @@
   fo.dia.min = hoy.toISOString().slice(0, 10);
   function mostrarVisita() { $('#f-visita').hidden = !/visita/i.test(fo.motivo.value); }
   fo.motivo.addEventListener('change', mostrarVisita); mostrarVisita();
+  var abierto = Date.now();   /* protección contra spam: campo trampa + tiempo mínimo */
   fo.addEventListener('submit', function (e) {
     e.preventDefault();
+    if ((fo.sitio_web && fo.sitio_web.value) || Date.now() - abierto < 3000) { $('#f-error').textContent = 'Revisa los datos y vuelve a intentarlo en unos segundos.'; return; }
     var nombre = fo.nombre.value.trim(), tel = fo.telefono.value.trim(), correo = fo.correo ? fo.correo.value.trim().toLowerCase() : '';
     var err = $('#f-error');
     if (!nombre) { err.textContent = 'Escribe tu nombre para poder responderte.'; fo.nombre.focus(); return; }
