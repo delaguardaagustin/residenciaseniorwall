@@ -78,5 +78,10 @@ footer a{color:var(--bronce-2)}
   <p>Estos términos se rigen por las leyes de Chile, incluida la Ley N° 19.496 sobre protección de los derechos de los consumidores en lo que corresponda. Si los cambiamos, publicaremos aquí la nueva versión con su fecha.</p>
 </main>
 <footer><div class="wrap">© 2026 Residencia Senior Wall · <a href="privacidad.html">Política de privacidad</a> · <a href="./">Volver al inicio</a></div></footer>
+<!-- contador de visitas -->
+<script>(function(){try{var L=localStorage,S=sessionStorage;if(location.search.indexOf('yo=1')>-1)L.setItem('soy-de-la-casa','1');
+if(L.getItem('soy-de-la-casa')||S.getItem('visita-contada'))return;S.setItem('visita-contada','1');
+var c=JSON.stringify({s:'residenciaseniorwall'});
+if(navigator.sendBeacon)navigator.sendBeacon('https://n8n-production-003b9.up.railway.app/webhook/visita',c);else fetch('https://n8n-production-003b9.up.railway.app/webhook/visita',{method:'POST',body:c,keepalive:true});}catch(e){}})();</script>
 </body>
 </html>

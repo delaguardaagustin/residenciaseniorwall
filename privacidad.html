@@ -68,7 +68,7 @@ footer a{color:var(--bronce-2)}
     <li>El motivo de tu consulta, para cuándo necesitan el cuidado y, si pides una visita, el día y la franja que prefieres.</li>
   </ul>
   <p>La descripción de la situación de tu familiar es un <strong>dato de salud</strong>, que la ley considera sensible. Por eso te pedimos solo una referencia general (nunca diagnósticos ni documentos médicos por este medio) y solo la usamos si marcas la casilla de autorización. Si la entregas, declaras contar con la autorización de tu familiar o actuar en su interés.</p>
-  <p>Esta página no usa cookies, analítica ni herramientas de publicidad. El asistente funciona dentro de tu navegador y no guarda la conversación: solo se envía lo que tú decides enviar al final.</p>
+  <p>Esta página no usa cookies ni herramientas de publicidad. Solo cuenta cuántas veces se abre, de forma anónima: no guarda tu nombre, tu dirección IP ni ningún dato que te identifique. El asistente funciona dentro de tu navegador y no guarda la conversación: solo se envía lo que tú decides enviar al final.</p>
 
   <h2>4. Para qué los usamos y con qué base legal</h2>
   <ul>
@@ -115,5 +115,10 @@ footer a{color:var(--bronce-2)}
   <p>Esta política se rige por la Ley N° 19.628 sobre protección de la vida privada y fue redactada considerando la Ley N° 21.719, que entra en vigencia el 1 de diciembre de 2026. Si cambiamos la forma en que tratamos los datos, publicaremos aquí una nueva versión con su fecha. Revisa también los <a href="terminos.html">Términos y condiciones</a>.</p>
 </main>
 <footer><div class="wrap">© 2026 Residencia Senior Wall · <a href="terminos.html">Términos y condiciones</a> · <a href="./">Volver al inicio</a></div></footer>
+<!-- contador de visitas -->
+<script>(function(){try{var L=localStorage,S=sessionStorage;if(location.search.indexOf('yo=1')>-1)L.setItem('soy-de-la-casa','1');
+if(L.getItem('soy-de-la-casa')||S.getItem('visita-contada'))return;S.setItem('visita-contada','1');
+var c=JSON.stringify({s:'residenciaseniorwall'});
+if(navigator.sendBeacon)navigator.sendBeacon('https://n8n-production-003b9.up.railway.app/webhook/visita',c);else fetch('https://n8n-production-003b9.up.railway.app/webhook/visita',{method:'POST',body:c,keepalive:true});}catch(e){}})();</script>
 </body>
 </html>

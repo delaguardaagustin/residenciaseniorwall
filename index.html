@@ -4,14 +4,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Residencia Senior Wall · Residencia para personas mayores en San Carlos, Ñuble</title>
-<meta name="description" content="Residencia de larga estadía para personas mayores en San Carlos, Ñuble. Cuidados a la medida de cada residente, con la familia siempre informada. Agenda una visita.">
+<meta name="description" content="Residencia de larga estadía para personas mayores en San Carlos, Ñuble. Cuidados a la medida de cada residente y la familia informada. Agenda una visita.">
 <meta name="theme-color" content="#f4ebdd">
 <link rel="canonical" href="https://residenciaseniorwall.cl/">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="es_CL">
 <meta property="og:site_name" content="Residencia Senior Wall">
 <meta property="og:title" content="Residencia Senior Wall · Residencia para personas mayores en San Carlos, Ñuble">
-<meta property="og:description" content="Residencia de larga estadía para personas mayores en San Carlos, Ñuble. Cuidados a la medida de cada residente, con la familia siempre informada. Agenda una visita.">
+<meta property="og:description" content="Residencia de larga estadía para personas mayores en San Carlos, Ñuble. Cuidados a la medida de cada residente y la familia informada. Agenda una visita.">
 <meta property="og:url" content="https://residenciaseniorwall.cl/">
 <meta property="og:image" content="https://residenciaseniorwall.cl/assets/og.jpg">
 <meta property="og:image:width" content="1200">
@@ -183,7 +183,7 @@
 <footer>
   <div class="wrap pie-grid">
     <div class="pie-marca">
-      <img src="assets/emblema.png" alt="" width="64" height="78">
+      <img src="assets/emblema.png" alt="" width="64" height="78" loading="lazy">
       <div><b>Residencia Senior Wall</b><span>Hogar de larga estadía</span></div>
       <p>Un ambiente seguro, digno y cálido para las personas mayores y sus familias.</p>
     </div>
@@ -210,7 +210,7 @@
 </button>
 <div class="chat" id="chat" role="dialog" aria-modal="false" aria-labelledby="chat-titulo" hidden>
   <div class="chat-cab">
-    <div class="av"><img src="assets/emblema.png" alt="" width="34" height="41"></div>
+    <div class="av"><img src="assets/emblema.png" alt="" width="34" height="41" loading="lazy"></div>
     <div><b id="chat-titulo">Asistente Senior Wall</b><small>Asistente automático · una persona del equipo responde tu solicitud</small></div>
     <button class="chat-x" type="button" aria-label="Cerrar asistente"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
   </div>
@@ -228,5 +228,10 @@
 </a>
 
 <script src="assets/sitio.js?v=20261011b"></script>
+<!-- contador de visitas -->
+<script>(function(){try{var L=localStorage,S=sessionStorage;if(location.search.indexOf('yo=1')>-1)L.setItem('soy-de-la-casa','1');
+if(L.getItem('soy-de-la-casa')||S.getItem('visita-contada'))return;S.setItem('visita-contada','1');
+var c=JSON.stringify({s:'residenciaseniorwall'});
+if(navigator.sendBeacon)navigator.sendBeacon('https://n8n-production-003b9.up.railway.app/webhook/visita',c);else fetch('https://n8n-production-003b9.up.railway.app/webhook/visita',{method:'POST',body:c,keepalive:true});}catch(e){}})();</script>
 </body>
 </html>
