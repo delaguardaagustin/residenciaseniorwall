@@ -376,7 +376,7 @@
   }
   var REGLAS = [
     [/(horario|hora).*visit|visit.*(horario|hora)|visitar a (mi|un)/, function () {
-      dice(['Las familias pueden visitar a los residentes ' + (R.visitas || 'avisando antes') + '. Así cuidamos la rutina diaria de nuestros abuelos.',
+      dice(['Las familias pueden visitar a los residentes ' + (R.visitas || 'avisando antes') + ': acompañarlos, celebrar fechas especiales y sacarlos a pasear. Desde las 18:00 nos enfocamos en la tranquilidad y el descanso de todos.',
         'Si quieres conocer la residencia para un familiar, la visita se coordina con la administradora.'],
         function () { opcion('Agendar una visita para conocer', function () { visita(); }, true); opcion('Volver al inicio', inicio); });
     }],
