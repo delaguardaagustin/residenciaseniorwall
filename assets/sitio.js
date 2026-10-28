@@ -23,10 +23,16 @@
   /* ---------- Mapa "Cómo llegar" (solo si hay coordenadas y la página tiene el bloque) ---------- */
   var bm = $('#bloque-mapa');
   if (bm && R.coordenadas) {
-    var fr = document.createElement('iframe');
-    fr.src = 'https://www.google.com/maps?q=' + encodeURIComponent(R.coordenadas) + '&z=16&output=embed';
-    fr.title = 'Mapa: ubicación de ' + R.nombre; fr.loading = 'lazy'; fr.referrerPolicy = 'no-referrer-when-downgrade';
-    $('#mapa').appendChild(fr);
+    /* El mapa de Google Maps deja cookies de Google: se carga solo si la persona lo pide (27-10-2026). */
+    var verMapa = document.createElement('button'); verMapa.type = 'button'; verMapa.className = 'mapa-cargar';
+    verMapa.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-6-5.2-6-11a6 6 0 0 1 12 0c0 5.8-6 11-6 11z"/><circle cx="12" cy="10" r="2.2"/></svg><b>Ver el mapa aquí</b><small>Se carga desde Google Maps, que puede usar sus propias cookies.</small>';
+    verMapa.addEventListener('click', function () {
+      var fr = document.createElement('iframe');
+      fr.src = 'https://www.google.com/maps?q=' + encodeURIComponent(R.coordenadas) + '&z=16&output=embed';
+      fr.title = 'Mapa: ubicación de ' + R.nombre; fr.referrerPolicy = 'no-referrer-when-downgrade';
+      $('#mapa').replaceChildren(fr);
+    });
+    $('#mapa').appendChild(verMapa);
     $('#mapa-dir').textContent = lugar;
     $('#mapa-ruta').href = rutaHref();
     bm.classList.remove('oculto');
@@ -104,7 +110,7 @@
       var p = document.createElement('button'); p.type = 'button'; p.setAttribute('aria-label', 'Ver foto ' + (i + 1) + ': ' + (f.texto || ''));
       p.addEventListener('click', function () { ir(i); }); puntos.appendChild(p);
       var m = document.createElement('button'); m.type = 'button'; m.setAttribute('aria-label', 'Ver foto ' + (i + 1));
-      var mi = document.createElement('img'); mi.src = f.src; mi.alt = ''; mi.loading = 'lazy'; m.appendChild(mi);
+      var mi = document.createElement('img'); mi.src = f.src.replace('assets/fotos/', 'assets/fotos/min/'); mi.alt = ''; mi.loading = 'lazy'; m.appendChild(mi);
       m.addEventListener('click', function () { ir(i); }); minis.appendChild(m);
     });
     function flecha(clase, etiqueta, d, paso) {
