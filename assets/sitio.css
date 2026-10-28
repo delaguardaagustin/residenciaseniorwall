@@ -371,3 +371,47 @@ footer{background:var(--arena);color:var(--tinta-2);padding:64px 0 110px;margin-
 .medico p{margin-top:12px;color:var(--tinta-2)}
 #puertas-abiertas .bajada+.bajada{margin-top:14px}
 @media (max-width:860px){.incluye-grid{grid-template-columns:1fr}}
+
+/* Carrusel, Puertas abiertas con fotos y recuadro médico (27-10-2026) */
+.sobre{font:800 .8rem/1 var(--ui);letter-spacing:.16em;text-transform:uppercase;color:var(--turquesa-2);margin-bottom:14px}
+.carrusel{margin-top:40px}
+.car-marco{position:relative;border-radius:26px;overflow:hidden;background:var(--marino-2);box-shadow:0 30px 60px -34px rgba(75,62,52,.55)}
+.car-pista{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;outline:none}
+.car-pista::-webkit-scrollbar{display:none}
+.car-slide{position:relative;flex:0 0 100%;margin:0;scroll-snap-align:center;aspect-ratio:16/9;max-height:76vh;overflow:hidden;display:grid;place-items:center}
+.car-slide::before{content:"";position:absolute;inset:-30px;background:var(--foto) center/cover;filter:blur(26px) brightness(.62);transform:scale(1.1)}
+.car-slide img{position:relative;width:100%;height:100%;object-fit:cover}
+.car-slide.vertical img{object-fit:contain}
+.car-slide figcaption{position:absolute;left:0;right:0;bottom:0;padding:60px 28px 22px;background:linear-gradient(transparent,rgba(42,34,28,.78));color:#fff;font:700 1.15rem/1.3 var(--ui);text-shadow:0 1px 8px rgba(0,0,0,.35)}
+.car-flecha{position:absolute;top:50%;transform:translateY(-50%);width:54px;height:54px;border-radius:50%;border:0;background:rgba(253,250,245,.92);color:var(--marino);display:grid;place-items:center;cursor:pointer;box-shadow:0 10px 24px -10px rgba(0,0,0,.45);transition:transform .18s,background .18s}
+.car-flecha:hover{background:#fff;transform:translateY(-50%) scale(1.06)}
+.car-flecha svg{width:24px;height:24px}
+.car-ant{left:18px}.car-sig{right:18px}
+.car-cuenta{position:absolute;top:16px;right:18px;background:rgba(42,34,28,.6);color:#fff;font:700 .9rem/1 var(--ui);padding:8px 12px;border-radius:999px}
+.car-puntos{display:flex;justify-content:center;gap:8px;margin-top:18px;flex-wrap:wrap}
+.car-puntos button{width:10px;height:10px;padding:0;border-radius:999px;border:0;background:var(--turquesa-4);cursor:pointer;transition:width .25s,background .25s}
+.car-puntos button[aria-current=true]{width:30px;background:var(--turquesa)}
+.car-minis{display:flex;gap:10px;margin-top:16px;overflow-x:auto;padding:4px 2px 8px;scrollbar-width:thin}
+.car-minis button{flex:0 0 112px;height:72px;padding:0;border:3px solid transparent;border-radius:12px;overflow:hidden;cursor:pointer;background:var(--arena);opacity:.62;transition:opacity .2s,border-color .2s}
+.car-minis button img{width:100%;height:100%;object-fit:cover}
+.car-minis button.activa,.car-minis button:hover{opacity:1;border-color:var(--sol-2)}
+.puertas{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:56px;align-items:center}
+.puertas-texto .bajada{margin-left:0;max-width:none}
+.puertas-claves{list-style:none;padding:0;margin:26px 0 0;display:flex;flex-wrap:wrap;gap:10px}
+.puertas-claves li{background:#fff;border:1.5px solid var(--linea);border-radius:999px;padding:9px 16px;font:700 .98rem var(--ui);color:var(--marino)}
+.puertas-fotos{position:relative;min-height:460px}
+.puertas-fotos img{position:absolute;height:auto;object-fit:cover;border-radius:22px;border:8px solid #fff;box-shadow:0 26px 50px -30px rgba(75,62,52,.6)}
+.pf-1{top:0;right:0;width:86%;aspect-ratio:4/3}
+.pf-2{bottom:0;left:0;width:62%;aspect-ratio:4/3}
+.pf-sello{position:absolute;right:6%;bottom:8%;background:var(--marino);color:#fff;border-radius:20px;padding:16px 18px;max-width:190px;font:600 .92rem/1.3 var(--ui);box-shadow:0 18px 30px -16px rgba(0,0,0,.5)}
+.pf-sello b{display:block;font:400 2.3rem/1 var(--titulo);color:var(--sol);margin-bottom:6px}
+.medico img{width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;border-radius:16px;margin-bottom:20px}
+@media (max-width:860px){
+  .puertas{grid-template-columns:1fr;gap:34px}
+  .puertas-fotos{min-height:0;aspect-ratio:1/1}
+  .car-slide{aspect-ratio:4/3;max-height:none}
+  .car-slide figcaption{font-size:1rem;padding:48px 18px 16px}
+  .car-flecha{width:44px;height:44px}.car-ant{left:10px}.car-sig{right:10px}
+  .car-minis{display:none}
+  .pf-sello{padding:12px 14px;max-width:150px;font-size:.82rem}.pf-sello b{font-size:1.8rem}
+}

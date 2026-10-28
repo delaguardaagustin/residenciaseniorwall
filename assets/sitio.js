@@ -60,15 +60,7 @@
   $('#anio').textContent = new Date().getFullYear();
 
   if (R.seremi === true && $('#bloque-seremi')) $('#bloque-seremi').classList.remove('oculto');
-  if (R.fotos && R.fotos.length && $('#galeria')) {
-    R.fotos.forEach(function (f) {
-      var fig = document.createElement('figure'); fig.className = 'aparece';
-      var img = document.createElement('img'); img.src = f.src; img.alt = f.texto || ''; img.loading = 'lazy';
-      var cap = document.createElement('figcaption'); cap.textContent = f.texto || '';
-      fig.appendChild(img); fig.appendChild(cap); $('#galeria').appendChild(fig);
-    });
-    $('#bloque-galeria').classList.remove('oculto');
-  }
+  if (R.fotos && R.fotos.length && $('#galeria')) { carrusel($('#galeria'), R.fotos); $('#bloque-galeria').classList.remove('oculto'); }
   if (R.testimonios && R.testimonios.length && $('#testimonios')) {
     R.testimonios.forEach(function (t) {
       var q = document.createElement('blockquote'); q.className = 'aparece';
@@ -88,6 +80,59 @@
     menuBtn.setAttribute('aria-expanded', ab); menuBtn.setAttribute('aria-label', ab ? 'Cerrar menú' : 'Abrir menú');
   });
   $$('#nav a').forEach(function (a) { a.addEventListener('click', function () { nav.classList.remove('abierto'); menuBtn.setAttribute('aria-expanded', 'false'); }); });
+
+
+  /* ---------- Carrusel de fotos (27-10-2026) ----------
+     Las diapositivas se deslizan con el dedo (scroll-snap); flechas, puntos y miniaturas llevan a cada foto.
+     Avanza solo cada 6 s mientras se ve en pantalla, se detiene al pasar el mouse o tocarlo, y no avanza solo
+     si la persona pidió menos movimiento. */
+  function carrusel(cont, fotos) {
+    cont.className = 'carrusel aparece';
+    cont.setAttribute('role', 'region'); cont.setAttribute('aria-roledescription', 'carrusel'); cont.setAttribute('aria-label', 'Fotos de la residencia');
+    var pista = document.createElement('div'); pista.className = 'car-pista'; pista.tabIndex = 0;
+    var cuenta = document.createElement('span'); cuenta.className = 'car-cuenta'; cuenta.setAttribute('aria-live', 'polite');
+    var puntos = document.createElement('div'); puntos.className = 'car-puntos';
+    var minis = document.createElement('div'); minis.className = 'car-minis';
+    fotos.forEach(function (f, i) {
+      var fig = document.createElement('figure'); fig.className = 'car-slide';
+      fig.setAttribute('role', 'group'); fig.setAttribute('aria-roledescription', 'foto'); fig.setAttribute('aria-label', (i + 1) + ' de ' + fotos.length);
+      fig.style.setProperty('--foto', 'url("' + f.src + '")');
+      var img = document.createElement('img'); img.src = f.src; img.alt = f.texto || ''; img.loading = i < 2 ? 'eager' : 'lazy'; img.decoding = 'async';
+      img.addEventListener('load', function () { if (img.naturalHeight > img.naturalWidth) fig.classList.add('vertical'); });
+      var cap = document.createElement('figcaption'); cap.textContent = f.texto || '';
+      fig.appendChild(img); fig.appendChild(cap); pista.appendChild(fig);
+      var p = document.createElement('button'); p.type = 'button'; p.setAttribute('aria-label', 'Ver foto ' + (i + 1) + ': ' + (f.texto || ''));
+      p.addEventListener('click', function () { ir(i); }); puntos.appendChild(p);
+      var m = document.createElement('button'); m.type = 'button'; m.setAttribute('aria-label', 'Ver foto ' + (i + 1));
+      var mi = document.createElement('img'); mi.src = f.src; mi.alt = ''; mi.loading = 'lazy'; m.appendChild(mi);
+      m.addEventListener('click', function () { ir(i); }); minis.appendChild(m);
+    });
+    function flecha(clase, etiqueta, d, paso) {
+      var b = document.createElement('button'); b.type = 'button'; b.className = 'car-flecha ' + clase; b.setAttribute('aria-label', etiqueta);
+      b.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="' + d + '"/></svg>';
+      b.addEventListener('click', function () { ir(actual + paso); }); return b;
+    }
+    var marco = document.createElement('div'); marco.className = 'car-marco';
+    marco.appendChild(pista); marco.appendChild(flecha('car-ant', 'Foto anterior', 'M15 5l-7 7 7 7', -1)); marco.appendChild(flecha('car-sig', 'Foto siguiente', 'M9 5l7 7-7 7', 1)); marco.appendChild(cuenta);
+    cont.appendChild(marco); cont.appendChild(puntos); cont.appendChild(minis);
+    var actual = 0, n = fotos.length, timer = null, pausa = false, visible = false;
+    function ir(i) { i = (i + n) % n; pista.scrollTo({ left: i * pista.clientWidth, behavior: reduce ? 'auto' : 'smooth' }); marcar(i); }
+    function marcar(i) {
+      actual = i; cuenta.textContent = (i + 1) + ' / ' + n;
+      $$('button', puntos).forEach(function (b, k) { b.setAttribute('aria-current', k === i ? 'true' : 'false'); });
+      $$('button', minis).forEach(function (b, k) { b.classList.toggle('activa', k === i); });
+      var a = minis.children[i]; if (a) minis.scrollTo({ left: a.offsetLeft - minis.clientWidth / 2 + a.clientWidth / 2, behavior: reduce ? 'auto' : 'smooth' });
+    }
+    var esperar;
+    pista.addEventListener('scroll', function () { clearTimeout(esperar); esperar = setTimeout(function () { marcar(Math.round(pista.scrollLeft / pista.clientWidth)); }, 80); }, { passive: true });
+    pista.addEventListener('keydown', function (e) { if (e.key === 'ArrowRight') { e.preventDefault(); ir(actual + 1); } if (e.key === 'ArrowLeft') { e.preventDefault(); ir(actual - 1); } });
+    function andar() { clearInterval(timer); if (reduce) return; timer = setInterval(function () { if (!pausa && visible && !document.hidden) ir(actual + 1); }, 6000); }
+    ['mouseenter', 'focusin', 'touchstart'].forEach(function (t) { cont.addEventListener(t, function () { pausa = true; }, { passive: true }); });
+    ['mouseleave', 'focusout'].forEach(function (t) { cont.addEventListener(t, function () { pausa = false; }); });
+    if ('IntersectionObserver' in window) new IntersectionObserver(function (es) { visible = es[0].isIntersecting; }, { threshold: .4 }).observe(cont); else visible = true;
+    window.addEventListener('resize', function () { pista.scrollLeft = actual * pista.clientWidth; });
+    marcar(0); andar();
+  }
 
   /* ---------- Aparición ---------- */
   function observar() {
