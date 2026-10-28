@@ -298,7 +298,7 @@
     flujo = null;
     opcion('Agendar una visita', function () { visita(); }, true);
     opcion('¿A quién reciben?', recibimos);
-    opcion('¿Qué incluye la mensualidad?', servicios);
+    opcion('¿Qué incluyen los servicios?', servicios);
     opcion('Valores y cupos', valores);
     opcion('Hablar con una persona', persona);
   }
@@ -307,13 +307,13 @@
     dice(['Recibimos a personas mayores con distintos niveles de dependencia:', 'Valentes (se valen por sí mismos), semivalentes (necesitan ayuda en parte del día) y postrados (pasan la mayor parte del tiempo en cama).', 'Si no tienes claro el nivel de tu familiar, no te preocupes: lo conversamos en la visita.'],
       function () { opcion('Agendar una visita', function () { visita(); }, true); opcion('Volver al inicio', inicio); });
   }
-  function cuidados() { dice(['El equipo realiza y registra cada día: medicamentos, aseo e higiene, movilización (incluidos los cambios de posición) y alimentación.', 'Cada tarea queda anotada con la hora y el nombre de quien la hizo.'], function () { opcion('¿Qué incluye la mensualidad?', servicios, true); opcion('Volver al inicio', inicio); }); }
-  /* Servicios incluidos en la cuota mensual (texto del dueño). Nunca se dan valores: dependen del
+  function cuidados() { dice(['El equipo realiza y registra cada día: medicamentos, aseo e higiene, movilización (incluidos los cambios de posición) y alimentación.', 'Cada tarea queda anotada con la hora y el nombre de quien la hizo.'], function () { opcion('¿Qué incluyen los servicios?', servicios, true); opcion('Volver al inicio', inicio); }); }
+  /* Lo que incluyen los servicios (texto del dueño; no decir «mensualidad»). Nunca se dan valores: dependen del
      grado de dependencia de cada persona. */
   function servicios() {
     var S = R.servicios || [];
     if (!S.length) { cuidados(); return; }
-    dice(['La cuota mensual incluye:'].concat(S.map(function (s) { return '• ' + s[0] + ': ' + s[1]; })).concat(
+    dice(['Nuestros servicios incluyen:'].concat(S.map(function (s) { return '• ' + s[0] + ': ' + s[1]; })).concat(
       ['El valor depende del grado de dependencia de cada persona, por eso lo conversamos en la visita o por teléfono.']),
       function () {
         opcion('Agendar una visita', function () { visita(); }, true);
@@ -323,7 +323,7 @@
       });
   }
   function noIncluido() {
-    dice(['No están incluidos en la cuota mensual: ' + R.noIncluido + '.', 'Si se necesita alguno, se acuerda antes con la familia, informando su costo.'],
+    dice(['No están incluidos en nuestros servicios: ' + R.noIncluido + '.', 'Si se necesita alguno, se acuerda antes con la familia, informando su costo.'],
       function () { opcion('Agendar una visita', function () { visita(); }, true); opcion('Volver al inicio', inicio); });
   }
   function equipo() {
@@ -332,7 +332,7 @@
   }
   function valores() {
     dice(['El valor depende del grado de dependencia de cada persona, y los cupos cambian.', 'Para no darte un dato equivocado, una persona del equipo te responde con la información de tu caso.'],
-      function () { opcion('Consultar valores', function () { visita('valores'); }, true); opcion('¿Qué incluye la mensualidad?', servicios); opcion('Volver al inicio', inicio); });
+      function () { opcion('Consultar valores', function () { visita('valores'); }, true); opcion('¿Qué incluyen los servicios?', servicios); opcion('Volver al inicio', inicio); });
   }
   function contactar(msg, asunto, msgWa) {
     if (R.whatsapp) enlace('Escribir por WhatsApp', waHref(msgWa || msg), 'wa');
