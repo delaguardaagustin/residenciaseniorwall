@@ -428,7 +428,8 @@ footer{background:var(--arena);color:var(--tinta-2);padding:64px 0 110px;margin-
 .portada-foto img{width:100%;height:100%;object-fit:cover;display:block}
 .pilares.dos{grid-template-columns:repeat(2,1fr);max-width:900px;margin-left:auto;margin-right:auto}
 .pilares.dos .pilar{grid-template-columns:1fr;justify-items:center;align-content:start;text-align:center;padding:30px 26px}
-#orientacion{padding-bottom:0}
+#bloque-contacto{padding-bottom:0}
+#orientacion{scroll-margin-top:110px}
 .contacto-final{margin-top:0;align-items:start}
 .contacto-final .contacto-info .canales{margin-top:26px}
 .contacto-final .orienta{position:relative}
