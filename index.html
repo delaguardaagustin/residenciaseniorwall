@@ -28,8 +28,8 @@
 <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Figtree:ital,wght@0,600;0,800;1,700&family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 <script>document.documentElement.classList.add('js');</script>
 <!-- Datos de la residencia (teléfono, dirección, formulario de Google, fotos…): se editan en assets/config.js -->
-<script src="assets/config.js?v=20261027e"></script>
-<link rel="stylesheet" href="assets/sitio.css?v=20261027e">
+<script src="assets/config.js?v=20261027f"></script>
+<link rel="stylesheet" href="assets/sitio.css?v=20261027f">
 </head>
 <body>
 <a class="saltar" href="#contenido">Saltar al contenido</a>
@@ -77,36 +77,10 @@
         </div>
       </div>
 
-      <!-- Formulario: arma el mensaje y lo envía por correo/WhatsApp -->
-      <div class="orienta aparece" id="orientacion">
-        <h2>Recibe <span class="t">orientación</span></h2>
-        <p>Déjanos tus datos y te contactamos para resolver tus dudas y agendar una visita.</p>
-        <form id="form-orienta" novalidate>
-          <div class="campo"><label for="f-motivo">¿Qué necesitas?</label>
-            <select id="f-motivo" name="motivo"><option>Agendar una visita</option><option>Recibir orientación</option><option>Consultar valores y cupos</option></select></div>
-          <div class="campo"><label for="f-nombre">Tu nombre</label><input id="f-nombre" name="nombre" autocomplete="name" maxlength="60" required></div>
-          <div class="dos">
-            <div class="campo"><label for="f-tel">Teléfono</label><input id="f-tel" name="telefono" type="tel" autocomplete="tel" inputmode="tel" maxlength="20" placeholder="+56 9" required></div>
-            <div class="campo"><label for="f-correo">Correo</label><input id="f-correo" name="correo" type="email" autocomplete="email" inputmode="email" maxlength="120" placeholder="nombre@gmail.com" required></div>
-          </div>
-          <div class="campo"><label for="f-rel">Eres su…</label>
-            <select id="f-rel" name="relacion"><option>Hijo o hija</option><option>Nieto o nieta</option><option>Pareja</option><option>Otro familiar</option><option>Es para mí</option></select></div>
-          <div class="campo"><label for="f-nivel">¿Cómo está hoy la persona?</label>
-            <select id="f-nivel" name="nivel"><option>Se vale por sí misma</option><option>Necesita ayuda en parte del día</option><option>Pasa en cama la mayor parte del tiempo</option><option>No estoy seguro</option></select></div>
-          <div class="dos" id="f-visita">
-            <div class="campo"><label for="f-dia">Día para visitar</label><input id="f-dia" name="dia" type="date"></div>
-            <div class="campo"><label for="f-franja">Horario</label>
-              <select id="f-franja" name="franja"><option>Mañana</option><option>Tarde</option><option>Me da igual</option></select></div>
-          </div>
-          <label class="consiente" for="f-acepto"><input id="f-acepto" name="acepto" type="checkbox">
-            <span>Acepto la <a href="privacidad.html" target="_blank">política de privacidad</a> y autorizo usar estos datos, incluida la información sobre la salud de mi familiar, solo para responder mi consulta.</span></label>
-          <div class="trampa" aria-hidden="true"><label for="f-web">No llenar este campo</label><input id="f-web" name="sitio_web" type="text" tabindex="-1" autocomplete="off"></div>
-          <p class="error" id="f-error" role="alert"></p>
-          <button class="btn btn-sol" type="submit">Quiero recibir orientación</button>
-          <div class="envio" id="f-envio" hidden></div>
-          <p class="nota">Tus datos solo se usan para responderte. <a href="privacidad.html">Privacidad</a> · <a href="terminos.html">Términos</a></p>
-        </form>
-      </div>
+      <!-- Imagen principal (pedido del dueño, 27-10-2026) -->
+      <figure class="portada-foto aparece">
+        <img src="assets/fotos/patio-atardecer.jpg" alt="El patio interior de la residencia al atardecer" width="1280" height="714" fetchpriority="high">
+      </figure>
     </div>
   </section>
 
@@ -124,10 +98,37 @@
         <h2>Un lugar pensado para <span class="t">vivir con dignidad</span></h2>
         <p class="bajada i">Cuidamos a cada residente como lo haría su propia familia: con respeto, con cariño y con orden.</p>
       </div>
-      <div class="pilares tres">
+      <div class="pilares dos">
         <div class="pilar aparece"><div class="ico"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 8h14v6H17z"/><path d="M13 11h-2a3 3 0 0 0-3 3v26a3 3 0 0 0 3 3h26a3 3 0 0 0 3-3V14a3 3 0 0 0-3-3h-2"/><path d="M16 24h16M16 31h10"/></svg></div><div><h3>Cuidado a la medida</h3><p>Cada residente tiene su ficha con diagnósticos, medicamentos y contactos de la familia.</p></div></div>
-        <div class="pilar aparece"><div class="ico"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 14h32v26H8z"/><path d="M8 22h32M16 8v8M32 8v8M15 30l4 4 8-8"/></svg></div><div><h3>Todo queda registrado</h3><p>Cada tarea del día se anota con la hora, quién la hizo y si se cumplió.</p></div></div>
         <div class="pilar aparece"><div class="ico"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="17" cy="15" r="6"/><circle cx="33" cy="17" r="5"/><path d="M6 40a11 11 0 0 1 22 0M27 40a9 9 0 0 1 16-5"/></svg></div><div><h3>La familia, cerca</h3><p>Sabemos a quién avisar ante cualquier situación, y conversamos contigo cuando lo necesites.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUÉ INCLUYE LA MENSUALIDAD (texto del dueño, 27-10-2026) -->
+  <section class="seccion-gris" id="incluye">
+    <div class="wrap">
+      <div class="centro aparece">
+        <p class="sobre">Servicios</p>
+        <h2>Lo que incluye <span class="t">la cuota mensual</span></h2>
+        <p class="bajada">Nuestra cuota mensual incluye los siguientes servicios:</p>
+      </div>
+      <div class="incluye-grid">
+        <ul class="lista-ficha aparece">
+          <li><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg></span><div><b>Alojamiento y confort</b><span>Estadía en habitaciones acondicionadas para la seguridad y comodidad del adulto mayor, con acceso a espacios comunes cálidos y adaptados.</span></div></li>
+          <li><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg></span><div><b>Alimentación clínica y personalizada</b><span>4 comidas diarias (desayuno, almuerzo, once y cena), diseñadas y supervisadas por nutricionista, adaptadas a patologías (diabetes, hipertensión, disfagia, regímenes especiales) y preferencias.</span></div></li>
+          <li><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg></span><div><b>Cuidado sociosanitario continuo</b><span>Atención, supervisión y acompañamiento 24/7 a cargo de Técnicos en Enfermería de Nivel Superior (TENS) y cuidadoras de trato directo.</span></div></li>
+          <li><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg></span><div><b>Gestión farmacológica segura</b><span>Administración estricta y oportuna de los medicamentos prescritos, con riguroso control de horarios y stock.</span></div></li>
+          <li><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg></span><div><b>Asistencia en AVD</b><span>Apoyo personalizado en actividades de la vida diaria (higiene, aseo de confort y movilización).</span></div></li>
+          <li><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg></span><div><b>Estimulación y bienestar integral</b><span>Talleres y actividades recreativas, ocupacionales y de estimulación cognitiva.</span></div></li>
+          <li><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg></span><div><b>Apoyo logístico</b><span>Servicio de lavandería y secado de ropa personal y de cama.</span></div></li>
+        </ul>
+        <div class="aparece medico">
+          <img src="assets/fotos/habitacion-cama-clinica.jpg" alt="Habitación con cama clínica" loading="lazy" width="714" height="1280">
+          <h3>Atención médica y fármacos</h3>
+          <p>La familia puede optar por continuar con su médico tratante particular o inscribir al residente en el CESFAM de la comuna. Mediante el consultorio se coordinan sus controles, entrega de medicamentos y alimentación complementaria.</p>
+          <p>Además, en caso de personas en situación de dependencia severa o postración, gestionamos la atención domiciliaria mediante el programa de postrados para visitas de especialistas en la misma residencia.</p>
+        </div>
       </div>
     </div>
   </section>
@@ -141,7 +142,7 @@
   </section>
 
   <!-- PUERTAS ABIERTAS (texto del dueño, 27-10-2026) -->
-  <section class="seccion-gris" id="puertas-abiertas">
+  <section id="puertas-abiertas">
     <div class="wrap">
       <div class="puertas">
       <div class="aparece puertas-texto">
@@ -197,17 +198,49 @@
     </div>
   </section>
 
-  <!-- CIERRE -->
-  <div class="wrap">
-    <div class="cierre aparece" id="contacto">
-      <div>
+  <!-- CONTACTO (al final, pedido del dueño 27-10-2026): formulario + canales -->
+  <section id="orientacion">
+    <div class="wrap">
+      <div class="cierre contacto-final" id="contacto">
+      <div class="contacto-info aparece">
         <h2>No estás solo <span class="t">en esta etapa</span></h2>
         <p>Conversemos sobre lo que necesita tu familiar. Agenda una visita, sin compromiso.</p>
         <p style="margin-top:26px"><button class="btn btn-sol" type="button" data-abrir-chat data-flujo="visita">Agendar con el asistente</button></p>
+        <ul class="canales" id="canales"></ul>
       </div>
-      <ul class="canales" id="canales"></ul>
+      <!-- Formulario: arma el mensaje y lo envía por correo/WhatsApp -->
+    <div class="orienta aparece">
+      <h2>Recibe <span class="t">orientación</span></h2>
+      <p>Déjanos tus datos y te contactamos para resolver tus dudas y agendar una visita.</p>
+      <form id="form-orienta" novalidate>
+        <div class="campo"><label for="f-motivo">¿Qué necesitas?</label>
+          <select id="f-motivo" name="motivo"><option>Agendar una visita</option><option>Recibir orientación</option><option>Consultar valores y cupos</option></select></div>
+        <div class="campo"><label for="f-nombre">Tu nombre</label><input id="f-nombre" name="nombre" autocomplete="name" maxlength="60" required></div>
+        <div class="dos">
+          <div class="campo"><label for="f-tel">Teléfono</label><input id="f-tel" name="telefono" type="tel" autocomplete="tel" inputmode="tel" maxlength="20" placeholder="+56 9" required></div>
+          <div class="campo"><label for="f-correo">Correo</label><input id="f-correo" name="correo" type="email" autocomplete="email" inputmode="email" maxlength="120" placeholder="nombre@gmail.com" required></div>
+        </div>
+        <div class="campo"><label for="f-rel">Eres su…</label>
+          <select id="f-rel" name="relacion"><option>Hijo o hija</option><option>Nieto o nieta</option><option>Pareja</option><option>Otro familiar</option><option>Es para mí</option></select></div>
+        <div class="campo"><label for="f-nivel">¿Cómo está hoy la persona?</label>
+          <select id="f-nivel" name="nivel"><option>Se vale por sí misma</option><option>Necesita ayuda en parte del día</option><option>Pasa en cama la mayor parte del tiempo</option><option>No estoy seguro</option></select></div>
+        <div class="dos" id="f-visita">
+          <div class="campo"><label for="f-dia">Día para visitar</label><input id="f-dia" name="dia" type="date"></div>
+          <div class="campo"><label for="f-franja">Horario</label>
+            <select id="f-franja" name="franja"><option>Mañana</option><option>Tarde</option><option>Me da igual</option></select></div>
+        </div>
+        <label class="consiente" for="f-acepto"><input id="f-acepto" name="acepto" type="checkbox">
+          <span>Acepto la <a href="privacidad.html" target="_blank">política de privacidad</a> y autorizo usar estos datos, incluida la información sobre la salud de mi familiar, solo para responder mi consulta.</span></label>
+        <div class="trampa" aria-hidden="true"><label for="f-web">No llenar este campo</label><input id="f-web" name="sitio_web" type="text" tabindex="-1" autocomplete="off"></div>
+        <p class="error" id="f-error" role="alert"></p>
+        <button class="btn btn-sol" type="submit">Quiero recibir orientación</button>
+        <div class="envio" id="f-envio" hidden></div>
+        <p class="nota">Tus datos solo se usan para responderte. <a href="privacidad.html">Privacidad</a> · <a href="terminos.html">Términos</a></p>
+      </form>
     </div>
-  </div>
+      </div>
+    </div>
+  </section>
 </main>
 
 <footer>
@@ -257,7 +290,7 @@
   <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.860 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
 </a>
 
-<script src="assets/sitio.js?v=20261027e"></script>
+<script src="assets/sitio.js?v=20261027f"></script>
 <!-- contador de visitas -->
 <script>(function(){try{var L=localStorage,S=sessionStorage;if(location.search.indexOf('yo=1')>-1)L.setItem('soy-de-la-casa','1');
 if(L.getItem('soy-de-la-casa')||S.getItem('visita-contada'))return;S.setItem('visita-contada','1');
