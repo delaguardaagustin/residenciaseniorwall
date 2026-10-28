@@ -378,10 +378,10 @@ footer{background:var(--arena);color:var(--tinta-2);padding:64px 0 110px;margin-
 .car-marco{position:relative;border-radius:26px;overflow:hidden;background:var(--marino-2);box-shadow:0 30px 60px -34px rgba(75,62,52,.55)}
 .car-pista{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;outline:none}
 .car-pista::-webkit-scrollbar{display:none}
-.car-slide{position:relative;flex:0 0 100%;margin:0;scroll-snap-align:center;aspect-ratio:16/9;max-height:76vh;overflow:hidden;display:grid;place-items:center}
+.car-slide{position:relative;flex:0 0 100%;margin:0;scroll-snap-align:center;aspect-ratio:16/9;max-height:min(76vh,680px);overflow:hidden;display:grid;place-items:center}
 .car-slide::before{content:"";position:absolute;inset:-30px;background:var(--foto) center/cover;filter:blur(26px) brightness(.62);transform:scale(1.1)}
-.car-slide img{position:relative;width:100%;height:100%;object-fit:cover}
-.car-slide.vertical img{object-fit:contain}
+/* La foto se ve siempre entera (sin recortes ni zoom); el fondo difuminado de la misma foto rellena los lados. */
+.car-slide img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain}
 .car-slide figcaption{position:absolute;left:0;right:0;bottom:0;padding:60px 28px 22px;background:linear-gradient(transparent,rgba(42,34,28,.78));color:#fff;font:700 1.15rem/1.3 var(--ui);text-shadow:0 1px 8px rgba(0,0,0,.35)}
 .car-flecha{position:absolute;top:50%;transform:translateY(-50%);width:54px;height:54px;border-radius:50%;border:0;background:rgba(253,250,245,.92);color:var(--marino);display:grid;place-items:center;cursor:pointer;box-shadow:0 10px 24px -10px rgba(0,0,0,.45);transition:transform .18s,background .18s}
 .car-flecha:hover{background:#fff;transform:translateY(-50%) scale(1.06)}

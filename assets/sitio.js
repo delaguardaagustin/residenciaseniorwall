@@ -102,9 +102,8 @@
     fotos.forEach(function (f, i) {
       var fig = document.createElement('figure'); fig.className = 'car-slide';
       fig.setAttribute('role', 'group'); fig.setAttribute('aria-roledescription', 'foto'); fig.setAttribute('aria-label', (i + 1) + ' de ' + fotos.length);
-      fig.style.setProperty('--foto', 'url("' + f.src + '")');
+      fig.style.setProperty('--foto', 'url("' + new URL(f.src, location.href).href + '")');   /* ruta absoluta: dentro de una variable CSS se resolvería desde assets/ */
       var img = document.createElement('img'); img.src = f.src; img.alt = f.texto || ''; img.loading = i < 2 ? 'eager' : 'lazy'; img.decoding = 'async';
-      img.addEventListener('load', function () { if (img.naturalHeight > img.naturalWidth) fig.classList.add('vertical'); });
       var cap = document.createElement('figcaption'); cap.textContent = f.texto || '';
       fig.appendChild(img); fig.appendChild(cap); pista.appendChild(fig);
       var p = document.createElement('button'); p.type = 'button'; p.setAttribute('aria-label', 'Ver foto ' + (i + 1) + ': ' + (f.texto || ''));
