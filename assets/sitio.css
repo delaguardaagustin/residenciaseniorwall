@@ -443,6 +443,7 @@ footer{background:var(--arena);color:var(--tinta-2);padding:64px 0 110px;margin-
 .portada-fondo .wrap{grid-template-columns:minmax(0,1fr)}
 .portada-fondo .wrap>div{max-width:620px}
 @media (max-width:1000px){
-  .portada-fondo{padding:48px 0 290px;min-height:0;align-content:start;
-    background:linear-gradient(180deg,#fbf6ee calc(100% - 330px),rgba(251,246,238,0) calc(100% - 250px)),url("fotos/casa-jardin.jpg") 30% 100%/auto 330px no-repeat,#fbf6ee}
+  /* En el celular, igual que en el computador: la casa de fondo con el texto encima (pedido del dueño, 28-10-2026) */
+  .portada-fondo{padding:56px 0 200px;min-height:0;align-content:start;
+    background:linear-gradient(180deg,rgba(251,246,238,.88) 0%,rgba(251,246,238,.74) 50%,rgba(251,246,238,.12) 82%,rgba(251,246,238,0) 100%),url("fotos/casa-jardin.jpg") 30% center/cover no-repeat,#fbf6ee}
 }
