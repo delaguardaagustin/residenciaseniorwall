@@ -1,0 +1,86 @@
+/* Temporada navideña (pedido del dueño, 21-11-2026).
+   Todo vive bajo html.navidad: navidad.js pone esa clase solo hasta el 06-01-2027.
+   Pasada la fecha la página vuelve sola a su diseño de siempre. */
+:root{--pino:#24493a;--pino-2:#1b382c;--rojo:#a3303b;--rojo-2:#7f2430;--oro:#d9b25f;--oro-2:#f2dca4;--nieve:#fffdf8}
+
+/* Barra superior: verde pino con saludo */
+.navidad .barra{background:var(--pino);color:var(--oro-2)}
+.navidad .barra span,.navidad .barra a{color:#f6ecd6}
+.navidad .barra a:hover{color:#fff}
+.navidad .barra svg{color:var(--oro)}
+.navidad .barra .izq .estrella{width:16px;height:16px;color:var(--oro);animation:nv-brillo 2.6s ease-in-out infinite}
+
+/* Guirnalda de luces bajo el encabezado */
+.navidad .top{overflow:visible}
+.nv-guirnalda{position:absolute;left:0;right:0;bottom:-19px;height:26px;pointer-events:none;z-index:2}
+.nv-guirnalda svg{width:100%;height:26px;overflow:visible}
+.nv-guirnalda .cable{fill:none;stroke:#3b3027;stroke-width:1.4;opacity:.55}
+.nv-guirnalda .foco{transform-box:fill-box;transform-origin:center top;animation:nv-foco 2.4s ease-in-out infinite}
+.nv-guirnalda .f1{fill:#d8434e;filter:drop-shadow(0 0 4px rgba(216,67,78,.85))}
+.nv-guirnalda .f2{fill:#e9be55;filter:drop-shadow(0 0 4px rgba(233,190,85,.9))}
+.nv-guirnalda .f3{fill:#3f9a6e;filter:drop-shadow(0 0 4px rgba(63,154,110,.85))}
+.nv-guirnalda .f4{fill:#fff6dc;filter:drop-shadow(0 0 5px rgba(255,240,200,.95))}
+.nv-guirnalda .casquillo{fill:#5d5046}
+@keyframes nv-foco{0%,100%{opacity:1}50%{opacity:.38}}
+
+/* Portada: nieve, adornos colgando y sello de temporada */
+.nv-nieve{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:1}
+.navidad .portada .wrap{z-index:2}
+.nv-adornos{position:absolute;top:0;right:4%;display:flex;gap:28px;pointer-events:none;z-index:1}
+.nv-adorno{display:block;transform-origin:50% 0;animation:nv-vaiven 5.5s ease-in-out infinite}
+.nv-adorno:nth-child(2){animation-duration:6.4s;animation-delay:-2s}
+.nv-adorno:nth-child(3){animation-duration:4.9s;animation-delay:-1s}
+.nv-adorno svg{width:64px;height:auto;overflow:visible}
+@keyframes nv-vaiven{0%,100%{transform:rotate(3.5deg)}50%{transform:rotate(-3.5deg)}}
+.nv-sello{display:inline-flex;align-items:center;gap:9px;margin-bottom:14px;padding:8px 16px 8px 12px;border-radius:999px;
+  background:var(--rojo);color:#fff;font:800 .92rem/1 var(--ui);letter-spacing:.02em;box-shadow:0 10px 22px -14px rgba(127,36,48,.9)}
+.nv-sello svg{width:18px;height:18px;color:var(--oro-2);animation:nv-brillo 2.6s ease-in-out infinite}
+.navidad .portada h1 em{color:var(--rojo-2)}
+@keyframes nv-brillo{0%,100%{transform:scale(1) rotate(0);opacity:1}50%{transform:scale(.82) rotate(18deg);opacity:.75}}
+
+/* Botón principal con destello dorado */
+.navidad .btn-sol{position:relative;overflow:hidden}
+.navidad .btn-sol::after{content:"";position:absolute;top:0;bottom:0;left:-60%;width:40%;
+  background:linear-gradient(100deg,transparent,rgba(255,255,255,.75),transparent);transform:skewX(-20deg);animation:nv-destello 4.5s ease-in-out infinite}
+@keyframes nv-destello{0%,62%{left:-60%}100%{left:130%}}
+
+/* Banda de saludo navideño (solo en el inicio) */
+.nv-saludo{position:relative;overflow:hidden;background:radial-gradient(120% 140% at 50% 0%,#2d5a47 0%,var(--pino) 45%,var(--pino-2) 100%);color:#f6ecd6;padding:76px 0 82px;text-align:center}
+.nv-saludo .wrap{position:relative;z-index:1}
+.nv-saludo .estrella-grande{width:58px;height:58px;margin:0 auto 18px;color:var(--oro);filter:drop-shadow(0 0 14px rgba(217,178,95,.7));animation:nv-brillo 3.2s ease-in-out infinite}
+.nv-saludo h2{color:#fff}
+.nv-saludo h2 .t{color:var(--oro-2)}
+.nv-saludo p{margin:18px auto 0;max-width:56ch;font-size:1.18rem;color:#e9dfc9}
+.nv-saludo .acciones{display:flex;flex-wrap:wrap;gap:14px;justify-content:center;margin-top:30px}
+.nv-saludo .btn-borde{background:transparent;color:#fff;box-shadow:inset 0 0 0 2px rgba(255,255,255,.7)}
+.nv-saludo .btn-borde:hover{background:#fff;color:var(--pino-2)}
+.nv-saludo .puntos{position:absolute;inset:0;pointer-events:none;z-index:0;
+  background-image:radial-gradient(circle,rgba(255,246,220,.55) 1.2px,transparent 1.6px),radial-gradient(circle,rgba(255,246,220,.3) 1px,transparent 1.4px);
+  background-size:84px 84px,53px 53px;background-position:0 0,26px 31px;animation:nv-caer 26s linear infinite}
+@keyframes nv-caer{to{background-position:0 840px,26px 561px}}
+.nv-fotos{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin-top:36px}
+.nv-fotos img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:16px;border:3px solid rgba(242,220,164,.55);max-width:100%}
+
+/* Encabezados de sección con un toque de temporada */
+.navidad main h2 .t{color:var(--rojo)}
+.navidad .nv-saludo h2 .t{color:var(--oro-2)}
+
+/* Pie */
+.nv-pie-saludo{display:inline-flex;align-items:center;gap:7px;color:var(--rojo)}
+.nv-pie-saludo svg{width:15px;height:15px;color:var(--oro)}
+
+@media (max-width:860px){
+  .nv-adornos{right:2%;gap:14px}
+  .nv-adorno svg{width:44px}
+  .nv-adorno:nth-child(3){display:none}
+  .nv-saludo{padding:60px 0 64px}
+}
+@media (max-width:600px){
+  .nv-adornos{right:3%}
+  .nv-adorno:nth-child(2),.nv-adorno:nth-child(3){display:none}
+  .nv-adorno svg{width:38px}
+}
+@media (prefers-reduced-motion:reduce){
+  .navidad *,.navidad *::before,.navidad *::after{animation:none!important}
+  .navidad .btn-sol::after{display:none}
+}
