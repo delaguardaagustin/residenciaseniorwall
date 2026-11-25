@@ -31,7 +31,7 @@ window.RESIDENCIA = {
   /* Google Form que recibe las solicitudes (lo crea google/formulario-senior-wall.gs).
      Pegar aquí el CONFIG_WEB que muestra el script: { accion: '...formResponse', campos: {...} }.
      Mientras sea null, el formulario y el chat ofrecen enviar por correo/WhatsApp. */
-  /* Conectado 2026-09-30: formulario creado con la cuenta de Google del dueño (optimizatespa@gmail.com). */
+  /* Conectado 2026-09-30: formulario creado con la cuenta de Google del dueño. */
   googleForm: {
     accion: 'https://docs.google.com/forms/d/e/1FAIpQLSf-T8LqrQw80AVSQjrLiLHidUbrGWQmgsJwxNmQr8Bjr7IAog/formResponse',
     campos: { motivo: 'entry.1638080141', nombre: 'entry.195058955', telefono: 'entry.1472152812', relacion: 'entry.1711234204',
